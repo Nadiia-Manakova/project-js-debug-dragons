@@ -4,6 +4,15 @@
   | default @import url()
   |============================
 */
+
+@import url('./reset.css');
+@import url('./header.css');
+@import url('./filter-categories.css');
+@import url('./support.css');
+@import url('./shopping.css');
+@import url('./modal-book.css');
+@import url('./auth.css');
+
 :root {
   --main-brandcolor: #4f2ee8;
   --selected-category: #4f2ee8;
@@ -35,9 +44,6 @@
   --hover-categorie-text: rgba(234, 198, 69, 1);
   /* Другие переменные CSS */
 }
-
-@import url('./reset.css');
-@import url('./header.css');
 
 body {
   font-family: 'DM Sans', sans-serif;
