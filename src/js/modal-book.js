@@ -37,12 +37,12 @@ function onClickOpenModalWindow(evt) {
   console.log(evt)
   
 
-  if (!evt.target.closest('.users-list-item')) {
+  if (!evt.target.closest('.list_five_books')) {
     return;
   }
   console.log(evt.target);
   evt.preventDefault();
-  const bookEl = evt.target.closest('.users-list-item');
+  const bookEl = evt.target.closest('.list_five_books');
   const bookId = bookEl.dataset.id;
   console.log(bookId);
  
@@ -87,7 +87,7 @@ function onClickOpenModalWindow(evt) {
     },
     onClose: () => {
       document.removeEventListener('keydown', escPress);
-      bodyEl.style.overflow = 'auto';
+        bodyEl.style.overflow = 'auto';
     },
    } 
   
@@ -99,7 +99,12 @@ function escPress(evt) {
     if (!isEscKey) return;
     instance.close();
 }
-      instance.show()
+        instance.show()
+
+        const modalBtnClose = document.querySelector('.modal-book-btn-close')
+        modalBtnClose.addEventListener('click', () => {
+        instance.close()
+        })
 
       // const btnAddShopList = document.querySelector('.modal-book-add-shoplist')
       // const btnRemoveList = document.querySelector('.modal-book-remove-shoplist')
