@@ -1,0 +1,240 @@
+.auth-hidden {
+  display: none;
+}
+
+.auth-modal-backdrop {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--main-brandcolor);
+  opacity: 1;
+}
+
+.auth-modal-backdrop.auth-backdrop-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.auth-modal-close {
+  display: flex;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0px;
+}
+
+@media (min-width: 768px) {
+  .auth-modal-close {
+    top: 24px;
+    right: 24px;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.auth-modal-close-icon {
+  width: 20px;
+  height: 20px;
+  stroke: #111111;
+}
+
+.dark-theme .auth-modal-close-icon {
+  stroke: #f6f6f6;
+}
+
+@media (min-width: 768px) {
+  .auth-modal-close-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.auth-modal-close:hover .auth-modal-close-icon,
+.auth-modal-close:focus .auth-modal-close-icon {
+  stroke: var(--main-brandcolor);
+}
+
+.auth-modal {
+  position: absolute;
+  width: 335px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 40px 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 18px;
+  border: 2px solid #111;
+  background: #f6f6f6;
+}
+
+.dark-theme .auth-modal {
+  background: #202024;
+}
+
+@media (min-width: 768px) {
+  .auth-modal {
+    width: 579px;
+    padding: 80px 40px 40px 40px;
+  }
+  .dark-theme .auth-modal {
+    border: 2px solid #f6f6f6;
+  }
+}
+
+.auth-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 768px) {
+  .auth-modal-form {
+    gap: 28px;
+    margin-bottom: 20px;
+  }
+}
+
+.auth-modal-input {
+  color: #111;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px; /* 112.5% */
+  letter-spacing: -0.16px;
+  font-style: normal;
+  width: 295px;
+  border-radius: 40px;
+  border: 2px solid #111;
+  display: flex;
+  padding: 16px 48px 14px 24px;
+  align-items: center;
+  gap: 10px;
+}
+
+.dark-theme .auth-modal-input {
+  color: #f6f6f6;
+  border: 2px solid #f6f6f6;
+  background-color: #111;
+}
+
+@media (min-width: 768px) {
+  .auth-modal-input {
+    font-size: 18px;
+    line-height: 24px; /* 112.5% */
+    letter-spacing: -0.18px;
+    width: 499px;
+    padding: 20px 80px 20px 40px;
+  }
+}
+
+.auth-modal-input::placeholder {
+  color: #111;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px; /* 112.5% */
+  letter-spacing: -0.16px;
+  text-transform: uppercase;
+}
+
+.dark-theme .auth-modal-input::placeholder {
+  color: #f6f6f6;
+}
+
+@media (min-width: 768px) {
+  .auth-modal-input::placeholder {
+    font-size: 18px;
+    line-height: 24px; /* 112.5% */
+    letter-spacing: -0.18px;
+  }
+}
+
+.auth-modal-submit {
+  margin: 0 auto;
+  width: 295px;
+  display: flex;
+  padding: 16px 16px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 40px;
+  background: #111;
+  color: #f3f3f3;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px; /* 112.5% */
+  letter-spacing: -0.16px;
+  text-transform: uppercase;
+}
+
+.dark-theme .auth-modal-submit {
+  background: #f6f6f6;
+  color: #111;
+}
+
+@media (min-width: 768px) {
+  .auth-modal-submit {
+    width: 499px;
+    padding: 20px 20px;
+    gap: 10px;
+    font-size: 18px;
+    line-height: 24px; /* 112.5% */
+    letter-spacing: -0.18px;
+  }
+}
+
+.auth-modal-links {
+  font-style: normal;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  color: rgba(17, 17, 17, 0.5);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: -0.14px;
+  text-decoration-line: underline;
+  text-transform: uppercase;
+  text-decoration-line: none;
+}
+
+.dark-theme .auth-modal-links {
+  color: rgba(246, 246, 246, 0.5);
+}
+
+@media (min-width: 768px) {
+  .auth-modal-links {
+    font-size: 18px;
+    line-height: 24px; /* 133.333% */
+    letter-spacing: -0.18px;
+  }
+}
+
+.js-sign-up-link,
+.js-sign-in-link {
+  cursor: pointer;
+}
+
+.auth-modal-links .active {
+  text-decoration-line: underline;
+  color: var(--main-brandcolor);
+  cursor: default;
+  pointer-events: none;
+}
