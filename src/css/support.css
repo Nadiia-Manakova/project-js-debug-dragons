@@ -1,0 +1,130 @@
+.support {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 460px;
+    width: 335px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 16px;
+    background: var(--background-gradient);
+    box-shadow: 0px 10px 10px 0px rgba(245, 245, 247, 0.10);
+    padding:24px 40px 72px; 
+    /* padding-bottom: 72px;
+    padding-top: 24px;
+    padding-left: 40px;
+    padding-right: 40px; */
+}
+
+@media screen and (min-width: 768px) {
+    .support {
+        height: 474px;
+        padding-bottom: 86px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1439.98px) {
+    .support {
+        width: 356px;
+    }
+}
+
+.support-title-group {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 40px;
+    
+}
+
+.support-title {
+    color: var(--header-background);
+    font-size: 22px;
+        /* font-style: normal; */
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.88px;
+}
+
+@media screen and (min-width: 768px) {
+    .support-title {
+        font-size: 24px;
+    }
+}
+
+.support-icon {
+    fill: var(--header-background);
+}
+
+.support-slide-btn {
+    width: 38px;
+    height: 38px;
+    border: none;
+    background: transparent;
+    align-self: center;
+    margin-bottom: 24px;
+}
+.support-slide-down-btn, .support-slide-up-btn {
+    width: 38px;
+    height: 38px;
+}
+
+/* .support-overlay {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+} */
+
+.support-list{
+    margin-bottom: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    width: 149px;
+        height: 292px; */
+} 
+
+.support-item {
+    /* width: 149px;
+    height: 292px; */
+    /* margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    align-items: center; */
+    width: 159px;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 20px;
+    align-items: center;
+}
+
+.support-item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.support-item-num {
+    color: var(--header-background);
+    /* font-family: DM Sans; */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.56px;
+}
+
+.support-link {
+
+}
+
+.support-img {
+    filter: brightness(0) invert(1);
+    height: 32px;
+}
