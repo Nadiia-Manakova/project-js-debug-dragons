@@ -201,7 +201,12 @@ function readUserShoppingList() {
 
 // EXPORT :
 
-export { fireBaseConfig, getUserData, exitHandler };
+export {
+  getUserData,
+  exitHandler,
+  writeUserShoppingList,
+  readUserShoppingList,
+};
 //
 //
 //
