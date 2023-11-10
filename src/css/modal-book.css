@@ -1,0 +1,127 @@
+
+/* .list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.title {
+    font-size: 15px;
+}
+
+.btn {
+    margin-left: 700px;
+} */
+
+.modal-book-js {
+    width: 579px;
+    border-radius: 18px;
+    border: 2px solid #111111;
+    background: #FFF;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.modal-img-book {
+    width: 192px;
+    height: 281px;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+.modal-book-btn-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+
+}
+
+.modal-book-title {
+    color: #111;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: -0.96px;
+    margin-top: 40px;
+    margin-bottom: 8px;
+}
+
+.modal-book-autor {
+    color: #B4AFAF;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.56px;
+    margin-bottom: 20px;
+}
+
+.modal-book-description {
+    width: 279px;
+    height: 70px;
+    color: #111;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.56px;
+}
+
+.modal-list-infobook {
+    margin-left: 24px;
+}
+
+.modal-book-list-shops {
+    list-style: none;
+    margin-left: 0;
+}
+
+.modal-book-btn {
+    width: 499px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    border: 2px solid #4F2EE8;
+    color: #111;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-bottom: 8px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.icons-modal {
+    stroke: #111111;
+}
+
+.hidden {
+    display: none;
+}
+
+.txt-remove {
+    max-width: 325px;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: -0.48px;
+    text-align: center;
+    margin-left: 128px;
+    margin-bottom: 40px;
+}
+
+.btn-add {
+    margin-bottom: 40px;
+}
