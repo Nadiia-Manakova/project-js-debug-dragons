@@ -29,7 +29,6 @@
   --display-logo: block;
   --display-darklogo: none;
   --hover-categorie-text: #b314c2;
-  /* Другие переменные CSS */
 }
 
 /* Темная тема */
@@ -42,21 +41,11 @@
   --display-logo: none;
   --display-darklogo: block;
   --hover-categorie-text: rgba(234, 198, 69, 1);
-  /* Другие переменные CSS */
 }
 
 body {
   font-family: 'DM Sans', sans-serif;
-  color: var(--white-text-color);
-  background-color: var(--background-color-body);
-}
-
-.text-accent {
-  color: transparent;
-  -webkit-background-clip: text;
-  background-image: var(--primary-gradient);
-  font-style: italic;
-  font-weight: 500;
+  background-color: var(--background-color);
 }
 
 .visually-hidden {
@@ -77,6 +66,7 @@ body {
   width: 100%;
   margin: 0 auto;
   padding: 0 20px;
+  margin-top: 40px;
 }
 
 @media screen and (min-width: 375px) {
@@ -89,11 +79,27 @@ body {
   .container {
     width: 768px;
     padding: 0 32px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar {
+    display: flex;
+    gap: 32px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .container {
     width: 1280px;
+    gap: 40px;
+    flex-direction: row;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 356px;
   }
 }
