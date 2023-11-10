@@ -25,7 +25,7 @@ const elements = {
   signInForm: document.querySelector('.js-sign-in-form'),
   signUpBtn: document.querySelector('.js-sign-up-link'),
   signInBtn: document.querySelector('.js-sign-in-link'),
-  exitBtn: document.querySelector('.js-exit'),
+  exitBtn: document.querySelector('.js-sign-out-btn'),
   openModalBtn: document.querySelector('.auth-modal-open'),
   closeModalBtn: document.querySelector('.auth-modal-close'),
   modal: document.querySelector('.auth-modal-backdrop'),
@@ -93,7 +93,7 @@ function signUpService(email, password, name) {
       //   Notiflix.Notify.success(`Welcome, ${name}!`);
       console.log(`Welcome, ${name}!`);
       alert(`Welcome, ${name}!`);
-      getUserData();
+      console.log(getUserData());
       toggleModal();
     })
     .catch(error => {
@@ -113,7 +113,7 @@ function signInService(email, password) {
       alert(`Welcome, ${user.displayName}!`);
       //   Notiflix.Notify.success(`Welcome, ${user.displayName}!`);
 
-      getUserData();
+      console.log(getUserData());
       toggleModal();
     })
     .catch(error => {
@@ -157,10 +157,15 @@ function getUserData() {
 
 //  write User Shopping List
 function writeUserShoppingList(booksArr) {
+  if (!booksArr) {
+    console.log('No data to write!');
+    return;
+  }
   const userData = getUserData();
   if (!userData) {
     console.log(`User is not authorized!`);
     alert(`User is not authorized!`);
+    // Notiflix.Notify.failure(`User is not authorized!`);
     return;
   }
   const userId = userData.uid;
@@ -259,7 +264,7 @@ const dbwBtn = document.querySelector('.dbw');
 dbwBtn.addEventListener('click', writeClickHandler);
 
 function writeClickHandler() {
-  writeUserShoppingList([1, 3, 5, 7]);
+  writeUserShoppingList([]);
 }
 const dbrBtn = document.querySelector('.dbr');
 dbrBtn.addEventListener('click', readUserShoppingList);
