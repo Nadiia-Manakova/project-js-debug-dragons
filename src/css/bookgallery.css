@@ -1,0 +1,55 @@
+.list_five_general {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    gap: 30px;
+}
+
+
+
+.title_general {
+    width: 200px;
+    font-size: 16px;
+}
+
+.author_general {
+    width: 200px;
+}
+
+.btn {
+    position: absolute;
+
+    left: calc(70%);
+
+}
+
+.text_general {
+    font-size: 20px;
+    width: 200px;
+}
+
+
+.list_five_books img {
+    background: url('./error_img.jpg') no-repeat center center;
+
+    background-size: cover;
+    list-style-type: none;
+}
+
+.list_five_button {
+    list-style-type: none;
+}
+
+.div_five_books {
+    margin-bottom: 50px;
+}
+
+.div_category {
+    width: 100%;
+}
+
+.btn_back {
+    position: absolute;
+
+    left: calc(50%);
+}
