@@ -20,7 +20,8 @@
     />
     
     <script type="module" crossorigin src="/project-js-debug-dragons/commonHelpers.js"></script>
-    <link rel="stylesheet" href="/project-js-debug-dragons/assets/index-eb7b13bc.css">
+    <link rel="modulepreload" crossorigin href="/project-js-debug-dragons/assets/vendor-16bfb30f.js">
+    <link rel="stylesheet" href="/project-js-debug-dragons/assets/index-69f60b1a.css">
   </head>
   <body>
     <header>
@@ -60,7 +61,74 @@
           <div class="bookgallery"></div>
         </div>
       </section>
-      
+      <!-- TEMPORARY BLOCK : -->
+<div>
+  <p>Тимчасові кнопки для тестування</p>
+  <button type="button" class="auth-modal-open">SIGN UP</button>
+  <button type="button" class="js-exit">EXIT</button>
+  <button type="button" class="dbw">Click for write list to DB</button>
+  <button type="button" class="dbr">Click for read list from DB</button>
+</div>
+<!-- MODAL : -->
+<div class="auth-modal-backdrop auth-backdrop-hidden">
+  <div class="auth-modal">
+    <button class="auth-modal-close">
+      <svg class="auth-modal-close-icon">
+        <use href="/project-js-debug-dragons/assets/icons-sprite-302b2a33.svg#x-close-btn"></use>
+      </svg>
+    </button>
+    <div class="js-sign-up">
+      <form class="auth-modal-form js-sign-up-form">
+        <input
+          type="text"
+          class="auth-modal-input"
+          name="username"
+          placeholder="Name"
+          required
+        />
+        <input
+          type="email"
+          class="auth-modal-input"
+          name="email"
+          placeholder="Email"
+          required
+        />
+        <input
+          type="password"
+          class="auth-modal-input"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <button type="submit" class="auth-modal-submit">Sign up</button>
+      </form>
+    </div>
+    <div class="js-sign-in auth-hidden">
+      <form class="auth-modal-form js-sign-in-form">
+        <input
+          type="email"
+          class="auth-modal-input"
+          name="email"
+          placeholder="Email"
+          required
+        />
+        <input
+          type="password"
+          class="auth-modal-input"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <button type="submit" class="auth-modal-submit">Sign in</button>
+      </form>
+    </div>
+    <ul class="auth-modal-links">
+      <li class="js-sign-up-link active">Sign up</li>
+      <li class="js-sign-in-link">Sign in</li>
+    </ul>
+  </div>
+</div>
+
 
       
     </main>
