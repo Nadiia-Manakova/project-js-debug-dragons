@@ -8,6 +8,7 @@
 @import url('./reset.css');
 @import url('./header.css');
 @import url('./filter-categories.css');
+@import url('./bookgallery.css');
 @import url('./support.css');
 @import url('./shopping.css');
 @import url('./modal-book.css');
@@ -91,7 +92,7 @@ body {
 
 @media screen and (min-width: 1280px) {
   .container {
-    width: 1280px;
+    width: 1440px;
     gap: 40px;
     flex-direction: row;
   }
