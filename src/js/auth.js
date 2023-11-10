@@ -186,8 +186,8 @@ function readUserShoppingList() {
     .then(snapshot => {
       if (snapshot.exists()) {
         console.log(snapshot.val());
-        return snapshot.val();
         alert(`Success!`);
+        return snapshot.val();
       } else {
         console.log('No data available');
         alert('No data available');
