@@ -49,6 +49,7 @@ const supportFonds = [
     },
 ];
 
+
 const supportList = document.querySelector('.support-list');
 
 function supportListCreateMarkup(supportFonds) {
