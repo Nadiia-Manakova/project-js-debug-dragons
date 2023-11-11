@@ -40,7 +40,7 @@ elements.openModalBtn.addEventListener('click', toggleModal);
 elements.closeModalBtn.addEventListener('click', toggleModal);
 elements.exitBtn.addEventListener('click', exitHandler);
 
-// FUNCTIONS :
+// MODAL WINDOW :
 function toggleModal() {
   elements.modal.classList.toggle('auth-backdrop-hidden');
 }
@@ -82,6 +82,7 @@ function signInHandler(event) {
 }
 
 // SERVICES :
+
 function signUpService(email, password, name) {
   createUserWithEmailAndPassword(auth, email, password)
     .then(() =>
@@ -90,18 +91,16 @@ function signUpService(email, password, name) {
       })
     )
     .then(() => {
-      //   Notiflix.Notify.success(`Welcome, ${name}!`);
-      console.log(`Welcome, ${name}!`);
-      alert(`Welcome, ${name}!`);
-      console.log(getUserData());
       toggleModal();
+      console.log(`Welcome, ${name}!`);
+      // Notiflix.Notify.success(`Welcome, ${name}!`);
+      console.log(getUserData());
     })
     .catch(error => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      //   Notiflix.Notify.failure(errorCode, errorMessage);
       console.log(errorCode, errorMessage);
-      alert(errorCode, errorMessage);
+      // Notiflix.Notify.failure(errorCode, errorMessage);
     });
 }
 
@@ -110,8 +109,7 @@ function signInService(email, password) {
     .then(userCredential => {
       const user = userCredential.user;
       console.log(`Welcome, ${user.displayName}!`);
-      alert(`Welcome, ${user.displayName}!`);
-      //   Notiflix.Notify.success(`Welcome, ${user.displayName}!`);
+      // Notiflix.Notify.success(`Welcome, ${user.displayName}!`);
 
       console.log(getUserData());
       toggleModal();
@@ -119,9 +117,8 @@ function signInService(email, password) {
     .catch(error => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      //   Notiflix.Notify.failure(errorCode, errorMessage);
       console.log(errorCode, errorMessage);
-      alert(errorCode, errorMessage);
+      // Notiflix.Notify.failure(errorCode, errorMessage);
     });
 }
 
@@ -129,15 +126,11 @@ function exitHandler() {
   signOut(auth)
     .then(() => {
       console.log('Sign-out successful.');
-      Notiflix.Notify.success('Sign-out successful.');
-      console.log('Sign-out successful.');
-      alert('Sign-out successful.');
+      // Notiflix.Notify.success('Sign-out successful.');
     })
     .catch(error => {
       console.log(`An error happened. ${error}`);
-      //   Notiflix.Notify.failure(`An error happened. ${error}`);
-      console.log(`An error happened. ${error}`);
-      alert(`An error happened. ${error}`);
+      // Notiflix.Notify.failure(`An error happened. ${error}`);
     });
 }
 
@@ -162,9 +155,9 @@ function writeUserShoppingList(booksArr) {
     return;
   }
   const userData = getUserData();
+  console.log(userData);
   if (!userData) {
     console.log(`User is not authorized!`);
-    alert(`User is not authorized!`);
     // Notiflix.Notify.failure(`User is not authorized!`);
     return;
   }
@@ -174,7 +167,6 @@ function writeUserShoppingList(booksArr) {
     books: booksArr,
   });
   console.log(`Success!`);
-  alert(`Success!`);
 }
 
 // read User Shopping List
@@ -182,7 +174,6 @@ function readUserShoppingList() {
   const userData = getUserData();
   if (!userData) {
     console.log(`User is not authorized!`);
-    alert(`User is not authorized!`);
     return;
   }
   const userId = userData.uid;
@@ -191,16 +182,13 @@ function readUserShoppingList() {
     .then(snapshot => {
       if (snapshot.exists()) {
         console.log(snapshot.val());
-        alert(`Success!`);
         return snapshot.val();
       } else {
         console.log('No data available');
-        alert('No data available');
       }
     })
     .catch(error => {
       console.log(error);
-      alert(error);
     });
 }
 
@@ -245,6 +233,17 @@ export {
 //   }
 // });
 
+// GET USER :
+// async function getUser() {
+//   const auth = await getAuth();
+//   const user = auth.currentUser;
+//   if (user) {
+//     console.log(user);
+//   } else {
+//     console.log(`No user is signed in.`);
+//   }
+// }
+
 // UPDATE PHOTO :
 // updateProfile(auth.currentUser, {
 //   displayName: 'Jane Q. User',
@@ -264,7 +263,16 @@ const dbwBtn = document.querySelector('.dbw');
 dbwBtn.addEventListener('click', writeClickHandler);
 
 function writeClickHandler() {
-  writeUserShoppingList([]);
+  writeUserShoppingList([
+    { list_name: 'Advice How-To and Miscellaneous' },
+    { list_name: 'Audio Fiction', books: Array(5) },
+    { list_name: 'Audio Nonfiction', books: Array(5) },
+    { list_name: 'Business Books', books: Array(5) },
+    { list_name: 'Childrens Middle Grade Hardcover', books: Array(5) },
+    { list_name: 'Combined Print and E-Book Fiction', books: Array(5) },
+  ]);
 }
 const dbrBtn = document.querySelector('.dbr');
 dbrBtn.addEventListener('click', readUserShoppingList);
+
+//
