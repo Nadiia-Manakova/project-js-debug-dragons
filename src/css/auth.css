@@ -33,6 +33,10 @@
   border: 0px;
 }
 
+.auth-modal-close:hover {
+  background-color: transparent;
+}
+
 @media (min-width: 768px) {
   .auth-modal-close {
     top: 24px;
@@ -45,11 +49,11 @@
 .auth-modal-close-icon {
   width: 20px;
   height: 20px;
-  stroke: #111111;
+  stroke: var(--black-color);
 }
 
 .dark-theme .auth-modal-close-icon {
-  stroke: #f6f6f6;
+  stroke: var(--white-color-BG);
 }
 
 @media (min-width: 768px) {
@@ -77,13 +81,13 @@
   justify-content: center;
   align-items: center;
   border-radius: 18px;
-  border: 2px solid #111;
-  background: #f6f6f6;
+  border: 2px solid var(--black-color);
+  background: var(--background-color);
 }
 
-.dark-theme .auth-modal {
+/* .dark-theme .auth-modal {
   background: #202024;
-}
+} */
 
 @media (min-width: 768px) {
   .auth-modal {
@@ -91,7 +95,7 @@
     padding: 80px 40px 40px 40px;
   }
   .dark-theme .auth-modal {
-    border: 2px solid #f6f6f6;
+    border: 2px solid var(--white-color-BG);
   }
 }
 
@@ -119,7 +123,7 @@
   font-style: normal;
   width: 295px;
   border-radius: 40px;
-  border: 2px solid #111;
+  border: 2px solid var(--black-color);
   display: flex;
   padding: 16px 48px 14px 24px;
   align-items: center;
@@ -128,8 +132,8 @@
 
 .dark-theme .auth-modal-input {
   color: #f6f6f6;
-  border: 2px solid #f6f6f6;
-  background-color: #111;
+  border: 2px solid var(--white-color-BG);
+  background-color: var(--black-color);
 }
 
 @media (min-width: 768px) {
@@ -143,7 +147,7 @@
 }
 
 .auth-modal-input::placeholder {
-  color: #111;
+  color: var(--black-color);
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -153,7 +157,7 @@
 }
 
 .dark-theme .auth-modal-input::placeholder {
-  color: #f6f6f6;
+  color: var(--white-color-BG);
 }
 
 @media (min-width: 768px) {
@@ -173,7 +177,7 @@
   align-items: flex-start;
   gap: 10px;
   border-radius: 40px;
-  background: #111;
+  background: var(--black-color);
   color: #f3f3f3;
   font-size: 16px;
   font-style: normal;
@@ -184,8 +188,8 @@
 }
 
 .dark-theme .auth-modal-submit {
-  background: #f6f6f6;
-  color: #111;
+  background: var(--white-color-BG);
+  color: var(--black-color);
 }
 
 @media (min-width: 768px) {
@@ -204,7 +208,7 @@
   display: flex;
   gap: 20px;
   justify-content: center;
-  color: rgba(17, 17, 17, 0.5);
+  color: var(--text-color-grey);
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
