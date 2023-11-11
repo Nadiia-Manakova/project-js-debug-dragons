@@ -4,17 +4,6 @@ import * as basicLightbox from 'basiclightbox';
 
     axios.defaults.baseURL = 'https://books-backend.p.goit.global/books/';
    
-  //Отримати масив категорі
-//  async function getCategoriesList() {
-//    const url = `${BASE_URL}top-books`;
-//      const { data } = await axios('category?category=Paperback Nonfiction');
-//       console.log(data);
-//    return data
-//    }
-// getCategoriesList()
-//   .then(data => {
-//   listElement.insertAdjacentHTML('beforeend', renderBooks(data))
-//   })
 
 async function getBooksId(id) {
     // const url = `${BASE_URL}${bookId}`;
