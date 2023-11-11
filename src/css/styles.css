@@ -13,6 +13,7 @@
 @import url('./shopping.css');
 @import url('./modal-book.css');
 @import url('./auth.css');
+@import url('./burgerMenu.css');
 
 :root {
   --main-brandcolor: #4f2ee8;
