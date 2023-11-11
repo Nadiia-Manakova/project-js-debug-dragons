@@ -1,16 +1,19 @@
 import Notiflix from 'notiflix';
 import { getTopBooks, getTopCategory } from './request-base';
 
-export const listGeneral = document.querySelector('.list_general');
 export const titleBestSellers = document.querySelector('.title_best_sellers');
+export const listGeneral = document.querySelector('.list_general');
+
+export const titleBestSellers = document.querySelector('.title_best_sellers');
+
 
 
 
 
 let n = 0;
 let width = window.innerWidth;
-if (width >= 1440) {
-  n = 5;
+if (width >= 1240) {
+    n = 5;
 } else if (width >= 720) {
   n = 3;
 } else if (width >= 240) {
@@ -145,6 +148,7 @@ export function markupCategory(catalogs) {
   btnBack.addEventListener('click', isClose);
 }
 
-function isClose() {
-  location.reload();
+  function isClose() { 
+    location.reload();
+    
 }
