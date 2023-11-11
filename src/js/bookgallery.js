@@ -1,7 +1,7 @@
 import Notiflix from 'notiflix';
 import { getTopBooks, getTopCategory } from './request-base';
 
-const listGeneral = document.querySelector('.list_general');
+export const listGeneral = document.querySelector('.list_general');
 const titleBestSellers = document.querySelector(".title_best_sellers")
 
 let n = 0;
@@ -121,7 +121,7 @@ function getMarkup(listNames, markupLi) {
 }
 
 
-function markupCategory(catalogs) { 
+export function markupCategory(catalogs) { 
   window.scrollTo(0, 0);
 
   const markupLi = getmarkupLi(catalogs);

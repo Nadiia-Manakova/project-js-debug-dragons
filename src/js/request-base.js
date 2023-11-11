@@ -18,3 +18,10 @@ export async function getTopCategory(attributeValue) {
   
   return response.data;
 }
+
+export async function getCategoryList() {
+  const url = `${BASE_URL}category-list`;
+  const response = await axios.get(url);
+
+  return response;
+}
