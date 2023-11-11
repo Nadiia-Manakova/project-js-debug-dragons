@@ -129,7 +129,7 @@ function exitHandler() {
   signOut(auth)
     .then(() => {
       console.log('Sign-out successful.');
-      //   Notiflix.Notify.success('Sign-out successful.');
+      Notiflix.Notify.success('Sign-out successful.');
       console.log('Sign-out successful.');
       alert('Sign-out successful.');
     })
