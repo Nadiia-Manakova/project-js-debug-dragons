@@ -7,8 +7,9 @@ const refs = {
   galleryTitle: document.querySelector('.list_general-title'),
   filterListEl: document.querySelector('.categories__list'),
   categoriesTitle: document.querySelector('.categories__title'),
+  title: document.querySelector('.title_best_sellers'),
 };
-
+console.log(refs.title);
 //! Render Category filter on load Home page
 function createCategoriesList(q) {
   getCategoryList(q).then(response => {
@@ -39,6 +40,7 @@ export function onCategoryClick(e) {
     .then(catalogs => {
       listGeneral.innerHTML = '';
       markupCategory(catalogs);
+      refs.title.style.display = 'none';
     })
     .catch(error => {
       Notiflix.Notify.failure(
