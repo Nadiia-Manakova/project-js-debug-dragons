@@ -2,7 +2,7 @@ import Notiflix from 'notiflix';
 import { getTopBooks, getTopCategory } from './request-base';
 
 export const listGeneral = document.querySelector('.list_general');
-const titleBestSellers = document.querySelector('.title_best_sellers');
+export const titleBestSellers = document.querySelector('.title_best_sellers');
 
 let n = 0;
 let width = window.innerWidth;
