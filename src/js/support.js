@@ -49,7 +49,7 @@ const supportFonds = [
     },
 ];
 
-const supportList = document.querySelector('.support-list');
+const supportListEl = document.querySelector('.support-list');
 
 function supportListCreateMarkup(supportFonds) {
     return supportFonds.map(({ title, url, img }, index) => 
@@ -64,6 +64,36 @@ function supportListCreateMarkup(supportFonds) {
         </a>
       </li>`).join('');
 }
-supportList.innerHTML = supportListCreateMarkup(supportFonds);
+supportListEl.innerHTML = supportListCreateMarkup(supportFonds);
+
+const supportSlideBtnEl = document.querySelector('.support-slide-btn');
+const supportSlideDownBtnEl = document.querySelector('.support-slide-down-btn');
+const supportSlideUpBtnEl = document.querySelector('.support-slide-up-btn');
+
+supportSlideBtnEl.addEventListener('click', slideTo);
+
+function slideTo() {
+    if (supportSlideBtnEl.classList.contains('top')) {
+        supportSlideBtnEl.classList.remove('top');
+        supportSlideUpBtnEl.style.display = 'none';
+        supportSlideDownBtnEl.style.display = 'block';
+        slideToTop();
+    } else {
+        slideToBottom();
+        supportSlideBtnEl.classList.add('top');
+        supportSlideDownBtnEl.style.display = 'none';
+        supportSlideUpBtnEl.style.display = 'block';
+}
+}
+
+function slideToTop() {
+    supportListEl.scrollTop = 0;
+}
+
+function slideToBottom() {
+    supportListEl.scrollTop = supportListEl.scrollHeight;
+}
+
+
 
 
