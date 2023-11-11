@@ -1,16 +1,8 @@
-import 'simplebar'; // or "import SimpleBar from 'simplebar';" if you want to use it manually.
+import { getCategoryList, getTopCategory } from './request-base';
+import { markupCategory, listGeneral } from './bookgallery.js';
+import 'simplebar';
 import 'simplebar/dist/simplebar.css';
 
-import { getCategoryList, getTopCategory } from './request-base';
-
-import { markupCategory, listGeneral } from './bookgallery.js';
-
-export async function getCategoryList() {
-  const url = `${BASE_URL}category-list`;
-  const response = await axios.get(url);
-
-  return response;
-}
 const refs = {
   galleryTitle: document.querySelector('.list_general-title'),
   filterListEl: document.querySelector('.categories__list'),
@@ -42,17 +34,7 @@ refs.filterListEl.addEventListener('click', onCategoryClick);
 
 export function onCategoryClick(e) {
   checkClass(e);
-
   const selectedCategory = e.target.textContent;
-  //let q = `/category?category=${selectedCategory}`;
-  console.log(selectedCategory);
-  refs.galleryTitle.textContent = selectedCategory;
-
-  // return apiServise(q).then(data => {
-  //   const selectedCategoryName = data.data[0].list_name;
-  //   console.log(selectedCategoryName);
-  //   return selectedCategoryName;
-  // });
   getTopCategory(selectedCategory)
     .then(catalogs => {
       listGeneral.innerHTML = '';
@@ -63,7 +45,6 @@ export function onCategoryClick(e) {
         'An error occurred while fetching images. Please try again.'
       );
     });
-  //return selectedCategory;
 }
 
 //! helper
