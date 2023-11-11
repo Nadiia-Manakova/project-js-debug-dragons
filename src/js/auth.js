@@ -81,6 +81,9 @@ function signInHandler(event) {
   signInService(data.email, data.password);
 }
 
+// USER STATE AND PAGE MARKUP
+getUserAuthState();
+
 // SERVICES :
 
 function signUpService(email, password, name) {
@@ -134,6 +137,23 @@ function exitHandler() {
     });
 }
 
+// GET USER STATE:
+function getUserAuthState() {
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      const userData = {
+        name: user.displayName,
+        email: user.email,
+        photo: user.photoURL,
+        uid: user.uid,
+      };
+      console.log(userData);
+      return userData;
+    } else {
+      console.log(`User is signed out`);
+    }
+  });
+}
 // GET USER DATA :
 function getUserData() {
   const user = auth.currentUser;
@@ -154,8 +174,8 @@ function writeUserShoppingList(booksArr) {
     console.log('No data to write!');
     return;
   }
+  console.log(getUserData());
   const userData = getUserData();
-  console.log(userData);
   if (!userData) {
     console.log(`User is not authorized!`);
     // Notiflix.Notify.failure(`User is not authorized!`);
@@ -195,6 +215,7 @@ function readUserShoppingList() {
 // EXPORT :
 
 export {
+  getUserAuthState,
   getUserData,
   exitHandler,
   writeUserShoppingList,
@@ -234,8 +255,8 @@ export {
 // });
 
 // GET USER :
-// async function getUser() {
-//   const auth = await getAuth();
+//  function getUser() {
+//   const auth = getAuth();
 //   const user = auth.currentUser;
 //   if (user) {
 //     console.log(user);
