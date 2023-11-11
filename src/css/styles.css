@@ -121,7 +121,7 @@ button {
 
 button:hover,
 button:focus {
-  background: (--main-brandcolor);
+  background: var(--main-brandcolor);
   color: var(--white-color);
 }
 
