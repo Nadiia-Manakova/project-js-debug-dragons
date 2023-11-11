@@ -1,8 +1,7 @@
 .list_five_general {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: center; */
-    gap: 30px;
+    gap: 4px;
 }
 
 
@@ -18,9 +17,10 @@
 
 .btn {
     position: absolute;
-
     left: calc(70%);
-
+    width: 124px;
+    height: 46px;
+    padding: 14px, 28px, 14px, 28px;
 }
 
 .text_general {
@@ -41,15 +41,53 @@
 }
 
 .div_five_books {
-    margin-bottom: 50px;
-}
+    margin-bottom: 100px;
+} 
 
 .div_category {
     width: 100%;
-}
+} 
 
 .btn_back {
     position: absolute;
-
     left: calc(50%);
+    width: 124px; 
+    height: 46px; 
+    padding: 14px, 28px, 14px, 28px; 
+    
+}
+
+.img_books {
+    width: 180px; 
+    height: 256px;
+    border-radius: 5%;
+    border: 0px solid rgba(255, 255, 255, 0);
+}
+
+span:last-child {
+    color: rgba(79, 46, 232, 1);
+}
+
+
+/* .list_general {
+    margin-top: 1000px;
+} */
+
+.title-category {
+    margin-bottom: 50px;
+    font-size: 48px;
+        font-weight: 700;
+        line-height: 52px;
+        letter-spacing: -0.04em;
+        text-align: left;
+    
+}
+
+.title_best_sellers {
+    
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 52px;
+        letter-spacing: -0.04em;
+        text-align: left;
 }
