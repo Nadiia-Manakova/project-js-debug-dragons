@@ -2,11 +2,11 @@ import Notiflix from 'notiflix';
 import { getTopBooks, getTopCategory } from './request-base';
 
 export const listGeneral = document.querySelector('.list_general');
-const titleBestSellers = document.querySelector(".title_best_sellers")
+export const titleBestSellers = document.querySelector(".title_best_sellers")
 
 let n = 0;
 let width = window.innerWidth;
-if (width >= 1440) {
+if (width >= 1240) {
     n = 5;
 } else if (width >= 720) {
     n = 3;
@@ -140,3 +140,4 @@ let btnBack = document.querySelector(".btn_back");
     location.reload();
     
 }
+
