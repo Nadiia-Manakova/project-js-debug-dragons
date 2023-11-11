@@ -4,10 +4,6 @@ import { getTopBooks, getTopCategory } from './request-base';
 export const titleBestSellers = document.querySelector('.title_best_sellers');
 export const listGeneral = document.querySelector('.list_general');
 
-export const titleBestSellers = document.querySelector('.title_best_sellers');
-
-
-
 
 
 let n = 0;
