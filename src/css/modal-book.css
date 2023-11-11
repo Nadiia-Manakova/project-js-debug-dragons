@@ -43,6 +43,7 @@
 }
 
 .modal-book-title {
+    max-width: 270px;
     color: #111;
     font-size: 24px;
     font-style: normal;
@@ -72,6 +73,7 @@
     font-weight: 400;
     line-height: 18px;
     letter-spacing: -0.56px;
+    margin-bottom: 20px;
 }
 
 .modal-list-infobook {
@@ -113,13 +115,14 @@
 }
 
 .txt-remove {
+    color: rgba(17, 17, 17, 0.50);
     max-width: 325px;
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: -0.48px;
     text-align: center;
     margin-left: 128px;
-    margin-bottom: 40px;
+    padding-bottom: 40px;
 }
 
 .btn-add {
