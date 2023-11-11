@@ -55,7 +55,7 @@ function onClickOpenModalWindow(evt) {
    <div class="modal-book-js" data-id="${_id}">
           <button type="button" class="modal-book-btn-close">
           <svg class="icons-modal"  width="14" height="14">
-          <use href="./images/icons-sprite.svg#x-close-btn"></use>
+          <use href="../img/icons-sprite.svg#x-close-btn"></use>
         </svg>
         </button>
           <img src="${book_image}" alt="${title}" class="modal-img-book widht=192 height=281"/>
