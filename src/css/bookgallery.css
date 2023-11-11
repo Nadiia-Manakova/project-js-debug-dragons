@@ -60,7 +60,7 @@
 .img_books {
     width: 180px; 
     height: 256px;
-    border-radius: 5%;
+    border-radius: 10%;
     border: 0px solid rgba(255, 255, 255, 0);
 }
 

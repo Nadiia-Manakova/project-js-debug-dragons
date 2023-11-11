@@ -4,6 +4,9 @@ import { getTopBooks, getTopCategory } from './request-base';
 export const listGeneral = document.querySelector('.list_general');
 export const titleBestSellers = document.querySelector('.title_best_sellers');
 
+
+
+
 let n = 0;
 let width = window.innerWidth;
 if (width >= 1440) {
