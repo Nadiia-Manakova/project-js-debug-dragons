@@ -17,14 +17,21 @@ function hamburgerToggle() {
 }
 
 getTopBooks()
-.then(allCategories => {
+    .then(allCategories => {
+    
     const allBooks = allCategories.reduce((acc, category) => {
-      return acc.concat(category.books);
+        return acc.concat(category.books);
     }, []);
 
-    const mobMenuMarkup = allBooks.map((book) => `
+    const uniqueBooks = allBooks.filter((currentBook, index, array) => {
+    const filteredBooks = array.findIndex((book) => book.title === currentBook.title) === index;
+    return filteredBooks;
+    });
+    // console.log(uniqueBooks)
+
+    const mobMenuMarkup = uniqueBooks.map((book) => `
       <li class="mob-menu-gallery-item">
-        <img class="mob-menu-image" src="${book.book_image}" alt="${book.title}" >
+        <img loading="lazy" class="mob-menu-image" src="${book.book_image}" alt="${book.title}" >
       </li>`).join("");
 
     mobileMenuGalleryListEl.insertAdjacentHTML('afterbegin', mobMenuMarkup);
@@ -35,9 +42,9 @@ getTopBooks()
   });
 
 function animateGallery(currentPosition, direction) {
-  currentPosition += 0.2 * direction;
+  currentPosition += 0.3 * direction;
 
-  const maxPosition = -1000;
+  const maxPosition = -8000;
   const minPosition = 0;
 
   if (currentPosition <= maxPosition || currentPosition >= minPosition) {

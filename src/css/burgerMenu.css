@@ -132,8 +132,8 @@
 
 .mob-menu-gallery {
   position: absolute;
-  bottom: -200px;
-  left: -100px;
+  bottom: 400px;
+  left: 0;
   rotate: -15deg;
 }
 
@@ -141,9 +141,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  justify-content: space-around;
-  align-items: center;
-  width: 1800px;
+  width: 3300px;
 }
 
 .mob-menu-gallery-item {
@@ -194,7 +192,31 @@
 }
 
 .mob-menu-user-buttons {
+  margin-left: 120px;
+}
+
+.mob-menu-home-btn {
+  margin-bottom: 16px;
 }
 
 .mob-menu-shoping {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.mob-menu-shoping-ico {
+  fill: var(--white-color);
+}
+
+.mob-menu-shoping-link {
+  color: #fff;
+
+  font-family: DM Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.56px;
+  text-transform: uppercase;
 }
