@@ -1,7 +1,6 @@
 import "./js/loader"
 import "./js/auth"
 import "./js/header"
-import "./js/request-base"
 import "./js/support"
 import "./js/shopping"
 import "./js/burgerMenu"
