@@ -1,21 +1,21 @@
-import"./assets/burgerMenu-f48765b9.js";import{P as u}from"./assets/vendor-6ba42902.js";const c="booklist",o=document.querySelector(".cart-list"),i=document.querySelector(".empty-cart"),h=document.querySelector("#pagination"),y={totalItems:500,itemsPerPage:3,visiblePages:3,page:1,centerAlign:!1};new u(h,y);let t=[];document.addEventListener("click",f);try{t=JSON.parse(localStorage.getItem(c)),t.length||(i.style.display="block"),i.style.display="none",o.innerHTML=n(t),t.length>itemPerPage}catch(e){console.error("Get state error: ",e.message)}function n(e){return e.map(({_id:r,author:a,book_image:s,title:l,description:m,buy_links:[{url:d},{url:g}],list_name:p})=>` <li class="cart-item" data-id ="${r}">
-            <img src="${s}" alt="${l}" class="cart-item-img">
+import"./assets/burgerMenu-0d40f939.js";import{P as k}from"./assets/vendor-e8a5e68e.js";const c="booklist",o=document.querySelector("#pagination"),l=document.querySelector(".cart-list"),p=document.querySelector(".empty-cart"),r=3,S=3;p.style.display="none";let t=[];try{t=JSON.parse(localStorage.getItem(c)),t.length||(p.style.display="block"),t.length<=r&&(o.style.display="none"),l.innerHTML=g(t,1)}catch(e){console.error("Get state error: ",e.message)}const $={totalItems:t.length,itemsPerPage:r,visiblePages:S,page:1,centerAlign:!1,template:{page:'<a href="#" class="tui-page-btn">{{page}}</a>',currentPage:'<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',moveButton:'<a href="#" class="tui-page-btn tui-{{type}}"><span class="tui-ico-{{type}}"></span></a>',disabledMoveButton:'<span class="tui-page-btn tui-is-disabled tui-{{type}}"><span class="tui-ico-{{type}}">{{type}}</span></span>',moreButton:'<a href="#" class="tui-page-btn tui-{{type}}-is-ellip"><span class="tui-ico-ellip">...</span></a>'}};let i=new k(o,$);document.addEventListener("click",L);i.on("afterMove",e=>{let a=e.page;l.innerHTML=g(t,a),console.log("currentPage Global after :>> ",a)});function g(e,a){l.innerHTML="";const s=r*(a-1),n=s+r;return e.slice(s,n).map(({_id:d,author:y,book_image:h,title:m,description:f,buy_links:[{url:b},{url:v}],list_name:P})=>` <li class="cart-item" data-id ="${d}">
+            <img src="${h}" alt="${m}" class="cart-item-img">
             <div class="cart-item-content">
             <div class="cart-content-header">
-                <h3 class="cart-item-title">${l}</h3>
-                <p class="cart-item-category cart-item-label">${p}</p>
+                <h3 class="cart-item-title">${m}</h3>
+                <p class="cart-item-category cart-item-label">${P}</p>
             </div>
-                <p class="cart-item-description">${m}</p>
-                <p class="cart-item-author cart-item-label">${a}</p>
+                <p class="cart-item-description">${f}</p>
+                <p class="cart-item-author cart-item-label">${y}</p>
                 <button class="cart-item-delete">
                 <svg class="cart-delete-icon" width="24" height="24">
                 <use href="../img/icons-sprite.svg#cart-purple-round"></use>
                 </svg>
                 </button>
                 <ul class="cart-item-links">
-                <li><a href="${d}" class="cart-item-link">amazon</a></li>
-                <li><a href="${g}" class="cart-item-link">apple book</a></li>
+                <li><a href="${b}" class="cart-item-link">amazon</a></li>
+                <li><a href="${v}" class="cart-item-link">apple book</a></li>
                 </ul>
             </div>
-        </li>`).join("")}function f(e){if(!e.target.classList.contains("cart-item-delete"))return;const r=e.target.closest(".cart-item").dataset.id;try{const a=t.filter(({_id:s})=>s!==r);localStorage.setItem(c,JSON.stringify(a)),t=JSON.parse(localStorage.getItem(c)),o.innerHTML=n(a)}catch(a){console.error("Get state error: ",a.message)}t.length||(i.style.display="block")}
+        </li>`).join("")}function L(e){if(!e.target.closest(".cart-item-delete"))return;const a=e.target.closest(".cart-item").dataset.id;try{const s=t.filter(({_id:u})=>u!==a);localStorage.setItem(c,JSON.stringify(s)),t=JSON.parse(localStorage.getItem(c)),t.length<=r&&(o.style.display="none"),i.setTotalItems(t.length),i.reset(t.length);let n=i.getCurrentPage();l.innerHTML=g(t,n)}catch(s){console.error("Get state error: ",s.message)}t.length||(p.style.display="block")}
 //# sourceMappingURL=commonHelpers2.js.map
