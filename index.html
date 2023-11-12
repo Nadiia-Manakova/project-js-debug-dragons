@@ -21,9 +21,9 @@
     
     <script type="module" crossorigin src="/project-js-debug-dragons/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/project-js-debug-dragons/assets/vendor-e8a5e68e.js">
-    <link rel="modulepreload" crossorigin href="/project-js-debug-dragons/assets/burgerMenu-2d9fe4fb.js">
+    <link rel="modulepreload" crossorigin href="/project-js-debug-dragons/assets/burgerMenu-dcfc2b2a.js">
     <link rel="stylesheet" href="/project-js-debug-dragons/assets/vendor-3dc8c308.css">
-    <link rel="stylesheet" href="/project-js-debug-dragons/assets/burgerMenu-0c4cf98d.css">
+    <link rel="stylesheet" href="/project-js-debug-dragons/assets/burgerMenu-a80a4d41.css">
   </head>
   <body>
     <header>
@@ -92,11 +92,9 @@
         <span class="line-middle"></span>
         <span class="line-bottom"></span>
       </div>
-      <!-- <button type="button" id="burger-menu" class="hamburger">
-        
-      </button> -->
       <!-- sign up -->
       <div id="menu" class="hamburger-overlay container">
+        <!-- visually-hidden -->
         <button type="button" class="button menu-sign-up-btn visually-hidden">
           <span class="menu-btn-text">Sign up</span>
           <svg class="menu-arrow-right" width="20" height="20">
@@ -105,14 +103,15 @@
         </button>
 
         <!-- user -->
-        <div class="mob-menu-user">
+        <!-- visually-hidden -->
+        <div class="mob-menu-user visually-hidden">
           <svg class="header-overlay-auth-icon" width="37" height="37">
             <use href="/project-js-debug-dragons/assets/icons-sprite-1d11e0ff.svg#user-icon"></use>
           </svg>
           <p class="mob-menu-user-text">Stephen</p>
         </div>
-
-        <div class="mob-menu-user-buttons">
+        <!-- visually-hidden -->
+        <div class="mob-menu-user-buttons visually-hidden">
           <button type="button" class="button mob-menu-home-btn">
             <a href="">HOME</a>
           </button>
@@ -140,11 +139,6 @@
         <use href="/project-js-debug-dragons/assets/icons-sprite-1d11e0ff.svg#arrow-up-scroll-up-icon"></use>
       </svg>
     </div>
-    <!-- <button id="scrollTop" type="button" class="scroll-to-top-button">
-      <svg class="arrow-up-btn" width="64" height="64">
-        <use href="./img/icons-sprite.svg#arrow-up-scroll-up-icon"></use>
-      </svg>
-    </button> -->
   </div>
 </div>
 
