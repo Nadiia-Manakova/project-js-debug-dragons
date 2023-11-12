@@ -40,33 +40,32 @@ function onClickOpenModalWindow(evt) {
     .then(data => {
       console.log(arr);
 
-      const { _id, author, book_image, title, description, buy_links} = data;
- const instance = basicLightbox.create(`
+      const { _id, author, book_image, title, description, buy_links: [{ url: amazon }, { url: appleBook }] } = data;
+      const instance = basicLightbox.create(`
    <div class="modal-book-js" data-id="${_id}">
           <button type="button" class="modal-book-btn-close">
-          <svg class="icons-modal"  width="14" height="14">
+          <svg class="icons-modal"  width="12" height="12">
           <use href="../img/icons-sprite.svg#x-close-btn"></use>
         </svg>
         </button>
           <img src="${book_image}" alt="${title}" class="modal-img-book widht="192" height="281"/>
           <div class="modal-list-infobook">
-          <h1 class="modal-book-title">${title}</h1>
-          <h2 class="modal-book-autor">${author}</h2>
+          <h3 class="modal-book-title">${title}</h3>
+          <p class="modal-book-autor">${author}</p>
           <p class="modal-book-description">${description}</p>
           <div class="modal-list-shops">
           <ul class="modal-book-list-shops">
-            <li>
-             <a href="" target="_blank" class="">
-             <img crs="./img/amazon.png" alt="" widht="62" height="19"/> 
+            <li>amason
+             <a href="#" target="_blank" class="">
+             <img crs="../img/amazon.png" alt="" widht="62" height="19"/> 
              </a>
             </li>
-            <li>
+            <li>apple-book
              <a href="#" target="_blank" class="">
-             <img crs="./img/apple-books.png" alt="" widht="62" height="19"/> 
+             <img crs="../img/apple-books.png" alt="" widht="62" height="19"/> 
              </a>
              </li>
-            <li>Barnes and Noble</li>
-            <li>bookshop</li>
+    
             </div>
           </ul>
           </div>
