@@ -16,9 +16,14 @@ const app = initializeApp(fireBaseConfig);
 const auth = getAuth();
 // DATEBASE :
 import { getDatabase, ref, set, onValue, child, get } from 'firebase/database';
+// PAGE RENDER FUNCTIONS :
+import { signInPageRender, signOutPageRender } from './auth-page-render';
 
 // ELEMENTS :
 const elements = {
+  openModalBtn: document.querySelector('.auth-modal-open'),
+  closeModalBtn: document.querySelector('.auth-modal-close'),
+  modal: document.querySelector('.auth-modal-backdrop'),
   signUpBox: document.querySelector('.js-sign-up'),
   signInBox: document.querySelector('.js-sign-in'),
   signUpForm: document.querySelector('.js-sign-up-form'),
@@ -26,9 +31,6 @@ const elements = {
   signUpBtn: document.querySelector('.js-sign-up-link'),
   signInBtn: document.querySelector('.js-sign-in-link'),
   exitBtn: document.querySelector('.js-sign-out-btn'),
-  openModalBtn: document.querySelector('.auth-modal-open'),
-  closeModalBtn: document.querySelector('.auth-modal-close'),
-  modal: document.querySelector('.auth-modal-backdrop'),
 };
 
 // LISTENERS :
@@ -91,11 +93,11 @@ onAuthStateChanged(auth, user => {
       photo: user.photoURL,
       uid: user.uid,
     };
-    console.log(`User is signed in, we will show all modules`);
-    // TURN ON ALL MODULES
+    console.log(`User is signed in!`);
+    signInPageRender();
   } else {
-    console.log(`User is signed out, we will hide some modules`);
-    // HIDE SOME MODULES
+    console.log(`User is signed out!`);
+    signOutPageRender();
   }
 });
 
@@ -278,5 +280,3 @@ function writeClickHandler() {
 }
 const dbrBtn = document.querySelector('.dbr');
 dbrBtn.addEventListener('click', readUserShoppingList);
-
-//
