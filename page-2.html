@@ -2,14 +2,197 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page 2</title>
+    <title>Bookshelf</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+      rel="stylesheet"
+      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
+    <script type="module" crossorigin src="/project-js-debug-dragons/assets/vendor-1ac408a8.js"></script>
+    <script type="module" crossorigin src="/project-js-debug-dragons/assets/burgerMenu-35568652.js"></script>
+    <link rel="stylesheet" href="/project-js-debug-dragons/assets/burgerMenu-54d7e865.css">
+    <link rel="stylesheet" href="/project-js-debug-dragons/assets/vendor-1c6fdaf9.css">
   </head>
   <body>
-    <section>
-      <a href="./index.html">Go to home</a>
-      <h1>Welcome to page 2</h1>
-    </section>
+    <header>
+      <div class="container header-container">
+  <nav class="header-nav">
+    <a href="../index.html" class="header-logo-wrap">
+      <svg class="header-logo-icon" width="24" height="24">
+        <use href="../img/icons-sprite.svg#logo"></use>
+      </svg>
+      <!-- <svg class="header-logo-text" width="20" height="20">
+        <use href="../img/icons-sprite.svg#cart-icon"></use>
+      </svg> -->
+      <p class="header-logo-text">Need SVG</p>
+    </a>
+    <div class="header-auth-wrap">
+      <ul class="header-hidden-auth-list hidden">
+        <li class="header-hidden-auth-item">
+          <p class="header-hidden-auth-btn">HOME</p>
+        </li>
+        <li class="header-hidden-auth-item">
+          <a href="#" class="header-hiddeh-auth-basket">
+            <p class="header-hidden-auth-text">Shopping list</p>
+            <svg class="header-hidden-auth-icon" width="20" height="20">
+              <use href="../img/icons-sprite.svg#cart-icon"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <ul class="header-login-checkbox-block">
+        <li class="header-login-checkbox">
+          <input
+            type="checkbox"
+            id="theme-checkbox"
+            class="header-theme-checkbox"
+          />
+          <label class="header-theme-toggle" for="theme-checkbox"></label>
+          <div class="header-checkbox-circle"></div>
+        </li>
+        <li class="header-logout-block visually-hidden">
+          <p class="header-logout-text">Log in</p>
+          <svg class="header-logout-auth-arrow" width="20" height="20">
+            <use href="../img/icons-sprite.svg#arrow-right-sign-up"></use>
+          </svg>
+        </li>
+        <li class="header-login-overlay-block">
+          <svg class="header-overlay-auth-icon" width="20" height="20">
+            <use href="../img/icons-sprite.svg#user-icon"></use>
+          </svg>
+          <p class="header-overlay-user-name">STEPHAN</p>
+          <svg class="header-overlay-auth-arrow" width="20" height="20">
+            <use href="../img/icons-sprite.svg#arrow-down-user-menu-open"></use>
+          </svg>
+          <a class="header-overlay-wrap">
+            <p href="#" class="header-logout-link">Logout</p>
+            <svg class="header-logout-auth-arrow" width="20" height="20">
+              <use href="../img/icons-sprite.svg#arrow-right-sign-up"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div>
+    <button type="button" id="burger-menu" class="hamburger">
+      <span class="line-top"></span>
+      <span class="line-middle"></span>
+      <span class="line-bottom"></span>
+    </button>
+    <!-- sign up -->
+    <div id="menu" class="hamburger-overlay container">
+      <button type="button" class="button menu-sign-up-btn visually-hidden">
+        <span class="menu-btn-text">Sign up</span>
+        <svg class="menu-arrow-right" width="20" height="20">
+          <use href="/project-js-debug-dragons/assets/icons-sprite-1d11e0ff.svg#arrow-right-sign-up"></use>
+        </svg>
+      </button>
+
+      <!-- user -->
+      <div class="mob-menu-user">
+        <svg class="header-overlay-auth-icon" width="37" height="37">
+          <use href="../img/icons-sprite.svg#user-icon"></use>
+        </svg>
+        <p class="mob-menu-user-text">Stephen</p>
+      </div>
+
+      <div class="mob-menu-user-buttons">
+        <button type="button" class="button mob-menu-home-btn">
+          <a href="">HOME</a>
+        </button>
+        <div class="mob-menu-shoping">
+          <a href="" class="mob-menu-shoping-link">Shopping list</a>
+          <svg class="" width="" height="">
+            <use href=""></use>
+          </svg>
+        </div>
+      </div>
+
+      <div class="mob-menu-gallery">
+        <ul class="mob-menu-gallery-list"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </header>
+    <main>
+      <section>
+        <div class="container">
+          <div class="wrapper">
+            <div class="sidebar">
+              <div class="filter-categories">
+                <div class="categories">
+  <div class="categories__box" data-simplebar>
+    <a class="categories_link" href="./index.html">
+      <h3 class="categories__title">All CATIGORIES</h3>
+    </a>
+
+    <ul class="categories__list">
+      <!-- <li class="categories__list-item">Combined Print and E-book Fiction</li> -->
+    </ul>
+  </div>
+</div>
+
+              </div>
+              <div class="support"><div class="support-block">
+  <div class="support-sect">
+    <div class="support-title-group">
+      <h2 class="support-title">Support Ukraine</h2>
+      <svg class="support-icon" width="20" height="32">
+        <use href="../img/icons-sprite.svg#ukraine-emblem"></use>
+      </svg>
+    </div>
+    <!-- <div class="support-overlay"> -->
+    <ul class="support-list"></ul>
+    <!-- </div> -->
+    <button class="support-slide-btn">
+      <svg class="support-slide-down-btn" width="20" height="20">
+        <use href="../img/icons-sprite.svg#arrow-down-slider-icon"></use>
+      </svg>
+      <svg class="support-slide-up-btn hidden" width="20" height="20">
+        <use href="../img/icons-sprite.svg#arrow-up-slider-up-icon"></use>
+      </svg>
+    </button>
+  </div>
+</div>
+</div>
+            </div>
+            <div class="page-2-shoppinglist">
+              <div class="shopping-list-container">
+  <h1 class="shopping-list-title">
+    Shopping <span class="shopping-list-title-accent">List</span>
+  </h1>
+  <div class="shopping-list-content">
+    <ul class="cart-list"></ul>
+    <div id="pagination" class="tui-pagination"></div>
+    <div class="empty-cart">
+      <p class="empty-cart-text">
+        This page is empty, add some books and proceed to order.
+      </p>
+      <img src="/project-js-debug-dragons/assets/empty-42bfb321.png" alt="book" class="empty-cart-img" />
+    </div>
+  </div>
+</div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    
   </body>
 </html>
