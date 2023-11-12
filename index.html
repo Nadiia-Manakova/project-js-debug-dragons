@@ -19,8 +19,9 @@
       referrerpolicy="no-referrer"
     />
     
-    <script type="module" crossorigin src="/project-js-debug-dragons/assets/vendor-1ac408a8.js"></script>
-    <script type="module" crossorigin src="/project-js-debug-dragons/assets/burgerMenu-cb1792af.js"></script>
+    <script type="module" crossorigin src="/project-js-debug-dragons/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-js-debug-dragons/assets/vendor-6ba42902.js">
+    <link rel="modulepreload" crossorigin href="/project-js-debug-dragons/assets/burgerMenu-ce4918d7.js">
     <link rel="stylesheet" href="/project-js-debug-dragons/assets/vendor-1c6fdaf9.css">
     <link rel="stylesheet" href="/project-js-debug-dragons/assets/burgerMenu-54d7e865.css">
   </head>
@@ -38,12 +39,12 @@
       <p class="header-logo-text">Need SVG</p>
     </a>
     <div class="header-auth-wrap">
-      <ul class="header-hidden-auth-list hidden">
+      <ul class="header-hidden-auth-list">
         <li class="header-hidden-auth-item">
           <p class="header-hidden-auth-btn">HOME</p>
         </li>
         <li class="header-hidden-auth-item">
-          <a href="#" class="header-hiddeh-auth-basket">
+          <a href="../page-2.html" class="header-hiddeh-auth-basket">
             <p class="header-hidden-auth-text">Shopping list</p>
             <svg class="header-hidden-auth-icon" width="20" height="20">
               <use href="../img/icons-sprite.svg#cart-icon"></use>

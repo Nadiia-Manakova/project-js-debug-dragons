@@ -19,8 +19,8 @@
       referrerpolicy="no-referrer"
     />
     
-    <script type="module" crossorigin src="/project-js-debug-dragons/assets/vendor-1ac408a8.js"></script>
-    <script type="module" crossorigin src="/project-js-debug-dragons/assets/burgerMenu-cb1792af.js"></script>
+    <script type="module" crossorigin src="/project-js-debug-dragons/assets/vendor-6ba42902.js"></script>
+    <script type="module" crossorigin src="/project-js-debug-dragons/assets/burgerMenu-ce4918d7.js"></script>
     <link rel="stylesheet" href="/project-js-debug-dragons/assets/burgerMenu-54d7e865.css">
     <link rel="stylesheet" href="/project-js-debug-dragons/assets/vendor-1c6fdaf9.css">
   </head>
@@ -38,12 +38,12 @@
       <p class="header-logo-text">Need SVG</p>
     </a>
     <div class="header-auth-wrap">
-      <ul class="header-hidden-auth-list hidden">
+      <ul class="header-hidden-auth-list">
         <li class="header-hidden-auth-item">
           <p class="header-hidden-auth-btn">HOME</p>
         </li>
         <li class="header-hidden-auth-item">
-          <a href="#" class="header-hiddeh-auth-basket">
+          <a href="../page-2.html" class="header-hiddeh-auth-basket">
             <p class="header-hidden-auth-text">Shopping list</p>
             <svg class="header-hidden-auth-icon" width="20" height="20">
               <use href="../img/icons-sprite.svg#cart-icon"></use>
@@ -134,20 +134,6 @@
         <div class="container">
           <div class="wrapper">
             <div class="sidebar">
-              <div class="filter-categories">
-                <div class="categories">
-  <div class="categories__box" data-simplebar>
-    <a class="categories_link" href="./index.html">
-      <h3 class="categories__title">All CATIGORIES</h3>
-    </a>
-
-    <ul class="categories__list">
-      <!-- <li class="categories__list-item">Combined Print and E-book Fiction</li> -->
-    </ul>
-  </div>
-</div>
-
-              </div>
               <div class="support"><div class="support-block">
   <div class="support-sect">
     <div class="support-title-group">
@@ -193,6 +179,75 @@
         </div>
       </section>
       
+      <!-- TEMPORARY BLOCK : -->
+<div>
+  <p>Тимчасові кнопки для тестування</p>
+  <button type="button" class="auth-modal-open">SIGN UP</button>
+  <button type="button" class="js-sign-out-btn">EXIT</button>
+  <button type="button" class="dbw">Write list to DB</button>
+  <button type="button" class="dbr">Read list from DB</button>
+</div>
+<!-- MODAL : -->
+<div class="auth-modal-backdrop auth-backdrop-hidden">
+  <div class="auth-eclipse-1"></div>
+  <div class="auth-modal">
+    <button class="auth-modal-close">
+      <svg class="auth-modal-close-icon">
+        <use href="/project-js-debug-dragons/assets/icons-sprite-1d11e0ff.svg#x-close-btn"></use>
+      </svg>
+    </button>
+    <div class="js-sign-up">
+      <form class="auth-modal-form js-sign-up-form">
+        <input
+          type="text"
+          class="auth-modal-input"
+          name="username"
+          placeholder="Name"
+          required
+        />
+        <input
+          type="email"
+          class="auth-modal-input"
+          name="email"
+          placeholder="Email"
+          required
+        />
+        <input
+          type="password"
+          class="auth-modal-input"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <button type="submit" class="auth-modal-submit">Sign up</button>
+      </form>
+    </div>
+    <div class="js-sign-in auth-hidden">
+      <form class="auth-modal-form js-sign-in-form">
+        <input
+          type="email"
+          class="auth-modal-input"
+          name="email"
+          placeholder="Email"
+          required
+        />
+        <input
+          type="password"
+          class="auth-modal-input"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <button type="submit" class="auth-modal-submit">Sign in</button>
+      </form>
+    </div>
+    <ul class="auth-modal-links">
+      <li class="js-sign-up-link active">Sign up</li>
+      <li class="js-sign-in-link">Sign in</li>
+    </ul>
+  </div>
+</div>
+
     </main>
     
   </body>
