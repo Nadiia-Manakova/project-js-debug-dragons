@@ -73,9 +73,5 @@ function onScrollWindow() {
     evt.preventDefault();
       document.documentElement.scrollTop = 0;
     };
-    
 }
-
-
-
 
