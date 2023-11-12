@@ -3,6 +3,7 @@
 }
 
 .hamburger {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,11 +19,6 @@
   background-color: transparent;
 }
 
-/* .hamburger:hover,
-.hamburger:focus {
-  background-color: transparent;
-  color: transparent;
-} */
 @media only screen and (min-width: 768px) {
   .hamburger {
     display: none;
