@@ -23,13 +23,14 @@ document.addEventListener('click', onClickOpenModalWindow)
 function onClickOpenModalWindow(evt) {
   console.log(evt)
   
+// .list_five_books
 
-  if (!evt.target.closest('.list_five_books')) {
+  if (!evt.target.closest('.modal-list')) {
     return;
   }
   console.log(evt.target);
   evt.preventDefault();
-  const bookEl = evt.target.closest('.list_five_books');
+  const bookEl = evt.target.closest('.modal-list'); 
   const bookId = bookEl.dataset.id;
   console.log(bookId);
  
@@ -42,7 +43,7 @@ function onClickOpenModalWindow(evt) {
    <div class="modal-book-js" data-id="${_id}">
           <button type="button" class="modal-book-btn-close">
           <svg class="icons-modal"  width="12" height="12">
-          <use href="../img/icons-sprite.svg#x-close-btn"></use>
+          <use href="./img/icons-sprite.svg#x-close-btn"></use>
         </svg>
         </button>
           <img src="${book_image}" alt="${title}" class="modal-img-book widht="192" height="281"/>
@@ -54,12 +55,12 @@ function onClickOpenModalWindow(evt) {
           <ul class="modal-book-list-shops">
             <li class="modal-book-shops-item">
              <a href="${amazon}" target="_blank" class="">
-             <img src="../img/amazon.png" alt="" widht="62" height="19" class="modal-img-shop"/> 
+             <img src="./img/amazon.png" alt="" widht="62" height="19" class="modal-img-shop"/> 
              </a>
             </li>
             <li class="modal-book-shops-item">
              <a href="${appleBook}" target="_blank" class="">
-             <img src="../img/apple-books.png" alt="" widht="33" height="32" class="modal-img-shop"/> 
+             <img src="./img/apple-books.png" alt="" widht="33" height="32" class="modal-img-shop"/> 
              </a>
              </li>
     
