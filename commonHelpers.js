@@ -1,26 +1,26 @@
-import{g as x,a as v,b as M}from"./assets/burgerMenu-24ad0f46.js";import{N as L,a as E,b as N}from"./assets/vendor-e8a5e68e.js";const j=document.querySelector(".title_best_sellers"),d=document.querySelector(".list_general");let c=0,b=window.innerWidth;b>=996?c=5:b>=720?c=3:b>=240&&(c=1);x().then(e=>{console.log(e),K(e)}).catch(e=>{L.Notify.failure("An error occurred while fetching images. Please try again.")});function I(){let e=this.getAttribute("data-my-attribute");v(e).then(t=>{j.style.display="none",d.innerHTML="",w(t)}).catch(t=>{L.Notify.failure("An error occurred while fetching images. Please try again.")})}function O(e){return e.books.slice(0,c).map(t=>{let o=S(t),s=$(t);return`
-      <li class="list_five_books" data-id="${t._id}">
-        <img class="img_books" src="${t.book_image}" alt=""/>
+import{g as x,a as v,b as M}from"./assets/burgerMenu-83b980d7.js";import{N as L,a as E,b as N}from"./assets/vendor-e8a5e68e.js";const j=document.querySelector(".title_best_sellers"),d=document.querySelector(".list_general");let c=0,b=window.innerWidth;b>=996?c=5:b>=720?c=3:b>=240&&(c=1);x().then(t=>{console.log(t),K(t)}).catch(t=>{L.Notify.failure("An error occurred while fetching images. Please try again.")});function I(){let t=this.getAttribute("data-my-attribute");v(t).then(e=>{j.style.display="none",d.innerHTML="",w(e)}).catch(e=>{L.Notify.failure("An error occurred while fetching images. Please try again.")})}function O(t){return t.books.slice(0,c).map(e=>{let o=S(e),s=$(e);return`
+      <li class="list_five_books" data-id="${e._id}">
+        <img class="img_books" src="${e.book_image}" alt=""/>
         <h3 class="title_general">${o}</h3>
         <p class="author_general">${s}</p>
       </li>
-    `}).join("")}function H(e){return e.map(t=>{const o=O(t);return`
+    `}).join("")}function H(t){return t.map(e=>{const o=O(e);return`
       <div class="div_five_books"><li class="list_five_books">
-        <h2 class="text_general">${t.list_name}</h2>
+        <h2 class="text_general">${e.list_name}</h2>
         <ul class="list_five_general">${o}</ul>
-        <button class="btn" data-my-attribute="${t.list_name}">SEE MORE</button>
+        <button class="btn" data-my-attribute="${e.list_name}">SEE MORE</button>
       </li></div>
-    `}).join("")}function K(e){window.scrollTo(0,0);const t=H(e);d.insertAdjacentHTML("beforeend",t),document.querySelectorAll(".btn").forEach(s=>{s.addEventListener("click",I)})}function R(e){return e.slice(0,1).map(t=>t.list_name.split(" ").map(o=>`<span>${o}</span>`).join(" "))}function S(e){return e.title.length>17?e.title.substring(0,17)+"...":e.title}function $(e){return e.author.length>25?e.author.substring(0,25)+"...":e.author}function P(e){return e.map(t=>{let o=S(t),s=$(t);return`<li class="list_five_books">
-        <img class="img_books" src="${t.book_image}" alt=""/>
+    `}).join("")}function K(t){window.scrollTo(0,0);const e=H(t);d.insertAdjacentHTML("beforeend",e),document.querySelectorAll(".btn").forEach(s=>{s.addEventListener("click",I)})}function R(t){return t.slice(0,1).map(e=>e.list_name.split(" ").map(o=>`<span>${o}</span>`).join(" "))}function S(t){return t.title.length>17?t.title.substring(0,17)+"...":t.title}function $(t){return t.author.length>25?t.author.substring(0,25)+"...":t.author}function P(t){return t.map(e=>{let o=S(e),s=$(e);return`<li class="list_five_books">
+        <img class="img_books" src="${e.book_image}" alt=""/>
         <h3 class="title_general">${o}</h3>
         <p class="author_general">${s}</p>
-        <h1 hidden>${t.list_name}</h1>
-      </li>`}).join("")}function Y(e,t){return`<div class='div_category'><h1 class="title-category">${e}</h1></><ul class="list_five_general">${t}</ul>
-  <button class="btn_back">BACK</button></div>`}function w(e){window.scrollTo(0,0);const t=P(e),o=R(e),s=Y(o,t);d.insertAdjacentHTML("beforeend",s),document.querySelector(".btn_back").addEventListener("click",z)}function z(){location.reload()}const l={galleryTitle:document.querySelector(".list_general-title"),filterListEl:document.querySelector(".categories__list"),categoriesTitle:document.querySelector(".categories__title"),title:document.querySelector(".title_best_sellers")};console.log(l.title);function D(e){M().then(t=>{const o=t.data;o.sort((s,a)=>s.list_name.localeCompare(a.list_name)),J(o)})}function J(e){const t=e.map(o=>`<li class="categories__list-item">${o.list_name}</li>`);l.filterListEl.insertAdjacentHTML("beforeend",t.join(""))}D();l.filterListEl.addEventListener("click",W);function W(e){F(e);const t=e.target.textContent;v(t).then(o=>{d.innerHTML="",w(o),l.title.style.display="none"}).catch(o=>{Notiflix.Notify.failure("An error occurred while fetching images. Please try again.")})}function F(e){if(e.target.tagName==="LI"){const t=l.filterListEl.querySelector(".selected-category");t&&t.classList.remove("selected-category"),e.target.classList.add("selected-category")}l.categoriesTitle.style.color="var(--text-color)"}E.defaults.baseURL="https://books-backend.p.goit.global/books/";async function _(e){const{data:t}=await E(e);return console.log(t),t}document.querySelector(".list");const y=document.querySelector("body"),r=[];document.addEventListener("click",G);function G(e){if(console.log(e),!e.target.closest(".list_five_books"))return;console.log(e.target),e.preventDefault();const o=e.target.closest(".list_five_books").dataset.id;console.log(o),_(o).then(s=>{console.log(r);const{_id:a,author:C,book_image:q,title:p,description:A,buy_links:[{url:T},{url:B}]}=s,u=N.create(`
+        <h1 hidden>${e.list_name}</h1>
+      </li>`}).join("")}function Y(t,e){return`<div class='div_category'><h1 class="title-category">${t}</h1></><ul class="list_five_general">${e}</ul>
+  <button class="btn_back">BACK</button></div>`}function w(t){window.scrollTo(0,0);const e=P(t),o=R(t),s=Y(o,e);d.insertAdjacentHTML("beforeend",s),document.querySelector(".btn_back").addEventListener("click",z)}function z(){location.reload()}const l={galleryTitle:document.querySelector(".list_general-title"),filterListEl:document.querySelector(".categories__list"),categoriesTitle:document.querySelector(".categories__title"),title:document.querySelector(".title_best_sellers")};console.log(l.title);function D(t){M().then(e=>{const o=e.data;o.sort((s,a)=>s.list_name.localeCompare(a.list_name)),J(o)})}function J(t){const e=t.map(o=>`<li class="categories__list-item">${o.list_name}</li>`);l.filterListEl.insertAdjacentHTML("beforeend",e.join(""))}D();l.filterListEl.addEventListener("click",W);function W(t){F(t);const e=t.target.textContent;v(e).then(o=>{d.innerHTML="",w(o),l.title.style.display="none"}).catch(o=>{Notiflix.Notify.failure("An error occurred while fetching images. Please try again.")})}function F(t){if(t.target.tagName==="LI"){const e=l.filterListEl.querySelector(".selected-category");e&&e.classList.remove("selected-category"),t.target.classList.add("selected-category")}l.categoriesTitle.style.color="var(--text-color)"}E.defaults.baseURL="https://books-backend.p.goit.global/books/";async function _(t){const{data:e}=await E(t);return console.log(e),e}document.querySelector(".list");const y=document.querySelector("body"),r=[];document.addEventListener("click",G);function G(t){if(console.log(t),!t.target.closest(".modal-list"))return;console.log(t.target),t.preventDefault();const o=t.target.closest(".modal-list").dataset.id;console.log(o),_(o).then(s=>{console.log(r);const{_id:a,author:C,book_image:q,title:p,description:A,buy_links:[{url:T},{url:B}]}=s,u=N.create(`
    <div class="modal-book-js" data-id="${a}">
           <button type="button" class="modal-book-btn-close">
           <svg class="icons-modal"  width="12" height="12">
-          <use href="../img/icons-sprite.svg#x-close-btn"></use>
+          <use href="./img/icons-sprite.svg#x-close-btn"></use>
         </svg>
         </button>
           <img src="${q}" alt="${p}" class="modal-img-book widht="192" height="281"/>
@@ -32,12 +32,12 @@ import{g as x,a as v,b as M}from"./assets/burgerMenu-24ad0f46.js";import{N as L,
           <ul class="modal-book-list-shops">
             <li class="modal-book-shops-item">
              <a href="${T}" target="_blank" class="">
-             <img src="../img/amazon.png" alt="" widht="62" height="19" class="modal-img-shop"/> 
+             <img src="./img/amazon.png" alt="" widht="62" height="19" class="modal-img-shop"/> 
              </a>
             </li>
             <li class="modal-book-shops-item">
              <a href="${B}" target="_blank" class="">
-             <img src="../img/apple-books.png" alt="" widht="33" height="32" class="modal-img-shop"/> 
+             <img src="./img/apple-books.png" alt="" widht="33" height="32" class="modal-img-shop"/> 
              </a>
              </li>
     
