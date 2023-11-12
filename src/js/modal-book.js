@@ -2,7 +2,6 @@
 import * as basicLightbox from 'basiclightbox';
 import "basiclightbox/dist/basicLightbox.min.css";
 
-
     axios.defaults.baseURL = 'https://books-backend.p.goit.global/books/';
    
 
@@ -13,10 +12,8 @@ async function getBooksId(id) {
     return data;
 }
 
-
 const listElement = document.querySelector('.list');//изменить
 const bodyEl = document.querySelector('body');
-
 
  
 const arr = [];
@@ -55,14 +52,14 @@ function onClickOpenModalWindow(evt) {
           <p class="modal-book-description">${description}</p>
           <div class="modal-list-shops">
           <ul class="modal-book-list-shops">
-            <li>amason
-             <a href="#" target="_blank" class="">
-             <img crs="../img/amazon.png" alt="" widht="62" height="19"/> 
+            <li class="modal-book-shops-item">
+             <a href="${amazon}" target="_blank" class="">
+             <img src="../img/amazon.png" alt="" widht="62" height="19" class="modal-img-shop"/> 
              </a>
             </li>
-            <li>apple-book
-             <a href="#" target="_blank" class="">
-             <img crs="../img/apple-books.png" alt="" widht="62" height="19"/> 
+            <li class="modal-book-shops-item">
+             <a href="${appleBook}" target="_blank" class="">
+             <img src="../img/apple-books.png" alt="" widht="33" height="32" class="modal-img-shop"/> 
              </a>
              </li>
     
@@ -156,21 +153,3 @@ function escPress(evt) {
   
   }
  
-//buy_links: [{url:amazon}, {url:appleBook}]
- 
-
-//Відмальовка біблотеки
-// function renderBooks(data) {
-
-//   return data.map(({ _id, book_image, title, author }) =>
-//     `<li class="users-list-item" data-id="${_id}">
-//         <img src="${book_image}" alt="${title}" width=300 height=450/>
-//       <div>
-//         <h2 class="title">${title}</h2>
-//            <p>${author}</p>
-//      </div>
-//       </li>
-//     `
-//   ).join('')
-  
-// }
