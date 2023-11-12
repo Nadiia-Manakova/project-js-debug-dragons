@@ -27,7 +27,7 @@ document.addEventListener("click", handlerDeleteCart);
         data = JSON.parse(localStorage.getItem(LOCAL_KEY));
         if (!data.length) {
             emptyCart.style.display = "block";
-            return;
+            //return;
         }
         emptyCart.style.display = "none";
         cartList.innerHTML = createCartMurkup(data);
