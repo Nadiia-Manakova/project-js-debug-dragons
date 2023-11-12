@@ -56,46 +56,52 @@
         </li>
       </ul>
     </div>
-  </nav>
-
-  <div>
-    <button type="button" id="burger-menu" class="hamburger">
-      <span class="line-top"></span>
-      <span class="line-middle"></span>
-      <span class="line-bottom"></span>
-    </button>
-    <!-- sign up -->
-    <div id="menu" class="hamburger-overlay container">
-      <button type="button" class="button menu-sign-up-btn visually-hidden">
-        <span class="menu-btn-text">Sign up</span>
-        <svg class="menu-arrow-right" width="20" height="20">
-          <use href="./img/icons-sprite.svg#arrow-right-sign-up"></use>
-        </svg>
+    <!--*** burger ***-->
+    <div>
+      <button type="button" id="burger-menu" class="hamburger">
+        <span class="line-top"></span>
+        <span class="line-middle"></span>
+        <span class="line-bottom"></span>
       </button>
-
-      <!-- user -->
-      <div class="mob-menu-user">
-        <svg class="header-overlay-auth-icon" width="37" height="37">
-          <use href="./img/icons-sprite.svg#user-icon"></use>
-        </svg>
-        <p class="mob-menu-user-text">Stephen</p>
-      </div>
-
-      <div class="mob-menu-user-buttons">
-        <button type="button" class="button mob-menu-home-btn">
-          <a href="">HOME</a>
-        </button>
-        <div class="mob-menu-shoping">
-          <a href="" class="mob-menu-shoping-link">Shopping list</a>
-          <svg class="mob-menu-shoping-ico" width="20" height="20">
-            <use href="./img/icons-sprite.svg#cart-icon"></use>
+      <!-- sign up -->
+      <div id="menu" class="hamburger-overlay container">
+        <button type="button" class="button menu-sign-up-btn visually-hidden">
+          <span class="menu-btn-text">Sign up</span>
+          <svg class="menu-arrow-right" width="20" height="20">
+            <use href="./img/icons-sprite.svg#arrow-right-sign-up"></use>
           </svg>
+        </button>
+
+        <!-- user -->
+        <div class="mob-menu-user">
+          <svg class="header-overlay-auth-icon" width="37" height="37">
+            <use href="./img/icons-sprite.svg#user-icon"></use>
+          </svg>
+          <p class="mob-menu-user-text">Stephen</p>
+        </div>
+
+        <div class="mob-menu-user-buttons">
+          <button type="button" class="button mob-menu-home-btn">
+            <a href="">HOME</a>
+          </button>
+          <div class="mob-menu-shoping">
+            <a href="" class="mob-menu-shoping-link">Shopping list</a>
+            <svg class="mob-menu-shoping-ico" width="20" height="20">
+              <use href="./img/icons-sprite.svg#cart-icon"></use>
+            </svg>
+          </div>
+        </div>
+        <!-- modal window -->
+        <div class="mob-menu-gallery">
+          <ul class="mob-menu-gallery-list"></ul>
         </div>
       </div>
-
-      <div class="mob-menu-gallery">
-        <ul class="mob-menu-gallery-list"></ul>
-      </div>
     </div>
-  </div>
+  </nav>
+  <!-- scroll to top button -->
+  <button id="scrollTop" type="button" class="scroll-to-top-button">
+    <svg class="arrow-up-btn" width="64" height="64">
+      <use href="./img/icons-sprite.svg#arrow-up-scroll-up-icon"></use>
+    </svg>
+  </button>
 </div>
