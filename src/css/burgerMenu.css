@@ -18,11 +18,11 @@
   background-color: transparent;
 }
 
-.hamburger:hover,
+/* .hamburger:hover,
 .hamburger:focus {
   background-color: transparent;
   color: transparent;
-}
+} */
 @media only screen and (min-width: 768px) {
   .hamburger {
     display: none;
@@ -259,8 +259,7 @@
   opacity: 1;
 }
 
-.scroll-to-top-button:hover,
-.scroll-to-top-button:focus {
+.scroll-to-top-button:hover {
   background: transparent;
   box-shadow: 0 0 1px 20px rgba(138, 59, 88, 0.1),
     0 0 1px 10px rgba(59, 71, 138, 0.1);

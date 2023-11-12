@@ -72,7 +72,10 @@ function onScrollWindow() {
   scrollToTopBtn.onclick = (evt) => {
     evt.preventDefault();
       document.documentElement.scrollTop = 0;
-      scrollToTopBtn.classList.remove("show");
     };
     
 }
+
+
+
+
