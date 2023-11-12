@@ -38,7 +38,7 @@ const options = {
          currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
          moveButton:
              '<a href="#" class="tui-page-btn tui-{{type}}">' +
-                 '<span class="tui-ico-{{type}}"></span>' +
+                 '<span class="tui-ico-{{type}}">{{type}}</span>' +
              '</a>',
          disabledMoveButton:
              '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
@@ -51,12 +51,6 @@ const options = {
      }
 }
 
-//  `<a href="#" class="tui-page-btn tui-{{type}}"> 
-//                  <span class="tui-ico-{{type}}"><svg class="" width="24" height="24">
-//                 <use href="../img/icons-sprite.svg#arrow-left-previous-page-icon"></use>
-//                 </svg></span> 
-//              </a>`
-
 let pagination = new Pagination(container, options);
 
 
@@ -67,7 +61,6 @@ document.addEventListener("click", handlerDeleteCart);
 pagination.on('afterMove', (event) => {
     let currentPage = event.page;
      cartList.innerHTML = createCartMurkup(data, currentPage);
-    console.log('currentPage Global after :>> ', currentPage);
 });
 
 
@@ -80,14 +73,13 @@ pagination.on('afterMove', (event) => {
 
 // ----------------------------------------------------------------------------------------РОЗМІТКА
 
-
 function createCartMurkup(arr, currentPage) {
     cartList.innerHTML = "";
     const start = itemPerPage * (currentPage-1);
     const end = start + itemPerPage;
     const paginatedData = arr.slice(start, end);
     return paginatedData.map(({ _id, author, book_image, title, description, buy_links: [{url:amazon}, {url:appleBook}], list_name }) =>
-       ` <li class="cart-item" data-id ="${_id}">
+        ` <li class="cart-item" data-id ="${_id}">
             <img src="${book_image}" alt="${title}" class="cart-item-img">
             <div class="cart-item-content">
             <div class="cart-content-header">
@@ -112,20 +104,27 @@ function createCartMurkup(arr, currentPage) {
 
 // ----------------------------------------------------------------------------------------ВИДАЛЕННЯ ЕЛЕМЕНТІВ КОРЗИНИ
 
+
 function handlerDeleteCart(e) {
     if (!e.target.closest(".cart-item-delete")) return;
    
     const idOfBook = e.target.closest(".cart-item").dataset.id;
     try {
+        const indexToDelete = data.findIndex(({ _id }) => _id === idOfBook);
+        const oldPage = Math.floor(indexToDelete / itemPerPage + 1);
         const products = data.filter(({ _id }) => _id !== idOfBook);
         localStorage.setItem(LOCAL_KEY, JSON.stringify(products));
         data = JSON.parse(localStorage.getItem(LOCAL_KEY));
+        const pageCount = Math.floor((products.length - 1) / itemPerPage + 1);
+        pagination.setTotalItems(products.length);
+        pagination.reset(products.length);
+        pagination.movePageTo(oldPage > pageCount ? pageCount : oldPage);
+
         if (data.length <=itemPerPage) {
             container.style.display = "none";
         } 
-        pagination.setTotalItems(data.length);
-        pagination.reset(data.length);
         let currentPage = pagination.getCurrentPage();
+       
         cartList.innerHTML = createCartMurkup(data, currentPage);
   } catch (error) {
     console.error("Get state error: ", error.message);
@@ -134,6 +133,7 @@ function handlerDeleteCart(e) {
     emptyCart.style.display = "block";
 }
 }
+
 
 
 
