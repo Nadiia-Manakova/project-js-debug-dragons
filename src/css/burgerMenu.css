@@ -146,12 +146,13 @@
 }
 
 .mob-menu-gallery-item {
-  /* position: absolute; */
   width: 150px;
   height: 233px;
 }
 .mob-menu-image {
   border-radius: 10px;
+  width: 100%;
+  height: 230px;
 }
 
 /* sign up */
@@ -265,4 +266,35 @@
   fill: white;
   width: 64px;
   height: 64px;
+}
+
+.mob-menu-logout-icon {
+  stroke: var(--accent-color);
+}
+
+.mob-menu-logout-btn {
+  width: 118px;
+  height: 48px;
+  border-radius: 18px;
+  border: 1.5px solid #111;
+  background: #fff;
+  text-transform: none;
+  position: absolute;
+  left: 20px;
+  bottom: 80px;
+  z-index: 1;
+}
+
+.mob-menu-logout-text {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: -0.56px;
+}
+
+.mob-menu-logout-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
 }
