@@ -9,8 +9,13 @@ export const titleBestSellers = document.querySelector('.title_best_sellers');
 
 let n = 0;
 let width = window.innerWidth;
+<<<<<<< Updated upstream
 if (width >= 1440) {
   n = 5;
+=======
+if (width >= 996) {
+    n = 5;
+>>>>>>> Stashed changes
 } else if (width >= 720) {
   n = 3;
 } else if (width >= 240) {
@@ -52,8 +57,8 @@ function getBooksMarkup(category) {
       let shortAutor = shortAutorBooks(book);
       return `
       <li class="list_five_books" data-id="${book._id}">
-        <img src="${book.book_image}" alt="" width = "180" height="256" />
-        <h2 class="title_general">${shortTitle}</h2>
+        <img class="img_books" src="${book.book_image}" alt=""/>
+        <h3 class="title_general">${shortTitle}</h3>
         <p class="author_general">${shortAutor}</p>
       </li>
     `;
@@ -66,8 +71,8 @@ function getMarkupAll(allCategory) {
     .map(category => {
       const booksMarkup = getBooksMarkup(category);
       return `
-      <div class="div_five_books"><li class="list_five_books"
-        <p class="text_general">${category.list_name}</p>
+      <div class="div_five_books"><li class="list_five_books">
+        <h2 class="text_general">${category.list_name}</h2>
         <ul class="list_five_general">${booksMarkup}</ul>
         <button class="btn" data-my-attribute="${category.list_name}">SEE MORE</button>
       </li></div>
@@ -116,9 +121,9 @@ function getmarkupLi(catalogs) {
       let shortAutor = shortAutorBooks(book);
 
       return `<li class="list_five_books">
-        <img src="${book.book_image}" alt="" width = "180" height="256" />
-        <h2 class="title_general">${shortTitle}</h2>
-        <p class="text_general">${shortAutor}</p>
+        <img class="img_books" src="${book.book_image}" alt=""/>
+        <h3 class="title_general">${shortTitle}</h3>
+        <p class="author_general">${shortAutor}</p>
         <h1 hidden>${book.list_name}</h1>
       </li>`;
     })
