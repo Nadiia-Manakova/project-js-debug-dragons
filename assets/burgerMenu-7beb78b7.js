@@ -11,4 +11,4 @@ import{i as U,g as I,o as q,c as A,u as T,s as D,d as M,e as b,f as x,r as k,h a
 <li class="mob-menu-gallery-item">
     <img loading="lazy" class="mob-menu-image" src="${o.book_image}" alt="${o.title}" >
 </li>`).join("");B.insertAdjacentHTML("afterbegin",s),ie()}).catch(e=>{console.log(e)});function E(e,t){e+=.3*t;const n=-1500,s=0;(e<=n||e>=s)&&(t*=-1),B.style.transform=`translateX(${e}px)`,requestAnimationFrame(()=>{E(e,t)})}function ie(){E(0,-1)}window.addEventListener("scroll",re);function re(){const e=document.documentElement.scrollTop>300;m.classList.toggle("show",e),m.onclick=t=>{t.preventDefault(),document.documentElement.scrollTop=0,m.classList.remove("show")}}export{ce as a,ue as b,X as g};
-//# sourceMappingURL=burgerMenu-b736a7a2.js.map
+//# sourceMappingURL=burgerMenu-7beb78b7.js.map
