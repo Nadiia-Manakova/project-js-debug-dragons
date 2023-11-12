@@ -14,6 +14,9 @@
   border: none;
   background-color: transparent;
 }
+.hamburger.hamburger.close {
+  background-color: transparent;
+}
 
 .hamburger:hover,
 .hamburger:focus {
@@ -73,6 +76,7 @@
   position: fixed;
   visibility: hidden;
   opacity: 0;
+  transition: opacity 500ms cubic-bezier(0.2, 0, 0.7, 1);
 }
 
 @media only screen and (min-width: 768px) {
@@ -132,23 +136,23 @@
 
 .mob-menu-gallery {
   position: absolute;
-  bottom: -200px;
-  left: -100px;
+  top: 400px;
+
   rotate: -15deg;
 }
 
 .mob-menu-gallery-list {
   display: flex;
+  position: absolute;
   flex-wrap: wrap;
   gap: 10px;
-  justify-content: space-around;
-  align-items: center;
-  width: 1800px;
+  width: 3000px;
 }
 
 .mob-menu-gallery-item {
-  width: 75px;
-  height: 133px;
+  /* position: absolute; */
+  width: 150px;
+  height: 233px;
 }
 .mob-menu-image {
   border-radius: 10px;
@@ -194,7 +198,76 @@
 }
 
 .mob-menu-user-buttons {
+  margin-left: 120px;
+}
+
+.mob-menu-home-btn {
+  margin-bottom: 16px;
 }
 
 .mob-menu-shoping {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.mob-menu-shoping-ico {
+  fill: var(--white-color);
+}
+
+.mob-menu-shoping-link {
+  color: #fff;
+
+  font-family: DM Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.56px;
+  text-transform: uppercase;
+}
+
+/**
+  |============================
+  | arrow up button
+  |============================
+*/
+
+.scroll-to-top-container {
+  position: fixed;
+  right: 20px;
+  bottom: 140px;
+  z-index: 899;
+}
+
+.scroll-to-top-button {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  opacity: 0;
+  transition: box-shadow 400ms cubic-bezier(0.2, 0, 0.7, 1),
+    transform 200ms cubic-bezier(0.2, 0, 0.7, 1),
+    opacity 500ms cubic-bezier(0.2, 0, 0.7, 1);
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll-to-top-button.show {
+  opacity: 1;
+}
+
+.scroll-to-top-button:hover,
+.scroll-to-top-button:focus {
+  background: transparent;
+  box-shadow: 0 0 1px 20px rgba(138, 59, 88, 0.1),
+    0 0 1px 10px rgba(59, 71, 138, 0.1);
+}
+
+.arrow-up-btn {
+  fill: white;
+  width: 64px;
+  height: 64px;
 }
