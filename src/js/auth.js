@@ -81,8 +81,23 @@ function signInHandler(event) {
   signInService(data.email, data.password);
 }
 
-// USER STATE AND PAGE MARKUP
-getUserAuthState();
+// GET USER AUTH STATE, PAGE RENDERING :
+
+onAuthStateChanged(auth, user => {
+  if (user) {
+    const userData = {
+      name: user.displayName,
+      email: user.email,
+      photo: user.photoURL,
+      uid: user.uid,
+    };
+    console.log(`User is signed in, we will show all modules`);
+    // TURN ON ALL MODULES
+  } else {
+    console.log(`User is signed out, we will hide some modules`);
+    // HIDE SOME MODULES
+  }
+});
 
 // SERVICES :
 
@@ -97,7 +112,6 @@ function signUpService(email, password, name) {
       toggleModal();
       console.log(`Welcome, ${name}!`);
       // Notiflix.Notify.success(`Welcome, ${name}!`);
-      console.log(getUserData());
     })
     .catch(error => {
       const errorCode = error.code;
@@ -113,8 +127,6 @@ function signInService(email, password) {
       const user = userCredential.user;
       console.log(`Welcome, ${user.displayName}!`);
       // Notiflix.Notify.success(`Welcome, ${user.displayName}!`);
-
-      console.log(getUserData());
       toggleModal();
     })
     .catch(error => {
@@ -137,23 +149,6 @@ function exitHandler() {
     });
 }
 
-// GET USER STATE:
-function getUserAuthState() {
-  onAuthStateChanged(auth, user => {
-    if (user) {
-      const userData = {
-        name: user.displayName,
-        email: user.email,
-        photo: user.photoURL,
-        uid: user.uid,
-      };
-      console.log(userData);
-      return userData;
-    } else {
-      console.log(`User is signed out`);
-    }
-  });
-}
 // GET USER DATA :
 function getUserData() {
   const user = auth.currentUser;
@@ -164,17 +159,19 @@ function getUserData() {
       photo: user.photoURL,
       uid: user.uid,
     };
+    console.log(userData);
     return userData;
+  } else {
+    console.log(`User is signed out. This function will return "undefined".`);
   }
 }
 
-//  write User Shopping List
+//  WRITE USER SHOPPING LIST :
 function writeUserShoppingList(booksArr) {
   if (!booksArr) {
     console.log('No data to write!');
     return;
   }
-  console.log(getUserData());
   const userData = getUserData();
   if (!userData) {
     console.log(`User is not authorized!`);
@@ -189,7 +186,7 @@ function writeUserShoppingList(booksArr) {
   console.log(`Success!`);
 }
 
-// read User Shopping List
+// READ USER SHOPPING LIST :
 function readUserShoppingList() {
   const userData = getUserData();
   if (!userData) {
@@ -215,7 +212,6 @@ function readUserShoppingList() {
 // EXPORT :
 
 export {
-  getUserAuthState,
   getUserData,
   exitHandler,
   writeUserShoppingList,
@@ -227,7 +223,7 @@ export {
 
 //  INSTRUCTIONS :
 //
-// IMPORT & INITIALIZATION:
+// FIREBASE IMPORT & INITIALIZATION:
 // import { initializeApp } from 'firebase/app';
 // import {
 //   getAuth,
@@ -240,19 +236,6 @@ export {
 // import { fireBaseConfig } from './path/to/this-module';
 // const app = initializeApp(fireBaseConfig);
 // const auth = getAuth();
-
-// GET AUTH STATE :
-// onAuthStateChanged(auth, user => {
-//   if (user) {
-//     // User is signed in, see docs for a list of available properties
-//     // https://firebase.google.com/docs/reference/js/auth.user
-//     const uid = user.uid;
-//     // ...
-//   } else {
-//     // User is signed out
-//     // ...
-//   }
-// });
 
 // GET USER :
 //  function getUser() {
