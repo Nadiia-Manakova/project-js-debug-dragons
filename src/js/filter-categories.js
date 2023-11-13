@@ -2,14 +2,15 @@ import { getCategoryList, getTopCategory } from './request-base';
 import { markupCategory, listGeneral } from './bookgallery.js';
 import 'simplebar';
 import 'simplebar/dist/simplebar.css';
+import { showLoader, hideLoader } from './loader.js';
 
-const refs = {
+export const refs = {
   galleryTitle: document.querySelector('.list_general-title'),
   filterListEl: document.querySelector('.categories__list'),
   categoriesTitle: document.querySelector('.categories__title'),
   title: document.querySelector('.title_best_sellers'),
 };
-console.log(refs.title);
+showLoader();
 //! Render Category filter on load Home page
 function createCategoriesList(q) {
   getCategoryList(q).then(response => {
@@ -27,6 +28,7 @@ function createFilterCategoriesMarkup(arr) {
     return `<li class="categories__list-item">${item.list_name}</li>`;
   });
   refs.filterListEl.insertAdjacentHTML('beforeend', markup.join(''));
+  hideLoader();
 }
 createCategoriesList('category-list');
 
@@ -35,11 +37,13 @@ refs.filterListEl.addEventListener('click', onCategoryClick);
 
 export function onCategoryClick(e) {
   checkClass(e);
+  showLoader();
   const selectedCategory = e.target.textContent;
   getTopCategory(selectedCategory)
     .then(catalogs => {
       listGeneral.innerHTML = '';
       markupCategory(catalogs);
+      hideLoader();
       refs.title.style.display = 'none';
     })
     .catch(error => {
@@ -61,4 +65,16 @@ function checkClass(e) {
     e.target.classList.add('selected-category');
   }
   refs.categoriesTitle.style.color = 'var(--text-color)';
+}
+
+export function setActiveListItem(str) {
+  const title = document.querySelector('.categories__title');
+  const ulElement = document.querySelector('.categories__list');
+  const liElements = ulElement.getElementsByTagName('li');
+  const liArray = Array.from(liElements);
+  const targetLi = liArray.find(li => li.textContent.trim() === str);
+  if (targetLi) {
+    targetLi.classList.add('selected-category');
+    title.style.color = 'var(--text-color)';
+  }
 }

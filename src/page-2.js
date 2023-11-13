@@ -1,0 +1,7 @@
+import "./js/loader"
+import "./js/auth"
+import "./js/header"
+import "./js/support"
+import "./js/request-base"
+import "./js/shopping"
+import "./js/burgerMenu"

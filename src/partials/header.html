@@ -9,7 +9,9 @@
       </svg>
     </a>
     <div class="header-auth-wrap">
+
       <ul class="header-hidden-auth-list is-hidden">
+
         <li class="header-hidden-auth-item">
           <a href="../index.html" class="header-hidden-auth-btn">HOME</a>
         </li>
@@ -66,41 +68,73 @@
         <!-- </li> -->
       </ul>
     </div>
+
   </nav>
 
-  <div>
-    <!-- sign up -->
-    <div id="menu" class="hamburger-overlay container">
-      <button type="button" class="button menu-sign-up-btn visually-hidden">
-        <span class="menu-btn-text">Sign up</span>
-        <svg class="menu-arrow-right" width="20" height="20">
-          <use href="./img/icons-sprite.svg#arrow-right-sign-up"></use>
-        </svg>
-      </button>
 
-      <!-- user -->
-      <div class="mob-menu-user">
-        <svg class="header-overlay-auth-icon" width="37" height="37">
-          <use href="../img/icons-sprite.svg#user-icon"></use>
-        </svg>
-        <p class="mob-menu-user-text"></p>
+    <!--*** burger ***-->
+    <div>
+      <button type="button" id="burger-menu" class="hamburger">
+        <span class="line-top"></span>
+        <span class="line-middle"></span>
+        <span class="line-bottom"></span>
       </div>
-
-      <div class="mob-menu-user-buttons">
-        <button type="button" class="button mob-menu-home-btn">
-          <a href="../index.html">HOME</a>
-        </button>
-        <div class="mob-menu-shoping">
-          <a href="" class="mob-menu-shoping-link">Shopping list</a>
-          <svg class="" width="" height="">
-            <use href=""></use>
+      <!-- sign up -->
+      <div id="menu" class="hamburger-overlay container">
+        <!-- visually-hidden -->
+        <button type="button" class="button menu-sign-up-btn visually-hidden">
+          <span class="menu-btn-text">Sign up</span>
+          <svg class="menu-arrow-right" width="20" height="20">
+            <use href="./img/icons-sprite.svg#arrow-right-sign-up"></use>
           </svg>
+
+        </button>
+
+        <!-- user -->
+        <!-- visually-hidden -->
+        <div class="mob-menu-user visually-hidden">
+          <svg class="header-overlay-auth-icon" width="37" height="37">
+            <use href="./img/icons-sprite.svg#user-icon"></use>
+          </svg>
+          <p class="mob-menu-user-text">Stephen</p>
+        </div>
+        <!-- visually-hidden -->
+        <div class="mob-menu-user-buttons visually-hidden">
+          <button type="button" class="button mob-menu-home-btn">
+            <a href="">HOME</a>
+          </button>
+          <div class="mob-menu-shoping">
+            <a href="./shopping.html" class="mob-menu-shoping-link"
+              >Shopping list</a
+            >
+            <svg class="mob-menu-shoping-ico" width="20" height="20">
+              <use href="./img/icons-sprite.svg#cart-icon"></use>
+            </svg>
+          </div>
+        </div>
+        <!-- visually-hidden -->
+        <div class="mob-menu-logout-container visually-hidden">
+          <button type="button" class="button mob-menu-logout-btn">
+            <span class="mob-menu-logout-text">Log out</span
+            ><svg class="mob-menu-logout-icon" width="20" height="20">
+              <use href="./img/icons-sprite.svg#arrow-right-sign-up"></use>
+            </svg>
+          </button>
+        </div>
+        <!-- modal window -->
+        <div class="mob-menu-gallery">
+          <ul class="mob-menu-gallery-list"></ul>
         </div>
       </div>
+    </div>
+  </nav>
+  <!-- scroll to top button -->
 
-      <div class="mob-menu-gallery">
-        <ul class="mob-menu-gallery-list"></ul>
-      </div>
+  <div class="scroll-to-top-container">
+    <button id="scrollTop" type="button" class="scroll-to-top-button">
+      <svg class="arrow-up-btn" width="64" height="64">
+        <use href="./img/icons-sprite.svg#arrow-up-scroll-up-icon"></use>
+      </svg>
     </div>
   </div>
 </div>

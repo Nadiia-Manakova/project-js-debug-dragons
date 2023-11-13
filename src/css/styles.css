@@ -6,6 +6,7 @@
 */
 
 @import url('./reset.css');
+@import url('./loader.css');
 @import url('./header.css');
 @import url('./filter-categories.css');
 @import url('./bookgallery.css');

@@ -1,51 +1,91 @@
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
+// import 'tui-pagination/dist/tui-pagination.css';
 
 const LOCAL_KEY = "booklist";
+const container = document.querySelector("#pagination");
 const cartList = document.querySelector(".cart-list");
 const emptyCart = document.querySelector(".empty-cart");
-const container = document.querySelector("#pagination");
 
+const windowInnerWidth = window.innerWidth;
+
+let itemPerPage = 4;
+let visiblePage = 2;
+
+if (windowInnerWidth > 768) {
+    itemPerPage = 3;
+    visiblePage = 3;
+}
+
+emptyCart.style.display = "none";
+
+let data = [];
+
+try {
+        data = JSON.parse(localStorage.getItem(LOCAL_KEY));
+        if (!data.length) {
+            emptyCart.style.display = "block";
+        } 
+    if (data.length <=itemPerPage) {
+            container.style.display = "none";
+        } 
+            cartList.innerHTML = createCartMurkup(data, 1);
+        
+  } catch (error) {
+    console.error("Get state error: ", error.message);
+  }
 
 const options = {
-    totalItems: 500,
-    itemsPerPage: 3,
-    visiblePages: 3,
+    totalItems: data.length,
+    itemsPerPage: itemPerPage,
+    visiblePages: visiblePage,
     page: 1,
     centerAlign: false,
+    template: {
+         page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+         currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+         moveButton:
+             '<a href="#" class="tui-page-btn tui-{{type}}">' +
+                 '<span class="tui-ico-{{type}}">{{type}}</span>' +
+             '</a>',
+         disabledMoveButton:
+             '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+                 '<span class="tui-ico-{{type}}">{{type}}</span>' +
+             '</span>',
+         moreButton:
+             '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+                 '<span class="tui-ico-ellip">...</span>' +
+             '</a>'
+     }
 }
 
 let pagination = new Pagination(container, options);
 
 
-let data = [];
 
 document.addEventListener("click", handlerDeleteCart);
 
 
-    try {
-        data = JSON.parse(localStorage.getItem(LOCAL_KEY));
-        if (!data.length) {
-            emptyCart.style.display = "block";
-            //return;
-        }
-        emptyCart.style.display = "none";
-        cartList.innerHTML = createCartMurkup(data);
-        if (data.length > itemPerPage) {
-        }
-  } catch (error) {
-    console.error("Get state error: ", error.message);
-  }
+pagination.on('afterMove', (event) => {
+    let currentPage = event.page;
+     cartList.innerHTML = createCartMurkup(data, currentPage);
+});
+
+
+
+
+
 
 
 
 
 // ----------------------------------------------------------------------------------------РОЗМІТКА
 
-
-
-function createCartMurkup(arr) {
-    return arr.map(({ _id, author, book_image, title, description, buy_links: [{url:amazon}, {url:appleBook}], list_name }) =>
+function createCartMurkup(arr, currentPage) {
+    cartList.innerHTML = "";
+    const start = itemPerPage * (currentPage-1);
+    const end = start + itemPerPage;
+    const paginatedData = arr.slice(start, end);
+    return paginatedData.map(({ _id, author, book_image, title, description, buy_links: [{url:amazon}, {url:appleBook}], list_name }) =>
         ` <li class="cart-item" data-id ="${_id}">
             <img src="${book_image}" alt="${title}" class="cart-item-img">
             <div class="cart-item-content">
@@ -71,15 +111,28 @@ function createCartMurkup(arr) {
 
 // ----------------------------------------------------------------------------------------ВИДАЛЕННЯ ЕЛЕМЕНТІВ КОРЗИНИ
 
+
 function handlerDeleteCart(e) {
-    if (!e.target.classList.contains("cart-item-delete")) return;
+    if (!e.target.closest(".cart-item-delete")) return;
    
     const idOfBook = e.target.closest(".cart-item").dataset.id;
     try {
+        const indexToDelete = data.findIndex(({ _id }) => _id === idOfBook);
+        const oldPage = Math.floor(indexToDelete / itemPerPage + 1);
         const products = data.filter(({ _id }) => _id !== idOfBook);
         localStorage.setItem(LOCAL_KEY, JSON.stringify(products));
         data = JSON.parse(localStorage.getItem(LOCAL_KEY));
-        cartList.innerHTML = createCartMurkup(products);
+        const pageCount = Math.floor((products.length - 1) / itemPerPage + 1);
+        pagination.setTotalItems(products.length);
+        pagination.reset(products.length);
+        pagination.movePageTo(oldPage > pageCount ? pageCount : oldPage);
+
+        if (data.length <=itemPerPage) {
+            container.style.display = "none";
+        } 
+        let currentPage = pagination.getCurrentPage();
+       
+        cartList.innerHTML = createCartMurkup(data, currentPage);
   } catch (error) {
     console.error("Get state error: ", error.message);
     }
@@ -87,3 +140,9 @@ function handlerDeleteCart(e) {
     emptyCart.style.display = "block";
 }
 }
+
+
+
+
+
+
