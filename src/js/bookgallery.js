@@ -1,13 +1,13 @@
 import Notiflix from 'notiflix';
 import { getTopBooks, getTopCategory } from './request-base';
-import { showLoader, hideLoader } from './loader';
+import { refs } from './filter-categories';
 
-export const titleBestSellers = document.querySelector('.title_best_sellers');
 export const listGeneral = document.querySelector('.list_general');
+const titleBestSellers = document.querySelector('.title_best_sellers');
 
 let n = 0;
 let width = window.innerWidth;
-if (width >= 996) {
+if (width >= 1440) {
   n = 5;
 } else if (width >= 720) {
   n = 3;
@@ -26,22 +26,9 @@ getTopBooks()
     );
   });
 
-function setActiveListItem(str) {
-  const title = document.querySelector('.categories__title');
-  const ulElement = document.querySelector('.categories__list');
-  const liElements = ulElement.getElementsByTagName('li');
-  const liArray = Array.from(liElements);
-  const targetLi = liArray.find(li => li.textContent.trim() === str);
-  if (targetLi) {
-    targetLi.classList.add('selected-category');
-    title.style.color = 'var(--text-color)';
-  }
-}
-
 function isClick() {
   let attributeValue = this.getAttribute('data-my-attribute');
-  setActiveListItem(attributeValue);
-  showLoader();
+  console.log(attributeValue);
 
   getTopCategory(attributeValue)
     .then(catalogs => {
@@ -64,8 +51,8 @@ function getBooksMarkup(category) {
       let shortAutor = shortAutorBooks(book);
       return `
       <li class="list_five_books" data-id="${book._id}">
-        <img class="img_books" src="${book.book_image}" alt=""/>
-        <h3 class="title_general">${shortTitle}</h3>
+        <img src="${book.book_image}" alt="" width = "180" height="256" />
+        <h2 class="title_general">${shortTitle}</h2>
         <p class="author_general">${shortAutor}</p>
       </li>
     `;
@@ -78,8 +65,8 @@ function getMarkupAll(allCategory) {
     .map(category => {
       const booksMarkup = getBooksMarkup(category);
       return `
-      <div class="div_five_books"><li class="list_five_books">
-        <h2 class="text_general">${category.list_name}</h2>
+      <div class="div_five_books"><li class="list_five_books"
+        <p class="text_general">${category.list_name}</p>
         <ul class="list_five_general">${booksMarkup}</ul>
         <button class="btn" data-my-attribute="${category.list_name}">SEE MORE</button>
       </li></div>
@@ -128,9 +115,9 @@ function getmarkupLi(catalogs) {
       let shortAutor = shortAutorBooks(book);
 
       return `<li class="list_five_books">
-        <img class="img_books" src="${book.book_image}" alt=""/>
-        <h3 class="title_general">${shortTitle}</h3>
-        <p class="author_general">${shortAutor}</p>
+        <img src="${book.book_image}" alt="" width = "180" height="256" />
+        <h2 class="title_general">${shortTitle}</h2>
+        <p class="text_general">${shortAutor}</p>
         <h1 hidden>${book.list_name}</h1>
       </li>`;
     })
@@ -152,7 +139,6 @@ export function markupCategory(catalogs) {
   const markup = getMarkup(listNames, markupLi);
 
   listGeneral.insertAdjacentHTML('beforeend', markup);
-  hideLoader();
 
   let btnBack = document.querySelector('.btn_back');
   btnBack.addEventListener('click', isClose);
