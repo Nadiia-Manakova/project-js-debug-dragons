@@ -6,8 +6,15 @@ const container = document.querySelector("#pagination");
 const cartList = document.querySelector(".cart-list");
 const emptyCart = document.querySelector(".empty-cart");
 
-const itemPerPage = 3;
-const visiblePage = 3;
+const windowInnerWidth = window.innerWidth;
+
+let itemPerPage = 4;
+let visiblePage = 2;
+
+if (windowInnerWidth > 768) {
+    itemPerPage = 3;
+    visiblePage = 3;
+}
 
 emptyCart.style.display = "none";
 
