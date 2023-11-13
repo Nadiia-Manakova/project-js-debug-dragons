@@ -4,7 +4,7 @@ import 'simplebar';
 import 'simplebar/dist/simplebar.css';
 import { showLoader, hideLoader } from './loader.js';
 
-const refs = {
+export const refs = {
   galleryTitle: document.querySelector('.list_general-title'),
   filterListEl: document.querySelector('.categories__list'),
   categoriesTitle: document.querySelector('.categories__title'),
@@ -43,6 +43,7 @@ export function onCategoryClick(e) {
     .then(catalogs => {
       listGeneral.innerHTML = '';
       markupCategory(catalogs);
+      hideLoader();
       refs.title.style.display = 'none';
     })
     .catch(error => {
@@ -64,4 +65,16 @@ function checkClass(e) {
     e.target.classList.add('selected-category');
   }
   refs.categoriesTitle.style.color = 'var(--text-color)';
+}
+
+export function setActiveListItem(str) {
+  const title = document.querySelector('.categories__title');
+  const ulElement = document.querySelector('.categories__list');
+  const liElements = ulElement.getElementsByTagName('li');
+  const liArray = Array.from(liElements);
+  const targetLi = liArray.find(li => li.textContent.trim() === str);
+  if (targetLi) {
+    targetLi.classList.add('selected-category');
+    title.style.color = 'var(--text-color)';
+  }
 }
