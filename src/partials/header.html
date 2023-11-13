@@ -4,18 +4,17 @@
       <svg class="header-logo-icon" width="24" height="24">
         <use href="../img/icons-sprite.svg#logo"></use>
       </svg>
-      <!-- <svg class="header-logo-text" width="20" height="20">
-        <use href="../img/icons-sprite.svg#cart-icon"></use>
-      </svg> -->
-      <p class="header-logo-text">Need SVG</p>
+      <svg class="header-logo-text" width="77" height="13">
+        <use href="../img/icons-sprite.svg#bookshelf-icon"></use>
+      </svg>
     </a>
     <div class="header-auth-wrap">
-      <ul class="header-hidden-auth-list hidden">
+      <ul class="header-hidden-auth-list is-hidden">
         <li class="header-hidden-auth-item">
-          <p class="header-hidden-auth-btn">HOME</p>
+          <a href="../index.html" class="header-hidden-auth-btn">HOME</a>
         </li>
         <li class="header-hidden-auth-item">
-          <a href="#" class="header-hiddeh-auth-basket">
+          <a href="../page-2.html" class="header-hiddeh-auth-basket">
             <p class="header-hidden-auth-text">Shopping list</p>
             <svg class="header-hidden-auth-icon" width="20" height="20">
               <use href="../img/icons-sprite.svg#cart-icon"></use>
@@ -24,6 +23,7 @@
         </li>
       </ul>
       <ul class="header-login-checkbox-block">
+        <!-- CHECKBOX -->
         <li class="header-login-checkbox">
           <input
             type="checkbox"
@@ -33,37 +33,42 @@
           <label class="header-theme-toggle" for="theme-checkbox"></label>
           <div class="header-checkbox-circle"></div>
         </li>
-        <li class="header-logout-block visually-hidden">
-          <p class="header-logout-text">Log in</p>
+
+        <!-- LOGIN-LOGOUT -->
+
+        <li class="header-logout-block js-header-login">
+          <p class="header-logout-text">Sing up</p>
           <svg class="header-logout-auth-arrow" width="20" height="20">
             <use href="../img/icons-sprite.svg#arrow-right-sign-up"></use>
           </svg>
         </li>
-        <li class="header-login-overlay-block">
+        <li class="header-login-overlay-block visually-hidden">
           <svg class="header-overlay-auth-icon" width="20" height="20">
             <use href="../img/icons-sprite.svg#user-icon"></use>
           </svg>
-          <p class="header-overlay-user-name">STEPHAN</p>
+          <p class="header-overlay-user-name"></p>
           <svg class="header-overlay-auth-arrow" width="20" height="20">
             <use href="../img/icons-sprite.svg#arrow-down-user-menu-open"></use>
           </svg>
-          <a class="header-overlay-wrap">
-            <p href="#" class="header-logout-link">Logout</p>
+          <div class="header-overlay-wrap">
+            <p class="header-logout-link">Log out</p>
             <svg class="header-logout-auth-arrow" width="20" height="20">
               <use href="../img/icons-sprite.svg#arrow-right-sign-up"></use>
             </svg>
-          </a>
+          </div>
         </li>
+        <!-- <li class="header-burger-menu"> -->
+        <button type="button" id="burger-menu" class="hamburger">
+          <span class="line-top"></span>
+          <span class="line-middle"></span>
+          <span class="line-bottom"></span>
+        </button>
+        <!-- </li> -->
       </ul>
     </div>
   </nav>
 
   <div>
-    <button type="button" id="burger-menu" class="hamburger">
-      <span class="line-top"></span>
-      <span class="line-middle"></span>
-      <span class="line-bottom"></span>
-    </button>
     <!-- sign up -->
     <div id="menu" class="hamburger-overlay container">
       <button type="button" class="button menu-sign-up-btn visually-hidden">
@@ -78,12 +83,12 @@
         <svg class="header-overlay-auth-icon" width="37" height="37">
           <use href="../img/icons-sprite.svg#user-icon"></use>
         </svg>
-        <p class="mob-menu-user-text">Stephen</p>
+        <p class="mob-menu-user-text"></p>
       </div>
 
       <div class="mob-menu-user-buttons">
         <button type="button" class="button mob-menu-home-btn">
-          <a href="">HOME</a>
+          <a href="../index.html">HOME</a>
         </button>
         <div class="mob-menu-shoping">
           <a href="" class="mob-menu-shoping-link">Shopping list</a>
