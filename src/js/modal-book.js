@@ -56,12 +56,12 @@ function onClickOpenModalWindow(evt) {
           <ul class="modal-book-list-shops">
             <li class="modal-book-shops-item">
              <a href="${amazon}" target="_blank" class="">
-             <img src="./img/amazon.png" alt="" widht="62" height="19" class="modal-img-shop"/> 
+             <img src="./amazon.png" alt="" widht="62" height="19" class="modal-img-shop"/> 
              </a>
             </li>
             <li class="modal-book-shops-item">
              <a href="${appleBook}" target="_blank" class="">
-             <img src="./img/apple-books.png" alt="" widht="33" height="32" class="modal-img-shop-apple"/> 
+             <img src="./apple-books.png" alt="" widht="33" height="32" class="modal-img-shop-apple"/> 
              </a>
              </li>
     
@@ -116,9 +116,9 @@ function escPress(evt) {
       // }
 
      
-      // const btnAddEl = document.querySelector('#add');
-      // const btnRemoveEl = document.querySelector('#remove');
-      // const textRemoveEl = document.querySelector('.txt-remove');
+      const btnAddEl = document.querySelector('#add');
+      const btnRemoveEl = document.querySelector('#remove');
+      const textRemoveEl = document.querySelector('.txt-remove');
       
       
   if (!getUserData()) {
@@ -131,9 +131,9 @@ function escPress(evt) {
     writeUserShoppingList(arr);
     console.log(arr);
     
-      const btnAddEl = document.querySelector('#add');
-      const btnRemoveEl = document.querySelector('#remove');
-      const textRemoveEl = document.querySelector('.txt-remove');
+      // const btnAddEl = document.querySelector('#add');
+      // const btnRemoveEl = document.querySelector('#remove');
+      // const textRemoveEl = document.querySelector('.txt-remove');
       getBooksId(bookId)
         .then(data => {
           const idBook = data.id;
@@ -154,7 +154,8 @@ function escPress(evt) {
           })
 
           btnRemoveEl.addEventListener('click', () => {
-             localStorage.removeItem(LOCAL_KEY, JSON.stringify(arr));
+            localStorage.removeItem(LOCAL_KEY, JSON.stringify(arr));
+             writeUserShoppingList(arr);
             btnAddEl.classList.remove('hidden');
             btnRemoveEl.classList.add('hidden');
             textRemoveEl.classList.add('hidden');

@@ -1,3 +1,4 @@
+
 .modal-book-js {
     width: 335px;
     /* height: 762px; */
@@ -15,6 +16,7 @@
     margin-left: 24px;
     margin-bottom: 14px;
     border-radius: 8px;
+
 }
 
 .modal-book-btn-close {
@@ -147,6 +149,7 @@
         height: 281px;
         margin-top: 40px;
         margin-left: 40px;
+        margin-bottom: 40px;
     }
 
     .modal-book-btn-close {
@@ -209,7 +212,6 @@
         font-size: 18px;
         line-height: 24px;
         letter-spacing: -0.18px;
-        margin-top: 40px;
         margin-left: 40px;
         padding-top: 20px;
         padding-bottom: 20px;
