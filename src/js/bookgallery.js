@@ -1,14 +1,14 @@
 import Notiflix from 'notiflix';
 import { getTopBooks, getTopCategory } from './request-base';
+import { refs } from './filter-categories';
 
-export const titleBestSellers = document.querySelector('.title_best_sellers');
 export const listGeneral = document.querySelector('.list_general');
-
-
+const titleBestSellers = document.querySelector('.title_best_sellers');
 
 
 
 let n = 0;
+
 let currentWidth = window.innerWidth;
 
 window.addEventListener('resize', handleWindowResize);
@@ -62,6 +62,7 @@ getTopBooks()
 
 function isClick() {
   let attributeValue = this.getAttribute('data-my-attribute');
+  console.log(attributeValue);
 
   setActiveListItem(attributeValue)
 
@@ -98,12 +99,14 @@ function getBooksMarkup(category) {
       let shortTitle = shortTitleBooks(book);
       let shortAutor = shortAutorBooks(book);
       return `
+
       <li class="list_five_books modal-list" data-id="${book._id}">
       <a href="#" class='category-books__link'>
         <img class='category-books__img' src="${book.book_image}" alt="book" />
         <div class='category-books__wrapper'>
         <p class='category-books__text'>quick view</p>
         </div></a>
+
         <h2 class="title_general">${shortTitle}</h2>
         <p class="author_general">${shortAutor}</p>
       </li>
@@ -117,8 +120,8 @@ function getMarkupAll(allCategory) {
     .map(category => {
       const booksMarkup = getBooksMarkup(category);
       return `
-      <div class="div_five_books"><li class="list_five_books">
-        <h2 class="text_general">${category.list_name}</h2>
+      <div class="div_five_books"><li class="list_five_books"
+        <p class="text_general">${category.list_name}</p>
         <ul class="list_five_general">${booksMarkup}</ul>
         <button class="btn" data-my-attribute="${category.list_name}">SEE MORE</button>
       </li></div>
@@ -166,12 +169,14 @@ function getmarkupLi(catalogs) {
       let shortTitle = shortTitleBooks(book);
       let shortAutor = shortAutorBooks(book);
 
+
       return `<li class="list_five_books modal-list">
   <a href="#" class='category-books__link'>
         <img class='category-books__img' src="${book.book_image}" alt="book" />
         <div class='category-books__wrapper'>
         <p class='category-books__text'>quick view</p>
         </div></a>
+
         <h2 class="title_general">${shortTitle}</h2>
         <p class="text_general">${shortAutor}</p>
         <h1 hidden>${book.list_name}</h1>
@@ -200,8 +205,7 @@ export function markupCategory(catalogs) {
   btnBack.addEventListener('click', isClose);
 }
 
-  function isClose() { 
-    location.reload();
-    
+function isClose() {
+  location.reload();
 }
 currentWindowWidth();
