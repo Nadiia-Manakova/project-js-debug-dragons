@@ -30,11 +30,14 @@
   --background-gradient: radial-gradient(
     189.32% 190.93% at 59.76% -23.42%,
     #4f2ee8 18.03%,
-    #fff 100%  
+    #fff 100%
   );
   --display-logo: block;
   --display-darklogo: none;
   --hover-categorie-text: #4f2ee8;
+  --amason: grayscale(100%);
+  --amason-apple-hover: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
+  --apple: grayscale(100%);
 }
 
 /* Темная тема */
@@ -47,6 +50,9 @@
   --display-logo: none;
   --display-darklogo: block;
   --hover-categorie-text: rgba(234, 198, 69, 1);
+  --amason: brightness(0) invert(1);
+  --amason-apple-hover: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+  --aplle: grayscale(100%);
 }
 
 body {
