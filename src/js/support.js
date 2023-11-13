@@ -23,7 +23,7 @@ const supportFonds = [
         title: 'RAZOM',
         url: 'https://www.razomforukraine.org/',
         img: './img/fund-04.png',
-        img2x: '../img/fund-color-04.png'
+        img2x: './img/fund-color-04.png'
     },
     {
         title: 'Medicins Sans Frontieres',
