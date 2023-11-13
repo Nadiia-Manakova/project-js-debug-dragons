@@ -153,7 +153,7 @@ function exitHandler() {
       console.log(`An error happened. ${error}`);
       // Notiflix.Notify.failure(`An error happened. ${error}`);
     });
-  location.href = '../index.html';
+  location.href = './index.html';
 }
 
 // GET USER DATA :
