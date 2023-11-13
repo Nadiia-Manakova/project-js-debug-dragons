@@ -63,6 +63,8 @@ getTopBooks()
 function isClick() {
   let attributeValue = this.getAttribute('data-my-attribute');
 
+  setActiveListItem(attributeValue)
+
   getTopCategory(attributeValue)
     .then(catalogs => {
       titleBestSellers.style.display = 'none';
@@ -75,6 +77,19 @@ function isClick() {
       );
     });
 }
+
+function setActiveListItem(str) {
+  const title = document.querySelector('.categories__title');
+  const ulElement = document.querySelector('.categories__list');
+  const liElements = ulElement.getElementsByTagName('li');
+  const liArray = Array.from(liElements);
+  const targetLi = liArray.find(li => li.textContent.trim() === str);
+  if (targetLi) {
+    targetLi.classList.add('selected-category');
+    title.style.color = 'var(--text-color)';
+  }
+}
+
 
 function getBooksMarkup(category) {
   return category.books
