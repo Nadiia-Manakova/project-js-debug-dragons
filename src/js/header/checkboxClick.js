@@ -7,7 +7,7 @@ export function onCheckboxClick() {
     headeRrefs.body.classList.add('dark-theme');
   }
   if (headeRrefs.checkbox.checked === false) {
-    localStorage.getItem(headeRrefs.THEME_KEY, headeRrefs.themeValueLight);
-    headeRrefs.body.classList.remove('dark-theme');
+    localStorage.getItem(headeRrefs.THEME_KEY, headeRrefs.themeValueDark);
+    headeRrefs.body.classList.add('dark-theme');
   }
 }
