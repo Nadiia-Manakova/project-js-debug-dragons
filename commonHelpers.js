@@ -1,50 +1,50 @@
-import{g as B,a as v,b as M}from"./assets/burgerMenu-8147626e.js";import{N as L,a as E,b as N}from"./assets/vendor-542f1b53.js";const j=document.querySelector(".title_best_sellers"),u=document.querySelector(".list_general");let d=0,l=window.innerWidth;window.addEventListener("resize",W);function W(e){const t=e.target.outerWidth;(t>767&&l<768||t>1439&&l<1440||t<1440&&l>1439||t<768&&l>767)&&location.reload()}const I=()=>{l<768?d=1:l>=768&&l<1440?d=3:d=5};B().then(e=>{console.log(e),K(e)}).catch(e=>{L.Notify.failure("An error occurred while fetching images. Please try again.")});function O(){let e=this.getAttribute("data-my-attribute");v(e).then(t=>{j.style.display="none",u.innerHTML="",$(t)}).catch(t=>{L.Notify.failure("An error occurred while fetching images. Please try again.")})}function R(e){return e.books.slice(0,d).map(t=>{let o=w(t),s=S(t);return`
-      <li class="list_five_books modal-list" data-id="${t._id}">
+import{g as B,a as E,b as M}from"./assets/burgerMenu-8147626e.js";import{N as w,a as S,b as N}from"./assets/vendor-542f1b53.js";const j=document.querySelector(".title_best_sellers"),m=document.querySelector(".list_general");let u=0,l=window.innerWidth;window.addEventListener("resize",I);function I(t){const e=t.target.outerWidth;(e>767&&l<768||e>1439&&l<1440||e<1440&&l>1439||e<768&&l>767)&&location.reload()}const W=()=>{l<768?u=1:l>=768&&l<1440?u=3:u=5};B().then(t=>{console.log(t),z(t)}).catch(t=>{w.Notify.failure("An error occurred while fetching images. Please try again.")});function O(){let t=this.getAttribute("data-my-attribute");R(t),E(t).then(e=>{j.style.display="none",m.innerHTML="",q(e)}).catch(e=>{w.Notify.failure("An error occurred while fetching images. Please try again.")})}function R(t){const e=document.querySelector(".categories__title"),s=document.querySelector(".categories__list").getElementsByTagName("li"),c=Array.from(s).find(g=>g.textContent.trim()===t);c&&(c.classList.add("selected-category"),e.style.color="var(--text-color)")}function H(t){return t.books.slice(0,u).map(e=>{let o=$(e),s=C(e);return`
+      <li class="list_five_books modal-list" data-id="${e._id}">
       <a href="#" class='category-books__link'>
-        <img class='category-books__img' src="${t.book_image}" alt="book" />
+        <img class='category-books__img' src="${e.book_image}" alt="book" />
         <div class='category-books__wrapper'>
         <p class='category-books__text'>quick view</p>
         </div></a>
         <h2 class="title_general">${o}</h2>
         <p class="author_general">${s}</p>
       </li>
-    `}).join("")}function H(e){return e.map(t=>{const o=R(t);return`
+    `}).join("")}function K(t){return t.map(e=>{const o=H(e);return`
       <div class="div_five_books"><li class="list_five_books">
-        <h2 class="text_general">${t.list_name}</h2>
+        <h2 class="text_general">${e.list_name}</h2>
         <ul class="list_five_general">${o}</ul>
-        <button class="btn" data-my-attribute="${t.list_name}">SEE MORE</button>
+        <button class="btn" data-my-attribute="${e.list_name}">SEE MORE</button>
       </li></div>
-    `}).join("")}function K(e){window.scrollTo(0,0);const t=H(e);u.insertAdjacentHTML("beforeend",t),document.querySelectorAll(".btn").forEach(s=>{s.addEventListener("click",O)})}function z(e){return e.slice(0,1).map(t=>t.list_name.split(" ").map(o=>`<span>${o}</span>`).join(" "))}function w(e){return e.title.length>16?e.title.substring(0,16)+"...":e.title}function S(e){return e.author.length>25?e.author.substring(0,25)+"...":e.author}function P(e){return e.map(t=>{let o=w(t),s=S(t);return`<li class="list_five_books modal-list">
+    `}).join("")}function z(t){window.scrollTo(0,0);const e=K(t);m.insertAdjacentHTML("beforeend",e),document.querySelectorAll(".btn").forEach(s=>{s.addEventListener("click",O)})}function P(t){return t.slice(0,1).map(e=>e.list_name.split(" ").map(o=>`<span>${o}</span>`).join(" "))}function $(t){return t.title.length>16?t.title.substring(0,16)+"...":t.title}function C(t){return t.author.length>25?t.author.substring(0,25)+"...":t.author}function Y(t){return t.map(e=>{let o=$(e),s=C(e);return`<li class="list_five_books modal-list">
   <a href="#" class='category-books__link'>
-        <img class='category-books__img' src="${t.book_image}" alt="book" />
+        <img class='category-books__img' src="${e.book_image}" alt="book" />
         <div class='category-books__wrapper'>
         <p class='category-books__text'>quick view</p>
         </div></a>
         <h2 class="title_general">${o}</h2>
         <p class="text_general">${s}</p>
-        <h1 hidden>${t.list_name}</h1>
-      </li>`}).join("")}function Y(e,t){return`<div class='div_category'><h1 class="title-category">${e}</h1></><ul class="list_five_general">${t}</ul>
-  <button class="btn_back">BACK</button></div>`}function $(e){window.scrollTo(0,0);const t=P(e),o=z(e),s=Y(o,t);u.insertAdjacentHTML("beforeend",s),document.querySelector(".btn_back").addEventListener("click",D)}function D(){location.reload()}I();const i={galleryTitle:document.querySelector(".list_general-title"),filterListEl:document.querySelector(".categories__list"),categoriesTitle:document.querySelector(".categories__title"),title:document.querySelector(".title_best_sellers")};console.log(i.title);function J(e){M().then(t=>{const o=t.data;o.sort((s,r)=>s.list_name.localeCompare(r.list_name)),F(o)})}function F(e){const t=e.map(o=>`<li class="categories__list-item">${o.list_name}</li>`);i.filterListEl.insertAdjacentHTML("beforeend",t.join(""))}J();i.filterListEl.addEventListener("click",G);function G(e){U(e);const t=e.target.textContent;v(t).then(o=>{u.innerHTML="",$(o),i.title.style.display="none"}).catch(o=>{Notiflix.Notify.failure("An error occurred while fetching images. Please try again.")})}function U(e){if(e.target.tagName==="LI"){const t=i.filterListEl.querySelector(".selected-category");t&&t.classList.remove("selected-category"),e.target.classList.add("selected-category")}i.categoriesTitle.style.color="var(--text-color)"}E.defaults.baseURL="https://books-backend.p.goit.global/books/";async function _(e){const{data:t}=await E(e);return console.log(t),t}document.querySelector(".list");const y=document.querySelector("body"),c=[];document.addEventListener("click",V);function V(e){if(console.log(e),!e.target.closest(".modal-list"))return;console.log(e.target),e.preventDefault();const o=e.target.closest(".modal-list").dataset.id;console.log(o),_(o).then(s=>{console.log(c);const{_id:r,author:C,book_image:q,title:p,description:A,buy_links:[{url:T},{url:x}]}=s,m=N.create(`
-   <div class="modal-book-js" data-id="${r}">
+        <h1 hidden>${e.list_name}</h1>
+      </li>`}).join("")}function D(t,e){return`<div class='div_category'><h1 class="title-category">${t}</h1></><ul class="list_five_general">${e}</ul>
+  <button class="btn_back">BACK</button></div>`}function q(t){window.scrollTo(0,0);const e=Y(t),o=P(t),s=D(o,e);m.insertAdjacentHTML("beforeend",s),document.querySelector(".btn_back").addEventListener("click",J)}function J(){location.reload()}W();const i={galleryTitle:document.querySelector(".list_general-title"),filterListEl:document.querySelector(".categories__list"),categoriesTitle:document.querySelector(".categories__title"),title:document.querySelector(".title_best_sellers")};console.log(i.title);function F(t){M().then(e=>{const o=e.data;o.sort((s,n)=>s.list_name.localeCompare(n.list_name)),G(o)})}function G(t){const e=t.map(o=>`<li class="categories__list-item">${o.list_name}</li>`);i.filterListEl.insertAdjacentHTML("beforeend",e.join(""))}F();i.filterListEl.addEventListener("click",U);function U(t){V(t);const e=t.target.textContent;E(e).then(o=>{m.innerHTML="",q(o),i.title.style.display="none"}).catch(o=>{Notiflix.Notify.failure("An error occurred while fetching images. Please try again.")})}function V(t){if(t.target.tagName==="LI"){const e=i.filterListEl.querySelector(".selected-category");e&&e.classList.remove("selected-category"),t.target.classList.add("selected-category")}i.categoriesTitle.style.color="var(--text-color)"}S.defaults.baseURL="https://books-backend.p.goit.global/books/";async function v(t){const{data:e}=await S(t);return console.log(e),e}document.querySelector(".list");const L=document.querySelector("body"),d=[];document.addEventListener("click",Q);function Q(t){if(console.log(t),!t.target.closest(".modal-list"))return;console.log(t.target),t.preventDefault();const o=t.target.closest(".modal-list").dataset.id;console.log(o),v(o).then(s=>{console.log(d);const{_id:n,author:c,book_image:g,title:k,description:A,buy_links:[{url:x},{url:T}]}=s,h=N.create(`
+   <div class="modal-book-js" data-id="${n}">
           <button type="button" class="modal-book-btn-close">
           <svg class="icons-modal"  width="12" height="12">
           <use href="./img/icons-sprite.svg#x-close-btn"></use>
         </svg>
         </button>
-          <img src="${q}" alt="${p}" class="modal-img-book widht="192" height="281"/>
+          <img src="${g}" alt="${k}" class="modal-img-book widht="192" height="281"/>
           <div class="modal-list-infobook">
-          <h3 class="modal-book-title">${p}</h3>
-          <p class="modal-book-autor">${C}</p>
+          <h3 class="modal-book-title">${k}</h3>
+          <p class="modal-book-autor">${c}</p>
           <p class="modal-book-description">${A}</p>
           <div class="modal-list-shops">
           <ul class="modal-book-list-shops">
             <li class="modal-book-shops-item">
-             <a href="${T}" target="_blank" class="">
+             <a href="${x}" target="_blank" class="">
              <img src="./img/amazon.png" alt="" widht="62" height="19" class="modal-img-shop"/> 
              </a>
             </li>
             <li class="modal-book-shops-item">
-             <a href="${x}" target="_blank" class="">
+             <a href="${T}" target="_blank" class="">
              <img src="./img/apple-books.png" alt="" widht="33" height="32" class="modal-img-shop"/> 
              </a>
              </li>
@@ -58,5 +58,5 @@ import{g as B,a as v,b as M}from"./assets/burgerMenu-8147626e.js";import{N as L,
           remove from the shopping list</button>
           <p class="txt-remove hidden">Сongratulations! You have added the book 
           to the shopping list. To delete, press the button “Remove from the shopping list”.</p>
-    </div>`,{onShow:()=>{document.addEventListener("keydown",k),y.style.overflow="hidden"},onClose:()=>{document.removeEventListener("keydown",k),y.style.overflow="auto"}});function k(h){const b="Escape";h.code===b&&m.close()}m.show(),document.querySelector(".modal-book-btn-close").addEventListener("click",()=>{m.close()});const f="booklist";c.push(s);const a=document.querySelector("#add"),n=document.querySelector("#remove"),g=document.querySelector(".txt-remove");_(o).then(h=>{const b=h.id;localStorage.getItem({idBook:b})!==null?(a.classList.add("hidden"),n.classList.remove("hidden")):(a.classList.remove("hidden"),n.classList.add("hidden"),g.classList.add("hidden")),a.addEventListener("click",()=>{localStorage.setItem(f,JSON.stringify(c)),a.classList.add("hidden"),n.classList.remove("hidden"),g.classList.remove("hidden")}),n.addEventListener("click",()=>{localStorage.removeItem(f,JSON.stringify(c)),a.classList.remove("hidden"),n.classList.add("hidden"),g.classList.add("hidden")})})})}
+    </div>`,{onShow:()=>{document.addEventListener("keydown",_),L.style.overflow="hidden"},onClose:()=>{document.removeEventListener("keydown",_),L.style.overflow="auto"}});function _(p){const f="Escape";p.code===f&&h.close()}h.show(),document.querySelector(".modal-book-btn-close").addEventListener("click",()=>{h.close()});const y="booklist";d.push(s);const a=document.querySelector("#add"),r=document.querySelector("#remove"),b=document.querySelector(".txt-remove");v(o).then(p=>{const f=p.id;localStorage.getItem({idBook:f})!==null?(a.classList.add("hidden"),r.classList.remove("hidden")):(a.classList.remove("hidden"),r.classList.add("hidden"),b.classList.add("hidden")),a.addEventListener("click",()=>{localStorage.setItem(y,JSON.stringify(d)),a.classList.add("hidden"),r.classList.remove("hidden"),b.classList.remove("hidden")}),r.addEventListener("click",()=>{localStorage.removeItem(y,JSON.stringify(d)),a.classList.remove("hidden"),r.classList.add("hidden"),b.classList.add("hidden")})})})}
 //# sourceMappingURL=commonHelpers.js.map
