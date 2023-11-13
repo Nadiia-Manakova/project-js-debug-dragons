@@ -5,13 +5,13 @@
     flex-wrap: wrap;
     /* justify-content: space-around; */
     /* align-content: space-between; */
-    gap: 16px;
+    gap: 20px;
 }
 
 
 
 .title_general {
-    color: black;
+    /* color: black; */
     font-size: 16px;
     margin-top: 15px;
     margin-bottom: 5px;

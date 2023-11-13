@@ -159,7 +159,7 @@ function shortTitleBooks(book) {
 
 function shortAutorBooks(book) {
   return book.author.length > 25
-    ? book.author.substring(0, 25) + '...'
+    ? book.author.substring(0, 20) + '...'
     : book.author;
 }
 
@@ -170,7 +170,7 @@ function getmarkupLi(catalogs) {
       let shortAutor = shortAutorBooks(book);
 
 
-      return `<li class="list_five_books modal-list">
+      return `<li class="list_five_books modal-list" data-id="${book._id}">
   <a href="#" class='category-books__link'>
         <img class='category-books__img' src="${book.book_image}" alt="book" />
         <div class='category-books__wrapper'>
