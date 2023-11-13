@@ -2,6 +2,7 @@ import { getCategoryList, getTopCategory } from './request-base';
 import { markupCategory, listGeneral } from './bookgallery.js';
 import 'simplebar';
 import 'simplebar/dist/simplebar.css';
+import { showLoader, hideLoader } from './loader.js';
 
 const refs = {
   galleryTitle: document.querySelector('.list_general-title'),
@@ -9,7 +10,7 @@ const refs = {
   categoriesTitle: document.querySelector('.categories__title'),
   title: document.querySelector('.title_best_sellers'),
 };
-console.log(refs.title);
+showLoader();
 //! Render Category filter on load Home page
 function createCategoriesList(q) {
   getCategoryList(q).then(response => {
@@ -27,6 +28,7 @@ function createFilterCategoriesMarkup(arr) {
     return `<li class="categories__list-item">${item.list_name}</li>`;
   });
   refs.filterListEl.insertAdjacentHTML('beforeend', markup.join(''));
+  hideLoader();
 }
 createCategoriesList('category-list');
 
@@ -35,6 +37,7 @@ refs.filterListEl.addEventListener('click', onCategoryClick);
 
 export function onCategoryClick(e) {
   checkClass(e);
+  showLoader();
   const selectedCategory = e.target.textContent;
   getTopCategory(selectedCategory)
     .then(catalogs => {

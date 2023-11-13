@@ -1,16 +1,14 @@
 import Notiflix from 'notiflix';
 import { getTopBooks, getTopCategory } from './request-base';
+import { showLoader, hideLoader } from './loader';
 
 export const titleBestSellers = document.querySelector('.title_best_sellers');
 export const listGeneral = document.querySelector('.list_general');
 
-
-
 let n = 0;
 let width = window.innerWidth;
 if (width >= 996) {
-    n = 5;
-
+  n = 5;
 } else if (width >= 720) {
   n = 3;
 } else if (width >= 240) {
@@ -28,8 +26,22 @@ getTopBooks()
     );
   });
 
+function setActiveListItem(str) {
+  const title = document.querySelector('.categories__title');
+  const ulElement = document.querySelector('.categories__list');
+  const liElements = ulElement.getElementsByTagName('li');
+  const liArray = Array.from(liElements);
+  const targetLi = liArray.find(li => li.textContent.trim() === str);
+  if (targetLi) {
+    targetLi.classList.add('selected-category');
+    title.style.color = 'var(--text-color)';
+  }
+}
+
 function isClick() {
   let attributeValue = this.getAttribute('data-my-attribute');
+  setActiveListItem(attributeValue);
+  showLoader();
 
   getTopCategory(attributeValue)
     .then(catalogs => {
@@ -140,12 +152,12 @@ export function markupCategory(catalogs) {
   const markup = getMarkup(listNames, markupLi);
 
   listGeneral.insertAdjacentHTML('beforeend', markup);
+  hideLoader();
 
   let btnBack = document.querySelector('.btn_back');
   btnBack.addEventListener('click', isClose);
 }
 
-  function isClose() { 
-    location.reload();
-    
+function isClose() {
+  location.reload();
 }
