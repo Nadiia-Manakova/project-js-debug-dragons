@@ -12,4 +12,4 @@ import{i as D,g as A,o as C,c as j,u as P,s as $,d as N,e as H,f as F,r as O,a a
 <li class="mob-menu-gallery-item">
     <img loading="lazy" class="mob-menu-image" src="${o.book_image}" alt="${o.title}" >
 </li>`).join("");M.insertAdjacentHTML("afterbegin",s),ue()}).catch(e=>{console.log(e)});function I(e,t){e+=.3*t;const n=-1500,s=0;(e<=n||e>=s)&&(t*=-1),M.style.transform=`translateX(${e}px)`,requestAnimationFrame(()=>{I(e,t)})}function ue(){I(0,-1)}window.addEventListener("scroll",me);function me(){const e=document.documentElement.scrollTop>300;f.classList.toggle("show",e),f.onclick=t=>{t.preventDefault(),document.documentElement.scrollTop=0}}export{Le as a,be as b,Q as c,oe as g,ye as h,he as s,fe as w};
-//# sourceMappingURL=burgerMenu-f4d78427.js.map
+//# sourceMappingURL=burgerMenu-8b96f2f2.js.map
