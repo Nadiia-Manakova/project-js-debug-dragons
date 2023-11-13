@@ -6,16 +6,48 @@ export const listGeneral = document.querySelector('.list_general');
 
 
 
-let n = 0;
-let width = window.innerWidth;
-if (width >= 996) {
-    n = 5;
 
-} else if (width >= 720) {
-  n = 3;
-} else if (width >= 240) {
-  n = 1;
+
+let n = 0;
+let currentWidth = window.innerWidth;
+
+window.addEventListener('resize', handleWindowResize);
+
+function handleWindowResize(event) {
+  const width = event.target.outerWidth;
+//console.log(width)
+  if (
+    (width > 767 && currentWidth < 768) ||
+    (width > 1439 && currentWidth < 1440) ||
+    (width < 1440 && currentWidth > 1439) ||
+    (width < 768 && currentWidth > 767)
+  ) {
+    location.reload();
+  }
 }
+
+const currentWindowWidth = () => {
+  if (currentWidth < 768) {
+    n = 1;
+  } else if (currentWidth >= 768 && currentWidth < 1440) {
+    n = 3;
+  } else {
+    n = 5;
+  }
+};
+
+
+
+
+// let width = window.innerWidth;
+// if (width >= 996) {
+//     n = 5;
+
+// } else if (width >= 720) {
+//   n = 3;
+// } else if (width >= 240) {
+//   n = 1;
+// }
 
 getTopBooks()
   .then(allCategory => {
@@ -51,9 +83,13 @@ function getBooksMarkup(category) {
       let shortTitle = shortTitleBooks(book);
       let shortAutor = shortAutorBooks(book);
       return `
-      <li class="list_five_books" data-id="${book._id}">
-        <img class="img_books" src="${book.book_image}" alt=""/>
-        <h3 class="title_general">${shortTitle}</h3>
+      <li class="list_five_books modal-list" data-id="${book._id}">
+      <a href="#" class='category-books__link'>
+        <img class='category-books__img' src="${book.book_image}" alt="book" />
+        <div class='category-books__wrapper'>
+        <p class='category-books__text'>quick view</p>
+        </div></a>
+        <h2 class="title_general">${shortTitle}</h2>
         <p class="author_general">${shortAutor}</p>
       </li>
     `;
@@ -98,8 +134,8 @@ function getListName(catalogs) {
 }
 
 function shortTitleBooks(book) {
-  return book.title.length > 17
-    ? book.title.substring(0, 17) + '...'
+  return book.title.length > 16
+    ? book.title.substring(0, 16) + '...'
     : book.title;
 }
 
@@ -115,10 +151,14 @@ function getmarkupLi(catalogs) {
       let shortTitle = shortTitleBooks(book);
       let shortAutor = shortAutorBooks(book);
 
-      return `<li class="list_five_books">
-        <img class="img_books" src="${book.book_image}" alt=""/>
-        <h3 class="title_general">${shortTitle}</h3>
-        <p class="author_general">${shortAutor}</p>
+      return `<li class="list_five_books modal-list">
+  <a href="#" class='category-books__link'>
+        <img class='category-books__img' src="${book.book_image}" alt="book" />
+        <div class='category-books__wrapper'>
+        <p class='category-books__text'>quick view</p>
+        </div></a>
+        <h2 class="title_general">${shortTitle}</h2>
+        <p class="text_general">${shortAutor}</p>
         <h1 hidden>${book.list_name}</h1>
       </li>`;
     })
@@ -149,3 +189,4 @@ export function markupCategory(catalogs) {
     location.reload();
     
 }
+currentWindowWidth();
