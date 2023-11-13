@@ -2,7 +2,6 @@
 import * as basicLightbox from 'basiclightbox';
 import "basiclightbox/dist/basicLightbox.min.css";
 
-
     axios.defaults.baseURL = 'https://books-backend.p.goit.global/books/';
    
 
@@ -13,10 +12,8 @@ async function getBooksId(id) {
     return data;
 }
 
-
 const listElement = document.querySelector('.list');//изменить
 const bodyEl = document.querySelector('body');
-
 
  
 const arr = [];
@@ -26,13 +23,14 @@ document.addEventListener('click', onClickOpenModalWindow)
 function onClickOpenModalWindow(evt) {
   console.log(evt)
   
+// .list_five_books
 
-  if (!evt.target.closest('.list_five_books')) {
+  if (!evt.target.closest('.modal-list')) {
     return;
   }
   console.log(evt.target);
   evt.preventDefault();
-  const bookEl = evt.target.closest('.list_five_books');
+  const bookEl = evt.target.closest('.modal-list'); 
   const bookId = bookEl.dataset.id;
   console.log(bookId);
  
@@ -40,33 +38,32 @@ function onClickOpenModalWindow(evt) {
     .then(data => {
       console.log(arr);
 
-      const { _id, author, book_image, title, description, buy_links} = data;
- const instance = basicLightbox.create(`
+      const { _id, author, book_image, title, description, buy_links: [{ url: amazon }, { url: appleBook }] } = data;
+      const instance = basicLightbox.create(`
    <div class="modal-book-js" data-id="${_id}">
           <button type="button" class="modal-book-btn-close">
-          <svg class="icons-modal"  width="14" height="14">
-          <use href="../img/icons-sprite.svg#x-close-btn"></use>
+          <svg class="icons-modal"  width="12" height="12">
+          <use href="./img/icons-sprite.svg#x-close-btn"></use>
         </svg>
         </button>
           <img src="${book_image}" alt="${title}" class="modal-img-book widht="192" height="281"/>
           <div class="modal-list-infobook">
-          <h1 class="modal-book-title">${title}</h1>
-          <h2 class="modal-book-autor">${author}</h2>
+          <h3 class="modal-book-title">${title}</h3>
+          <p class="modal-book-autor">${author}</p>
           <p class="modal-book-description">${description}</p>
           <div class="modal-list-shops">
           <ul class="modal-book-list-shops">
-            <li>
-             <a href="" target="_blank" class="">
-             <img crs="./img/amazon.png" alt="" widht="62" height="19"/> 
+            <li class="modal-book-shops-item">
+             <a href="${amazon}" target="_blank" class="">
+             <img src="./img/amazon.png" alt="" widht="62" height="19" class="modal-img-shop"/> 
              </a>
             </li>
-            <li>
-             <a href="#" target="_blank" class="">
-             <img crs="./img/apple-books.png" alt="" widht="62" height="19"/> 
+            <li class="modal-book-shops-item">
+             <a href="${appleBook}" target="_blank" class="">
+             <img src="./img/apple-books.png" alt="" widht="33" height="32" class="modal-img-shop"/> 
              </a>
              </li>
-            <li>Barnes and Noble</li>
-            <li>bookshop</li>
+    
             </div>
           </ul>
           </div>
@@ -157,21 +154,3 @@ function escPress(evt) {
   
   }
  
-//buy_links: [{url:amazon}, {url:appleBook}]
- 
-
-//Відмальовка біблотеки
-// function renderBooks(data) {
-
-//   return data.map(({ _id, book_image, title, author }) =>
-//     `<li class="users-list-item" data-id="${_id}">
-//         <img src="${book_image}" alt="${title}" width=300 height=450/>
-//       <div>
-//         <h2 class="title">${title}</h2>
-//            <p>${author}</p>
-//      </div>
-//       </li>
-//     `
-//   ).join('')
-  
-// }
