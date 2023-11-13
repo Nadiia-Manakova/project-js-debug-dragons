@@ -10,6 +10,7 @@
   width: 100vw;
   background-color: var(--main-brandcolor);
   opacity: 1;
+  z-index: 950;
 }
 
 .auth-modal-backdrop.auth-backdrop-hidden {

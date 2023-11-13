@@ -1,44 +1,49 @@
-const signedInText = document.querySelector('.auth-test-signed-in');
-const signedOutText = document.querySelector('.auth-test-signed-out');
-const signInBtn = document.querySelector('.auth-modal-open');
-const signOutBtn = document.querySelector('.js-sign-out-btn');
-const dbwBtn = document.querySelector('.dbw');
-const dbrBtn = document.querySelector('.dbr');
-
+// ELEMENTS :
+// Mobile menu:
+const menuSignUpBtn = document.querySelector('.menu-sign-up-btn');
+const mobMenuUser = document.querySelector('.mob-menu-user');
+const mobMenuUserButtons = document.querySelector('.mob-menu-user-buttons');
+const mobMenuLogoutContainer = document.querySelector(
+  '.mob-menu-logout-container'
+);
+const mobMenuUserText = document.querySelector('.mob-menu-user-text');
+// Header:
+const headerHiddenAuthList = document.querySelector('.header-hidden-auth-list');
+const headerLogoutBlock = document.querySelector('.header-logout-block');
+const headerLoginOverlayBlock = document.querySelector(
+  '.header-login-overlay-block'
+);
+const headerOverlayUserName = document.querySelector(
+  '.header-overlay-user-name'
+);
+//
 // RENDERING PAGE WHEN USER IS LOGGED IN :
-function signInPageRender() {
-  signedInText.classList.remove('auth-hidden');
-  signOutBtn.classList.remove('auth-hidden');
-  dbwBtn.classList.remove('auth-hidden');
-  dbrBtn.classList.remove('auth-hidden');
-  signedOutText.classList.add('hidden');
-  signInBtn.classList.add('hidden');
+function signInPageRender(userData) {
+  const { name, email, photo, uid } = userData;
+  // Mobile menu:
+  menuSignUpBtn.classList.add('visually-hidden');
+  mobMenuUser.classList.remove('visually-hidden');
+  mobMenuUserButtons.classList.remove('visually-hidden');
+  mobMenuLogoutContainer.classList.remove('visually-hidden');
+  mobMenuUserText.textContent = name;
+  // Header:
+  headerHiddenAuthList.classList.remove('visually-hidden');
+  headerLogoutBlock.classList.add('visually-hidden');
+  headerLoginOverlayBlock.classList.remove('visually-hidden');
+  headerOverlayUserName.textContent = name;
 }
 
 // RENDERING PAGE WHEN USER IS LOGGED OUT :
 function signOutPageRender() {
-  signedInText.classList.add('auth-hidden');
-  signOutBtn.classList.add('auth-hidden');
-  dbwBtn.classList.add('auth-hidden');
-  dbrBtn.classList.add('auth-hidden');
-  signedOutText.classList.remove('hidden');
-  signInBtn.classList.remove('hidden');
+  // Mobile menu:
+  menuSignUpBtn.classList.remove('visually-hidden');
+  mobMenuUser.classList.add('visually-hidden');
+  mobMenuUserButtons.classList.add('visually-hidden');
+  mobMenuLogoutContainer.classList.add('visually-hidden');
+  // Header:
+  headerHiddenAuthList.classList.add('visually-hidden');
+  headerLogoutBlock.classList.remove('visually-hidden');
+  headerLoginOverlayBlock.classList.add('visually-hidden');
 }
 
 export { signInPageRender, signOutPageRender };
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//

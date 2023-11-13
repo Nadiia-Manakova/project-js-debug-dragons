@@ -21,16 +21,18 @@ import { signInPageRender, signOutPageRender } from './auth-page-render';
 
 // ELEMENTS :
 const elements = {
-  openModalBtn: document.querySelector('.auth-modal-open'),
-  closeModalBtn: document.querySelector('.auth-modal-close'),
   modal: document.querySelector('.auth-modal-backdrop'),
+  headerLogoutBlock: document.querySelector('.header-logout-block'),
+  openModalBtnMobile: document.querySelector('.menu-sign-up-btn'),
+  closeModalBtn: document.querySelector('.auth-modal-close'),
   signUpBox: document.querySelector('.js-sign-up'),
   signInBox: document.querySelector('.js-sign-in'),
   signUpForm: document.querySelector('.js-sign-up-form'),
   signInForm: document.querySelector('.js-sign-in-form'),
   signUpBtn: document.querySelector('.js-sign-up-link'),
   signInBtn: document.querySelector('.js-sign-in-link'),
-  exitBtn: document.querySelector('.js-sign-out-btn'),
+  exitBtn: document.querySelector('.header-overlay-wrap'),
+  exitBtnMobile: document.querySelector('.mob-menu-logout-btn'),
 };
 
 // LISTENERS :
@@ -38,9 +40,11 @@ elements.signInBtn.addEventListener('click', signInActivate);
 elements.signUpBtn.addEventListener('click', signUpActivate);
 elements.signUpForm.addEventListener('submit', signUpHandler);
 elements.signInForm.addEventListener('submit', signInHandler);
-elements.openModalBtn.addEventListener('click', toggleModal);
+elements.openModalBtnMobile.addEventListener('click', toggleModal);
+elements.headerLogoutBlock.addEventListener('click', toggleModal);
 elements.closeModalBtn.addEventListener('click', toggleModal);
 elements.exitBtn.addEventListener('click', exitHandler);
+elements.exitBtnMobile.addEventListener('click', exitHandler);
 
 // MODAL WINDOW :
 function toggleModal() {
@@ -94,7 +98,7 @@ onAuthStateChanged(auth, user => {
       uid: user.uid,
     };
     console.log(`User is signed in!`);
-    signInPageRender();
+    signInPageRender(userData);
   } else {
     console.log(`User is signed out!`);
     signOutPageRender();
@@ -149,6 +153,7 @@ function exitHandler() {
       console.log(`An error happened. ${error}`);
       // Notiflix.Notify.failure(`An error happened. ${error}`);
     });
+  location.href = '../index.html';
 }
 
 // GET USER DATA :
@@ -219,9 +224,6 @@ export {
   writeUserShoppingList,
   readUserShoppingList,
 };
-//
-//
-//
 
 //  INSTRUCTIONS :
 //
@@ -263,20 +265,3 @@ export {
 //     // An error occurred
 //     // ...
 //   });
-
-// TEMPORARY :
-const dbwBtn = document.querySelector('.dbw');
-dbwBtn.addEventListener('click', writeClickHandler);
-
-function writeClickHandler() {
-  writeUserShoppingList([
-    { list_name: 'Advice How-To and Miscellaneous' },
-    { list_name: 'Audio Fiction', books: Array(5) },
-    { list_name: 'Audio Nonfiction', books: Array(5) },
-    { list_name: 'Business Books', books: Array(5) },
-    { list_name: 'Childrens Middle Grade Hardcover', books: Array(5) },
-    { list_name: 'Combined Print and E-Book Fiction', books: Array(5) },
-  ]);
-}
-const dbrBtn = document.querySelector('.dbr');
-dbrBtn.addEventListener('click', readUserShoppingList);
