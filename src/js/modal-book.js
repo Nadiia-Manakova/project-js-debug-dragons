@@ -1,18 +1,20 @@
  import axios from 'axios';
 import * as basicLightbox from 'basiclightbox';
 import "basiclightbox/dist/basicLightbox.min.css";
+import { getUserData, writeUserShoppingList } from './auth';
+
 
     axios.defaults.baseURL = 'https://books-backend.p.goit.global/books/';
    
 
-async function getBooksId(id) {
+async function getBooksId(bookId) {
     // const url = `${BASE_URL}${bookId}`;
-  const { data } = await axios(id);
+  const { data } = await axios(bookId);
     console.log(data);
     return data;
 }
 
-const listElement = document.querySelector('.list');//изменить
+// const listElement = document.querySelector('.modal-list');
 const bodyEl = document.querySelector('body');
 
  
@@ -23,8 +25,6 @@ document.addEventListener('click', onClickOpenModalWindow)
 function onClickOpenModalWindow(evt) {
   console.log(evt)
   
-// .list_five_books
-
   if (!evt.target.closest('.modal-list')) {
     return;
   }
@@ -38,6 +38,7 @@ function onClickOpenModalWindow(evt) {
     .then(data => {
       console.log(arr);
 
+    
       const { _id, author, book_image, title, description, buy_links: [{ url: amazon }, { url: appleBook }] } = data;
       const instance = basicLightbox.create(`
    <div class="modal-book-js" data-id="${_id}">
@@ -60,7 +61,7 @@ function onClickOpenModalWindow(evt) {
             </li>
             <li class="modal-book-shops-item">
              <a href="${appleBook}" target="_blank" class="">
-             <img src="./img/apple-books.png" alt="" widht="33" height="32" class="modal-img-shop"/> 
+             <img src="./img/apple-books.png" alt="" widht="33" height="32" class="modal-img-shop-apple"/> 
              </a>
              </li>
     
@@ -105,24 +106,38 @@ function escPress(evt) {
       // const btnRemoveList = document.querySelector('.modal-book-remove-shoplist')
 
       // btnAddShopList.addEventListener('click', onClickAddShoplist)
-      const LOCAL_KEY = 'booklist';
-
+      
       // function onClickAddShoplist() {
-        
-       arr.push(data);
+        // const LOCAL_KEY = 'booklist';
+        // arr.push(data);
         
       // localStorage.setItem(LOCAL_KEY, JSON.stringify(arr));
        
       // }
 
-      //Кнопки видалення та додадавання книги в сховище
+     
+      // const btnAddEl = document.querySelector('#add');
+      // const btnRemoveEl = document.querySelector('#remove');
+      // const textRemoveEl = document.querySelector('.txt-remove');
+      
+      
+  if (!getUserData()) {
+   btnAddEl.classList.add('hidden');
+   btnRemoveEl.classList.add('hidden');
+   textRemoveEl.classList.add('hidden');
+ }else{
+  const LOCAL_KEY = 'booklist';
+    arr.push(data);
+    writeUserShoppingList(arr);
+    console.log(arr);
+    
       const btnAddEl = document.querySelector('#add');
       const btnRemoveEl = document.querySelector('#remove');
       const textRemoveEl = document.querySelector('.txt-remove');
-      
       getBooksId(bookId)
         .then(data => {
           const idBook = data.id;
+           //Кнопки видалення та додадавання книги в сховище
           if (localStorage.getItem({ idBook }) !== null) {
             btnAddEl.classList.add('hidden');
             btnRemoveEl.classList.remove('hidden');
@@ -144,13 +159,14 @@ function escPress(evt) {
             btnRemoveEl.classList.add('hidden');
             textRemoveEl.classList.add('hidden');
           })
+        })
+    
+ }
+
         }
         
       )
     
-      
-    })
- 
-  
+    
   }
  

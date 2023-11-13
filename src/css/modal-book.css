@@ -2,8 +2,8 @@
     width: 335px;
     /* height: 762px; */
     border-radius: 18px;
-    border: 2px solid #111111;
-    background: #FFF;
+    border: 2px solid var(--text-color);
+    background: var(--background-color);
     display: flex;
     flex-wrap: wrap;
 }
@@ -31,14 +31,14 @@
 }
 
 .icons-modal {
-    stroke: #111111;
+    stroke:var(--text-color);
     width: 24px;
     height: 24px;
 }
 
 .modal-book-title {
     max-width: 270px;
-    color: #111;
+    color: var(--text-color);
     font-style: normal;
     font-weight: 700;
     line-height: 18px;
@@ -48,7 +48,7 @@
 }
 
 .modal-book-autor {
-    color: #B4AFAF;
+    color: var(--text-color-grey);
     font-size: 12px;
     font-style: italic;
     font-weight: 400;
@@ -61,7 +61,7 @@
 .modal-book-description {
     width: 287px;
     height: 70px;
-    color: #111;
+    color: var(--text-color);
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -88,8 +88,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 40px;
-    border: 2px solid #4F2EE8;
-    color: #111;
+    border: 2px solid var(--main-brandcolor);
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
@@ -102,7 +101,7 @@
 }
 
 .txt-remove {
-    color: rgba(17, 17, 17, 0.50);
+    color: var(--text-color-grey);
     max-width: 242px;
     font-size: 10px;
     line-height: 12px;
@@ -116,18 +115,29 @@
     background: lightgray 0.741px 0px / 97.61% 100% no-repeat;
     mix-blend-mode: luminosity;
     background-color: transparent;
+    filter: var(--amason);
 }
 .modal-img-shop:hover,
 .modal-img-shop:focus{
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+    filter: var(--amason-apple-hover);
+}
+.modal-img-shop-apple{
+    background: lightgray 0.741px 0px / 97.61% 100% no-repeat;
+    mix-blend-mode: luminosity;
+    background-color: transparent;
+    filter:var(--aplle);
+}
+.modal-img-shop-apple:hover,
+.modal-img-shop-apple:focus {
+    filter: var(--amason-apple-hover);
 }
 @media screen and (min-width: 768px) {
 
     .modal-book-js {
         width: 579px;
         border-radius: 18px;
-        border: 2px solid #111111;
-        background: #FFF;
+        border: 2px solid var(--text-color);
+        background-color: var(--background-color);
         display: flex;
         flex-wrap: wrap;
     }
@@ -149,18 +159,18 @@
         top: 12px;
         background-color: transparent;
         border: none;
-        stroke: #111111;
+        stroke: var(--black-color);
 
     }
 
     .modal-book-btn-close .icons-modal:hover,
     .modal-book-btn-close .icons-modal:focus,
     .modal-book-btn-close .icons-modal:active {
-         background-color: #FFF;
-         stroke: #4F2EE8;
+         stroke: var(--main-brandcolor);
     }
     .icons-modal {
-            stroke: #111111;
+        background-color: var(--background-color);
+        stroke: var(--text-color);
         }
 
     .modal-book-title {
