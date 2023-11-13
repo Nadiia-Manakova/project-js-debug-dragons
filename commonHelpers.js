@@ -1,23 +1,31 @@
-import{g as x,a as v,b as M}from"./assets/burgerMenu-83b980d7.js";import{N as L,a as E,b as N}from"./assets/vendor-e8a5e68e.js";const j=document.querySelector(".title_best_sellers"),d=document.querySelector(".list_general");let c=0,b=window.innerWidth;b>=996?c=5:b>=720?c=3:b>=240&&(c=1);x().then(t=>{console.log(t),K(t)}).catch(t=>{L.Notify.failure("An error occurred while fetching images. Please try again.")});function I(){let t=this.getAttribute("data-my-attribute");v(t).then(e=>{j.style.display="none",d.innerHTML="",w(e)}).catch(e=>{L.Notify.failure("An error occurred while fetching images. Please try again.")})}function O(t){return t.books.slice(0,c).map(e=>{let o=S(e),s=$(e);return`
-      <li class="list_five_books" data-id="${e._id}">
-        <img class="img_books" src="${e.book_image}" alt=""/>
-        <h3 class="title_general">${o}</h3>
+import{g as B,a as v,b as M}from"./assets/burgerMenu-3414bf3e.js";import{N as L,a as E,b as N}from"./assets/vendor-e8a5e68e.js";const j=document.querySelector(".title_best_sellers"),u=document.querySelector(".list_general");let d=0,l=window.innerWidth;window.addEventListener("resize",W);function W(e){const t=e.target.outerWidth;(t>767&&l<768||t>1439&&l<1440||t<1440&&l>1439||t<768&&l>767)&&location.reload()}const I=()=>{l<768?d=1:l>=768&&l<1440?d=3:d=5};B().then(e=>{console.log(e),K(e)}).catch(e=>{L.Notify.failure("An error occurred while fetching images. Please try again.")});function O(){let e=this.getAttribute("data-my-attribute");v(e).then(t=>{j.style.display="none",u.innerHTML="",$(t)}).catch(t=>{L.Notify.failure("An error occurred while fetching images. Please try again.")})}function R(e){return e.books.slice(0,d).map(t=>{let o=w(t),s=S(t);return`
+      <li class="list_five_books modal-list" data-id="${t._id}">
+      <a href="#" class='category-books__link'>
+        <img class='category-books__img' src="${t.book_image}" alt="book" />
+        <div class='category-books__wrapper'>
+        <p class='category-books__text'>quick view</p>
+        </div></a>
+        <h2 class="title_general">${o}</h2>
         <p class="author_general">${s}</p>
       </li>
-    `}).join("")}function H(t){return t.map(e=>{const o=O(e);return`
+    `}).join("")}function H(e){return e.map(t=>{const o=R(t);return`
       <div class="div_five_books"><li class="list_five_books">
-        <h2 class="text_general">${e.list_name}</h2>
+        <h2 class="text_general">${t.list_name}</h2>
         <ul class="list_five_general">${o}</ul>
-        <button class="btn" data-my-attribute="${e.list_name}">SEE MORE</button>
+        <button class="btn" data-my-attribute="${t.list_name}">SEE MORE</button>
       </li></div>
-    `}).join("")}function K(t){window.scrollTo(0,0);const e=H(t);d.insertAdjacentHTML("beforeend",e),document.querySelectorAll(".btn").forEach(s=>{s.addEventListener("click",I)})}function R(t){return t.slice(0,1).map(e=>e.list_name.split(" ").map(o=>`<span>${o}</span>`).join(" "))}function S(t){return t.title.length>17?t.title.substring(0,17)+"...":t.title}function $(t){return t.author.length>25?t.author.substring(0,25)+"...":t.author}function P(t){return t.map(e=>{let o=S(e),s=$(e);return`<li class="list_five_books">
-        <img class="img_books" src="${e.book_image}" alt=""/>
-        <h3 class="title_general">${o}</h3>
-        <p class="author_general">${s}</p>
-        <h1 hidden>${e.list_name}</h1>
-      </li>`}).join("")}function Y(t,e){return`<div class='div_category'><h1 class="title-category">${t}</h1></><ul class="list_five_general">${e}</ul>
-  <button class="btn_back">BACK</button></div>`}function w(t){window.scrollTo(0,0);const e=P(t),o=R(t),s=Y(o,e);d.insertAdjacentHTML("beforeend",s),document.querySelector(".btn_back").addEventListener("click",z)}function z(){location.reload()}const l={galleryTitle:document.querySelector(".list_general-title"),filterListEl:document.querySelector(".categories__list"),categoriesTitle:document.querySelector(".categories__title"),title:document.querySelector(".title_best_sellers")};console.log(l.title);function D(t){M().then(e=>{const o=e.data;o.sort((s,a)=>s.list_name.localeCompare(a.list_name)),J(o)})}function J(t){const e=t.map(o=>`<li class="categories__list-item">${o.list_name}</li>`);l.filterListEl.insertAdjacentHTML("beforeend",e.join(""))}D();l.filterListEl.addEventListener("click",W);function W(t){F(t);const e=t.target.textContent;v(e).then(o=>{d.innerHTML="",w(o),l.title.style.display="none"}).catch(o=>{Notiflix.Notify.failure("An error occurred while fetching images. Please try again.")})}function F(t){if(t.target.tagName==="LI"){const e=l.filterListEl.querySelector(".selected-category");e&&e.classList.remove("selected-category"),t.target.classList.add("selected-category")}l.categoriesTitle.style.color="var(--text-color)"}E.defaults.baseURL="https://books-backend.p.goit.global/books/";async function _(t){const{data:e}=await E(t);return console.log(e),e}document.querySelector(".list");const y=document.querySelector("body"),r=[];document.addEventListener("click",G);function G(t){if(console.log(t),!t.target.closest(".modal-list"))return;console.log(t.target),t.preventDefault();const o=t.target.closest(".modal-list").dataset.id;console.log(o),_(o).then(s=>{console.log(r);const{_id:a,author:C,book_image:q,title:p,description:A,buy_links:[{url:T},{url:B}]}=s,u=N.create(`
-   <div class="modal-book-js" data-id="${a}">
+    `}).join("")}function K(e){window.scrollTo(0,0);const t=H(e);u.insertAdjacentHTML("beforeend",t),document.querySelectorAll(".btn").forEach(s=>{s.addEventListener("click",O)})}function z(e){return e.slice(0,1).map(t=>t.list_name.split(" ").map(o=>`<span>${o}</span>`).join(" "))}function w(e){return e.title.length>16?e.title.substring(0,16)+"...":e.title}function S(e){return e.author.length>25?e.author.substring(0,25)+"...":e.author}function P(e){return e.map(t=>{let o=w(t),s=S(t);return`<li class="list_five_books modal-list">
+  <a href="#" class='category-books__link'>
+        <img class='category-books__img' src="${t.book_image}" alt="book" />
+        <div class='category-books__wrapper'>
+        <p class='category-books__text'>quick view</p>
+        </div></a>
+        <h2 class="title_general">${o}</h2>
+        <p class="text_general">${s}</p>
+        <h1 hidden>${t.list_name}</h1>
+      </li>`}).join("")}function Y(e,t){return`<div class='div_category'><h1 class="title-category">${e}</h1></><ul class="list_five_general">${t}</ul>
+  <button class="btn_back">BACK</button></div>`}function $(e){window.scrollTo(0,0);const t=P(e),o=z(e),s=Y(o,t);u.insertAdjacentHTML("beforeend",s),document.querySelector(".btn_back").addEventListener("click",D)}function D(){location.reload()}I();const i={galleryTitle:document.querySelector(".list_general-title"),filterListEl:document.querySelector(".categories__list"),categoriesTitle:document.querySelector(".categories__title"),title:document.querySelector(".title_best_sellers")};console.log(i.title);function J(e){M().then(t=>{const o=t.data;o.sort((s,r)=>s.list_name.localeCompare(r.list_name)),F(o)})}function F(e){const t=e.map(o=>`<li class="categories__list-item">${o.list_name}</li>`);i.filterListEl.insertAdjacentHTML("beforeend",t.join(""))}J();i.filterListEl.addEventListener("click",G);function G(e){U(e);const t=e.target.textContent;v(t).then(o=>{u.innerHTML="",$(o),i.title.style.display="none"}).catch(o=>{Notiflix.Notify.failure("An error occurred while fetching images. Please try again.")})}function U(e){if(e.target.tagName==="LI"){const t=i.filterListEl.querySelector(".selected-category");t&&t.classList.remove("selected-category"),e.target.classList.add("selected-category")}i.categoriesTitle.style.color="var(--text-color)"}E.defaults.baseURL="https://books-backend.p.goit.global/books/";async function _(e){const{data:t}=await E(e);return console.log(t),t}document.querySelector(".list");const y=document.querySelector("body"),c=[];document.addEventListener("click",V);function V(e){if(console.log(e),!e.target.closest(".modal-list"))return;console.log(e.target),e.preventDefault();const o=e.target.closest(".modal-list").dataset.id;console.log(o),_(o).then(s=>{console.log(c);const{_id:r,author:C,book_image:q,title:p,description:A,buy_links:[{url:T},{url:x}]}=s,m=N.create(`
+   <div class="modal-book-js" data-id="${r}">
           <button type="button" class="modal-book-btn-close">
           <svg class="icons-modal"  width="12" height="12">
           <use href="./img/icons-sprite.svg#x-close-btn"></use>
@@ -36,7 +44,7 @@ import{g as x,a as v,b as M}from"./assets/burgerMenu-83b980d7.js";import{N as L,
              </a>
             </li>
             <li class="modal-book-shops-item">
-             <a href="${B}" target="_blank" class="">
+             <a href="${x}" target="_blank" class="">
              <img src="./img/apple-books.png" alt="" widht="33" height="32" class="modal-img-shop"/> 
              </a>
              </li>
@@ -50,5 +58,5 @@ import{g as x,a as v,b as M}from"./assets/burgerMenu-83b980d7.js";import{N as L,
           remove from the shopping list</button>
           <p class="txt-remove hidden">Сongratulations! You have added the book 
           to the shopping list. To delete, press the button “Remove from the shopping list”.</p>
-    </div>`,{onShow:()=>{document.addEventListener("keydown",f),y.style.overflow="hidden"},onClose:()=>{document.removeEventListener("keydown",f),y.style.overflow="auto"}});function f(g){const h="Escape";g.code===h&&u.close()}u.show(),document.querySelector(".modal-book-btn-close").addEventListener("click",()=>{u.close()});const k="booklist";r.push(s);const i=document.querySelector("#add"),n=document.querySelector("#remove"),m=document.querySelector(".txt-remove");_(o).then(g=>{const h=g.id;localStorage.getItem({idBook:h})!==null?(i.classList.add("hidden"),n.classList.remove("hidden")):(i.classList.remove("hidden"),n.classList.add("hidden"),m.classList.add("hidden")),i.addEventListener("click",()=>{localStorage.setItem(k,JSON.stringify(r)),i.classList.add("hidden"),n.classList.remove("hidden"),m.classList.remove("hidden")}),n.addEventListener("click",()=>{localStorage.removeItem(k,JSON.stringify(r)),i.classList.remove("hidden"),n.classList.add("hidden"),m.classList.add("hidden")})})})}
+    </div>`,{onShow:()=>{document.addEventListener("keydown",k),y.style.overflow="hidden"},onClose:()=>{document.removeEventListener("keydown",k),y.style.overflow="auto"}});function k(h){const b="Escape";h.code===b&&m.close()}m.show(),document.querySelector(".modal-book-btn-close").addEventListener("click",()=>{m.close()});const f="booklist";c.push(s);const a=document.querySelector("#add"),n=document.querySelector("#remove"),g=document.querySelector(".txt-remove");_(o).then(h=>{const b=h.id;localStorage.getItem({idBook:b})!==null?(a.classList.add("hidden"),n.classList.remove("hidden")):(a.classList.remove("hidden"),n.classList.add("hidden"),g.classList.add("hidden")),a.addEventListener("click",()=>{localStorage.setItem(f,JSON.stringify(c)),a.classList.add("hidden"),n.classList.remove("hidden"),g.classList.remove("hidden")}),n.addEventListener("click",()=>{localStorage.removeItem(f,JSON.stringify(c)),a.classList.remove("hidden"),n.classList.add("hidden"),g.classList.add("hidden")})})})}
 //# sourceMappingURL=commonHelpers.js.map
