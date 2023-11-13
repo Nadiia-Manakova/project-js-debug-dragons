@@ -1,4 +1,6 @@
 import Pagination from 'tui-pagination';
+import { showLoader, hideLoader } from './loader.js';
+import { writeUserShoppingList } from './auth.js';
 // import 'tui-pagination/dist/tui-pagination.css';
 
 const LOCAL_KEY = "booklist";
@@ -82,6 +84,7 @@ pagination.on('afterMove', (event) => {
 
 function createCartMurkup(arr, currentPage) {
     cartList.innerHTML = "";
+    hideLoader();
     const start = itemPerPage * (currentPage-1);
     const end = start + itemPerPage;
     const paginatedData = arr.slice(start, end);
@@ -101,8 +104,8 @@ function createCartMurkup(arr, currentPage) {
                 </svg>
                 </button>
                 <ul class="cart-item-links">
-                <li><a href="${amazon}" class="cart-item-link">amazon</a></li>
-                <li><a href="${appleBook}" class="cart-item-link">apple book</a></li>
+                <li><a href="${amazon}" target="_blank" class="cart-item-link"><img src="./img/amazon.png" alt="" widht="32" height="11" class="modal-img-shop cart-link-img-amazon"/></a></li>
+                <li><a href="${appleBook}" target="_blank" class="cart-item-link"><img src="./img/apple-books.png" alt="" widht="16" height="16" class="modal-img-shop cart-link-img-apple"/></a></li>
                 </ul>
             </div>
         </li>`).join("");
@@ -121,6 +124,7 @@ function handlerDeleteCart(e) {
         const oldPage = Math.floor(indexToDelete / itemPerPage + 1);
         const products = data.filter(({ _id }) => _id !== idOfBook);
         localStorage.setItem(LOCAL_KEY, JSON.stringify(products));
+        writeUserShoppingList(products);
         data = JSON.parse(localStorage.getItem(LOCAL_KEY));
         const pageCount = Math.floor((products.length - 1) / itemPerPage + 1);
         pagination.setTotalItems(products.length);
