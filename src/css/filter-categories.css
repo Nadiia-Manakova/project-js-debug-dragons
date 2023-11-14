@@ -39,6 +39,7 @@
 
   padding-bottom: 24px;
   cursor: pointer;
+  transition: all 0.16s ease-in-out;
 }
 @media screen and (min-width: 768px) {
   .categories__list-item {
@@ -47,6 +48,8 @@
 }
 .categories__list-item:hover {
   color: var(--hover-categorie-text);
+  scale: 101%;
+  transform: translateX(2px);
 }
 
 .selected-category {
@@ -55,4 +58,5 @@
   font-weight: 700;
   line-height: 18px;
   letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
