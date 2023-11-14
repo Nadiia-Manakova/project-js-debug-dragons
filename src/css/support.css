@@ -5,7 +5,8 @@
     justify-content: flex-start;
     align-items: flex-start;
     height: 460px;
-    width: 335px;
+    /* width: 335px; */
+    /* width: 100%; */
     flex-shrink: 0;
     overflow: hidden;
     border-radius: 16px;
