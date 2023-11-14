@@ -37,10 +37,10 @@ function readUserShoppingList() {
   get(child(dbRef, `users/${userId}`))
     .then(snapshot => {
       if (snapshot.exists()) {
-       const { books:booksArr} = snapshot.val();
+        const { books: booksArr } = snapshot.val();
         localStorage.setItem(LOCAL_KEY, JSON.stringify(booksArr));
       } else {
-        console.log('No data available');
+        console.log('No data available.');
       }
       console.log(JSON.parse(localStorage.getItem(LOCAL_KEY)));
     })
@@ -93,4 +93,5 @@ function signOutPageRender() {
 //
 //
 //
+// EXPORT :
 export { signInPageRender, signOutPageRender };

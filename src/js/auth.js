@@ -1,7 +1,5 @@
 // NOTIFY :
-// import AWN from 'awesome-notifications';
-// let globalOptions = {};
-// let notifier = new AWN(globalOptions);
+import swal from 'sweetalert';
 // FIREBASE APP :
 import { initializeApp } from 'firebase/app';
 import { fireBaseConfig } from './auth-fire-base-config';
@@ -79,9 +77,12 @@ function signUpHandler(event) {
   const checkName = data.username.trim();
   if (!checkName) {
     console.log('Please enter your name!');
+    swal('Please enter your name!', {
+      icon: 'warning',
+    });
     return;
   }
-  signUpService(data.email, data.password, data.username);
+  signUpService(data.email, data.password, checkName);
 }
 
 function signInHandler(event) {
@@ -122,15 +123,25 @@ function signUpService(email, password, name) {
       })
     )
     .then(() => {
+      const headerOverlayUserName = document.querySelector(
+        '.header-overlay-user-name'
+      );
+      headerOverlayUserName.textContent = name;
       toggleModal();
       console.log(`Welcome, ${name}!`);
-      // Notiflix.Notify.success(`Welcome, ${name}!`);
+      swal(`Welcome, ${name}!`, {
+        icon: 'success',
+        buttons: false,
+        timer: 2500,
+      });
     })
     .catch(error => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorCode, errorMessage);
-      // Notiflix.Notify.failure(errorCode, errorMessage);
+      swal(`Error! ${errorCode}`, {
+        icon: 'error',
+      });
     });
 }
 
@@ -139,15 +150,20 @@ function signInService(email, password) {
     .then(userCredential => {
       const user = userCredential.user;
       console.log(`Welcome, ${user.displayName}!`);
-      // Notiflix.Notify.success(`Welcome, ${user.displayName}!`);
-      // notifier.success('Your custom message');
+      swal(`Welcome, ${user.displayName}!`, {
+        icon: 'success',
+        buttons: false,
+        timer: 2500,
+      });
       toggleModal();
     })
     .catch(error => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorCode, errorMessage);
-      // Notiflix.Notify.failure(errorCode, errorMessage);
+      swal(`Error! ${errorCode}`, {
+        icon: 'error',
+      });
     });
 }
 
@@ -155,11 +171,9 @@ function exitHandler() {
   signOut(auth)
     .then(() => {
       console.log('Sign-out successful.');
-      // Notiflix.Notify.success('Sign-out successful.');
     })
     .catch(error => {
       console.log(`An error happened. ${error}`);
-      // Notiflix.Notify.failure(`An error happened. ${error}`);
     });
   location.href = './index.html';
 }
@@ -177,20 +191,19 @@ function getUserData() {
     // console.log(userData);
     return userData;
   } else {
-    console.log(`User is signed out. This function will return "undefined".`);
+    console.log(`User is signed out.`);
   }
 }
 
 //  WRITE USER SHOPPING LIST :
 function writeUserShoppingList(booksArr) {
   if (!booksArr) {
-    console.log('No data to write!');
+    console.log('No data to write.');
     return;
   }
   const userData = getUserData();
   if (!userData) {
-    console.log(`User is not authorized!`);
-    // Notiflix.Notify.failure(`User is not authorized!`);
+    console.log(`User is not authorized.`);
     return;
   }
   const userId = userData.uid;
@@ -198,7 +211,7 @@ function writeUserShoppingList(booksArr) {
   set(ref(db, 'users/' + userId), {
     books: booksArr,
   });
-  console.log(`Success!`);
+  console.log(`Shopping list was written to DB.`);
 }
 
 // EXPORT :
