@@ -1,6 +1,7 @@
 import Notiflix from 'notiflix';
 import { getTopBooks, getTopCategory } from './request-base';
 import { refs } from './filter-categories';
+import { showLoader, hideLoader } from './loader.js';
 
 export const listGeneral = document.querySelector('.list_general');
 const titleBestSellers = document.querySelector('.title_best_sellers');
@@ -37,30 +38,20 @@ const currentWindowWidth = () => {
 };
 
 
-
-
-// let width = window.innerWidth;
-// if (width >= 996) {
-//     n = 5;
-
-// } else if (width >= 720) {
-//   n = 3;
-// } else if (width >= 240) {
-//   n = 1;
-// }
-
 getTopBooks()
   .then(allCategory => {
     console.log(allCategory);
     bestSellers(allCategory);
+    
   })
   .catch(error => {
     Notiflix.Notify.failure(
       'An error occurred while fetching images. Please try again.'
     );
   });
+  
 
-function isClick() {
+function isClick() {showLoader();
   let attributeValue = this.getAttribute('data-my-attribute');
   console.log(attributeValue);
 
@@ -71,6 +62,7 @@ function isClick() {
       titleBestSellers.style.display = 'none';
       listGeneral.innerHTML = '';
       markupCategory(catalogs);
+      
     })
     .catch(error => {
       Notiflix.Notify.failure(
@@ -128,6 +120,7 @@ function getMarkupAll(allCategory) {
     `;
     })
     .join('');
+  
 }
 
 function bestSellers(allCategory) {
@@ -200,7 +193,7 @@ export function markupCategory(catalogs) {
   const markup = getMarkup(listNames, markupLi);
 
   listGeneral.insertAdjacentHTML('beforeend', markup);
-
+hideLoader();
   let btnBack = document.querySelector('.btn_back');
   btnBack.addEventListener('click', isClose);
 }
