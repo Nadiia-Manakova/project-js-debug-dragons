@@ -15,6 +15,7 @@
 @import url('./modal-book.css');
 @import url('./auth.css');
 @import url('./burgerMenu.css');
+@import url('./scroll-to-top.css');
 
 :root {
   --main-brandcolor: #4f2ee8;

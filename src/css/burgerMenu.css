@@ -36,7 +36,6 @@
 .line-top,
 .line-middle,
 .line-bottom {
-  /* background-color: var(--black-color); */
   display: flex;
   height: 2px;
   opacity: 1;
@@ -99,6 +98,7 @@
   opacity: 1;
   background: var(--background-gradient);
   height: 100%;
+  width: 100%;
   overflow: hidden;
   z-index: 900;
 }
@@ -184,7 +184,9 @@
   display: flex;
   gap: 9px;
   align-items: center;
-  padding: 20px;
+  padding-top: 20px;
+  padding-left: 20px;
+  margin-bottom: 120px;
 }
 .mob-menu-user-text {
   color: #fff;
@@ -195,24 +197,24 @@
 }
 
 .mob-menu-home-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 34px;
   padding: 8px 16px;
   border-radius: 36px;
   background: var(--accent-color);
-  margin-top: 123px;
-}
-
-.mob-menu-user-buttons {
-  margin-left: 120px;
-}
-
-.mob-menu-home-btn {
   margin-bottom: 16px;
+}
+.mob-menu-home-btn:hover {
+  background: var(--main-brandcolor);
+  color: var(--white-color);
 }
 
 .mob-menu-shoping {
   display: flex;
-  gap: 4px;
-  align-items: center;
+  justify-content: center;
 }
 
 .mob-menu-shoping-ico {
@@ -220,8 +222,9 @@
 }
 
 .mob-menu-shoping-link {
+  display: flex;
+  align-items: center;
   color: #fff;
-
   font-family: DM Sans;
   font-size: 14px;
   font-style: normal;
@@ -236,72 +239,3 @@
   | arrow up button
   |============================
 */
-
-.scroll-to-top-container {
-  position: fixed;
-  right: 20px;
-  bottom: 140px;
-  z-index: 899;
-}
-
-.scroll-to-top-button {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  border: none;
-  opacity: 0;
-  transition: box-shadow 400ms cubic-bezier(0.2, 0, 0.7, 1),
-    transform 200ms cubic-bezier(0.2, 0, 0.7, 1),
-    opacity 500ms cubic-bezier(0.2, 0, 0.7, 1);
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.scroll-to-top-button.show {
-  opacity: 1;
-}
-
-.scroll-to-top-button:hover {
-  background: transparent;
-  box-shadow: 0 0 1px 20px rgba(138, 59, 88, 0.1),
-    0 0 1px 10px rgba(59, 71, 138, 0.1);
-}
-
-.arrow-up-btn {
-  fill: white;
-  width: 64px;
-  height: 64px;
-}
-
-.mob-menu-logout-icon {
-  stroke: var(--accent-color);
-}
-
-.mob-menu-logout-btn {
-  width: 118px;
-  height: 48px;
-  border-radius: 18px;
-  border: 1.5px solid #111;
-  background: #fff;
-  text-transform: none;
-  position: absolute;
-  left: 20px;
-  bottom: 80px;
-  z-index: 1;
-}
-
-.mob-menu-logout-text {
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  letter-spacing: -0.56px;
-}
-
-.mob-menu-logout-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-}
