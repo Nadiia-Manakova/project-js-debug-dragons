@@ -1,3 +1,4 @@
+import { burgerChangeColor } from '../burgerMenu';
 import { headeRrefs } from './headerConst';
 
 export const setCurrentPageName = () => {
