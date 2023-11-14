@@ -1,5 +1,7 @@
-// NOTIFLIX :
-import Notiflix from 'notiflix';
+// NOTIFY :
+// import AWN from 'awesome-notifications';
+// let globalOptions = {};
+// let notifier = new AWN(globalOptions);
 // FIREBASE APP :
 import { initializeApp } from 'firebase/app';
 import { fireBaseConfig } from './auth-fire-base-config';
@@ -74,6 +76,11 @@ function signUpHandler(event) {
   formData.forEach((value, key) => {
     data[key] = value;
   });
+  const checkName = data.username.trim();
+  if (!checkName) {
+    console.log('Please enter your name!');
+    return;
+  }
   signUpService(data.email, data.password, data.username);
 }
 
@@ -133,6 +140,7 @@ function signInService(email, password) {
       const user = userCredential.user;
       console.log(`Welcome, ${user.displayName}!`);
       // Notiflix.Notify.success(`Welcome, ${user.displayName}!`);
+      // notifier.success('Your custom message');
       toggleModal();
     })
     .catch(error => {
@@ -166,7 +174,7 @@ function getUserData() {
       photo: user.photoURL,
       uid: user.uid,
     };
-    console.log(userData);
+    // console.log(userData);
     return userData;
   } else {
     console.log(`User is signed out. This function will return "undefined".`);
@@ -193,37 +201,9 @@ function writeUserShoppingList(booksArr) {
   console.log(`Success!`);
 }
 
-// READ USER SHOPPING LIST :
-function readUserShoppingList() {
-  const userData = getUserData();
-  if (!userData) {
-    console.log(`User is not authorized!`);
-    return;
-  }
-  const userId = userData.uid;
-  const dbRef = ref(getDatabase());
-  get(child(dbRef, `users/${userId}`))
-    .then(snapshot => {
-      if (snapshot.exists()) {
-        console.log(snapshot.val());
-        return snapshot.val();
-      } else {
-        console.log('No data available');
-      }
-    })
-    .catch(error => {
-      console.log(error);
-    });
-}
-
 // EXPORT :
 
-export {
-  getUserData,
-  exitHandler,
-  writeUserShoppingList,
-  readUserShoppingList,
-};
+export { getUserData, exitHandler, writeUserShoppingList };
 
 //  INSTRUCTIONS :
 //
