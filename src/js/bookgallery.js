@@ -99,7 +99,7 @@ function getBooksMarkup(category) {
         <p class='category-books__text'>quick view</p>
         </div></a>
 
-        <h2 class="title_general">${shortTitle}</h2>
+        <h3 class="title_general">${shortTitle}</h3>
         <p class="author_general">${shortAutor}</p>
       </li>
     `;
@@ -112,8 +112,8 @@ function getMarkupAll(allCategory) {
     .map(category => {
       const booksMarkup = getBooksMarkup(category);
       return `
-      <div class="div_five_books"><li class="list_five_books"
-        <p class="text_general">${category.list_name}</p>
+      <div class="div_five_books"><li class="list_five_books">
+        <h2 class="text_general">${category.list_name}</h2>
         <ul class="list_five_general">${booksMarkup}</ul>
         <button class="btn" data-my-attribute="${category.list_name}">SEE MORE</button>
       </li></div>
@@ -170,7 +170,7 @@ function getmarkupLi(catalogs) {
         <p class='category-books__text'>quick view</p>
         </div></a>
 
-        <h2 class="title_general">${shortTitle}</h2>
+        <h3 class="title_general">${shortTitle}</h3>
         <p class="text_general">${shortAutor}</p>
         <h1 hidden>${book.list_name}</h1>
       </li>`;
