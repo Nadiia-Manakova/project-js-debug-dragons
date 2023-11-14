@@ -63,7 +63,7 @@ function signInPageRender(userData) {
   mobMenuUserText.textContent = name;
   //
   // Header:
-  headerHiddenAuthList.classList.remove('is-hidden');
+  headerHiddenAuthList.classList.remove('visually-hidden');
   headerLogoutBlock.classList.add('visually-hidden');
   headerLoginOverlayBlock.classList.remove('visually-hidden');
   headerOverlayUserName.textContent = name;
@@ -84,7 +84,7 @@ function signOutPageRender() {
   mobMenuLogoutContainer.classList.add('visually-hidden');
   //
   // Header:
-  headerHiddenAuthList.classList.add('is-hidden');
+  headerHiddenAuthList.classList.add('visually-hidden');
   headerLogoutBlock.classList.remove('visually-hidden');
   headerLoginOverlayBlock.classList.add('visually-hidden');
   //
