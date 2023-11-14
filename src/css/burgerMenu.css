@@ -25,10 +25,18 @@
   }
 }
 
+.burger-line-color-light {
+  background-color: var(--white-color);
+}
+
+.burger-line-color-dark {
+  background-color: var(--black-color);
+}
+
 .line-top,
 .line-middle,
 .line-bottom {
-  background-color: black;
+  /* background-color: var(--black-color); */
   display: flex;
   height: 2px;
   opacity: 1;
