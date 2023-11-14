@@ -37,7 +37,7 @@ function readUserShoppingList() {
   get(child(dbRef, `users/${userId}`))
     .then(snapshot => {
       if (snapshot.exists()) {
-        const booksArr = snapshot.val();
+       const { books:booksArr} = snapshot.val();
         localStorage.setItem(LOCAL_KEY, JSON.stringify(booksArr));
       } else {
         console.log('No data available');
