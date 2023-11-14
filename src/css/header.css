@@ -1,42 +1,15 @@
 header {
   border-radius: 0px 0px 8px 8px;
   border: 1.5px solid #111;
-  background: #fff;
+  background-color: #fff;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 5;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-/* Dark theme style */
-body.dark-theme > header {
-  background-color: var(--header-background);
-}
-
-body.dark-theme .header-logo-text {
-  fill: #f3f3f3;
-}
-
-body.dark-theme .header-login-checkbox {
-  background: linear-gradient(180deg, #4f2ee8 0%, #686868 100%);
-  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.1) inset;
-}
-
-body.dark-theme .header-hidden-auth-text {
-  color: var(--white-color);
-}
-
-body.dark-theme .header-hidden-auth-icon {
-  fill: var(--white-color);
-}
-
-/* End Dark theme style */
-
-/* .header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-} */
 
 .header-nav {
   display: flex;
@@ -46,7 +19,7 @@ body.dark-theme .header-hidden-auth-icon {
   padding-bottom: 14px;
 }
 
-@media screen and (min-width: 375px) {
+@media screen and (max-width: 375px) {
   .header-logo-wrap {
     display: flex;
     gap: 8px;
@@ -69,6 +42,12 @@ body.dark-theme .header-hidden-auth-icon {
   }
 }
 
+@media screen and (min-width: 1280px) {
+  .header-logo-wrap {
+    padding-right: 76px;
+  }
+}
+
 .header-logo-icon {
   height: 24px;
   width: 24px;
@@ -76,6 +55,7 @@ body.dark-theme .header-hidden-auth-icon {
 .header-logo-text {
   width: 77px;
   height: 13px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media screen and (min-width: 375px) {
@@ -118,10 +98,10 @@ body.dark-theme .header-hidden-auth-icon {
   }
 }
 
-.is-hidden {
+/* .is-hidden {
   visibility: hidden;
   opacity: 0;
-}
+} */
 
 .header-hidden-auth-btn {
   font-size: 14px;
@@ -130,6 +110,8 @@ body.dark-theme .header-hidden-auth-icon {
 }
 
 .header-hidden-auth-item {
+  color: #000;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-hiddeh-auth-basket {
@@ -144,8 +126,11 @@ body.dark-theme .header-hidden-auth-icon {
   text-transform: uppercase;
   padding-right: 4px;
   color: #111;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-hidden-auth-icon {
+  fill: #000;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* checkbox style */
@@ -169,6 +154,7 @@ body.dark-theme .header-hidden-auth-icon {
 @media screen and (min-width: 768px) {
   .header-login-checkbox-block {
     gap: 24px;
+    margin-left: auto;
   }
 }
 
@@ -216,6 +202,8 @@ body.dark-theme .header-hidden-auth-icon {
 .header-theme-checkbox:checked + .header-login-checkbox {
   background: linear-gradient(180deg, #4f2ee8 0%, #686868 100%);
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.1) inset;
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* end checkbox style */
@@ -257,16 +245,30 @@ body.dark-theme .header-hidden-auth-icon {
   stroke: var(--accent-color);
 }
 
-.header-login-overlay-block {
-  display: flex;
-  padding: 8px 12px;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--main-brandcolor);
-  border-radius: 18px;
-  border: 1.5px solid #111;
-  position: relative;
-  overflow: hidden;
+@media screen and (max-width: 375px) {
+  .header-login-overlay-block {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .header-login-overlay-block {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header-login-overlay-block {
+    display: flex;
+    padding: 8px 12px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--main-brandcolor);
+    border-radius: 18px;
+    border: 1.5px solid #111;
+    position: relative;
+    overflow: hidden;
+  }
 }
 
 .header-overlay-auth-icon {
@@ -310,20 +312,58 @@ body.dark-theme .header-hidden-auth-icon {
   transform: translateY(0%);
 }
 .header-logout-link {
+  color: #000;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.header-logout-auth-arrow {
-}
+/* .header-logout-auth-arrow {
+} */
 
 /* Yellow button */
 
 .header-yellow {
   border-radius: 36px;
   background: var(--accent-color);
-  color: #111;
+  color: #000;
   padding: 8px 16px;
   font-weight: 700;
   letter-spacing: -0.56px;
   text-transform: uppercase;
 }
+/* transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+/* transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+/* transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+/* transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+/* transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1); */
 
 /* End Yellow button */
+
+/* Dark theme style */
+body.dark-theme > header {
+  background-color: var(--header-background);
+  border-color: #fff;
+}
+
+body.dark-theme .header-logo-text {
+  fill: #f3f3f3;
+}
+
+body.dark-theme .header-login-checkbox {
+  background: linear-gradient(180deg, #4f2ee8 0%, #686868 100%);
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.1) inset;
+}
+
+body.dark-theme .header-hidden-auth-text,
+body.dark-theme .header-hidden-auth-item{
+  color: var(--white-color);
+}
+
+body.dark-theme .header-hidden-auth-icon {
+  fill: var(--white-color);
+}
+
+
+body.dark-theme .header-logout-link {
+  color: #000;
+}
+
+/* End Dark theme style */
