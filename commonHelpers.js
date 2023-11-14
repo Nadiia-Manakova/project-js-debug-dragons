@@ -7,12 +7,12 @@ import{g as j,s as k,a as $,h as _,b as I,c as W,w as E}from"./assets/support-e2
         <p class='category-books__text'>quick view</p>
         </div></a>
 
-        <h2 class="title_general">${s}</h2>
+        <h3 class="title_general">${s}</h3>
         <p class="author_general">${o}</p>
       </li>
     `}).join("")}function U(e){return e.map(t=>{const s=D(t);return`
-      <div class="div_five_books"><li class="list_five_books"
-        <p class="text_general">${t.list_name}</p>
+      <div class="div_five_books"><li class="list_five_books">
+        <h2 class="text_general">${t.list_name}</h2>
         <ul class="list_five_general">${s}</ul>
         <button class="btn" data-my-attribute="${t.list_name}">SEE MORE</button>
       </li></div>
@@ -23,7 +23,7 @@ import{g as j,s as k,a as $,h as _,b as I,c as W,w as E}from"./assets/support-e2
         <p class='category-books__text'>quick view</p>
         </div></a>
 
-        <h2 class="title_general">${s}</h2>
+        <h3 class="title_general">${s}</h3>
         <p class="text_general">${o}</p>
         <h1 hidden>${t.list_name}</h1>
       </li>`}).join("")}function G(e,t){return`<div class='div_category'><h1 class="title-category">${e}</h1></><ul class="list_five_general">${t}</ul>
