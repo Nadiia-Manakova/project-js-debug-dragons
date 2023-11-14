@@ -29,19 +29,19 @@ const supportFonds = [
         title: 'Medicins Sans Frontieres',
         url: 'https://www.msf.org/ukraine',
         img: './img/fund-07.png',
-        img2x: './img/fund-07.png'
+        img2x: './img/fund-color-07.png'
     },
     {
        title: 'Serhiy Prytula Charity Foundation',
         url: 'https://prytulafoundation.org/en',
         img: './img/fund-06.png',
-        img2x: './img/fund-06.png'
+        img2x: './img/fund-color-06.png'
     },
     {
         title: 'Action against hunger',
         url: 'https://www.actionagainsthunger.org/location/europe/ukraine/',
         img: './img/fund-05.png',
-        img2x: './img/fund-05.png'
+        img2x: './img/fund-color-05.png'
     },
     {
         title: 'World vision',
