@@ -1,6 +1,10 @@
 import Pagination from 'tui-pagination';
 import { showLoader, hideLoader } from './loader.js';
 import { writeUserShoppingList } from './auth.js';
+import amazonIco from "../amazon.png";
+import appleIco from "../apple-books.png";
+import cartIco from "../img/icons-sprite.svg";
+
 // import 'tui-pagination/dist/tui-pagination.css';
 
 const LOCAL_KEY = "booklist";
@@ -103,12 +107,12 @@ function createCartMurkup(arr, currentPage) {
                 <p class="cart-item-author cart-item-label">${author}</p>
                 <button class="cart-item-delete">
                 <svg class="cart-delete-icon" width="24" height="24">
-                <use href="../img/icons-sprite.svg#cart-purple-round"></use>
+                <use href="${cartIco}#cart-purple-round"></use>
                 </svg>
                 </button>
                 <ul class="cart-item-links">
-                <li><a href="${amazon}" target="_blank" class="cart-item-link"><img src="./amazon.png" alt="amazon" widht="32" height="11" class="modal-img-shop cart-link-img-amazon"/></a></li>
-                <li><a href="${appleBook}" target="_blank" class="cart-item-link"><img src="./apple-books.png" alt="apple-books" widht="16" height="16" class="modal-img-shop cart-link-img-apple"/></a></li>
+                <li><a href="${amazon}" target="_blank" class="cart-item-link"><img src="${amazonIco}" alt="amazon" widht="32" height="11" class="modal-img-shop cart-link-img-amazon"/></a></li>
+                <li><a href="${appleBook}" target="_blank" class="cart-item-link"><img src="${appleIco}" alt="apple-books" widht="16" height="16" class="modal-img-shop cart-link-img-apple"/></a></li>
                 </ul>
             </div>
         </li>`).join("");
