@@ -23,6 +23,7 @@
     "notiflix": "^3.2.6",
     "simplebar": "^6.2.5",
     "simplelightbox": "^2.14.2",
+    "sweetalert": "^2.1.2",
     "swiper": "^11.0.4",
     "throttle": "^1.0.3",
     "tui-pagination": "^3.4.1",

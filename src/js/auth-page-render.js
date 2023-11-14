@@ -37,10 +37,10 @@ function readUserShoppingList() {
   get(child(dbRef, `users/${userId}`))
     .then(snapshot => {
       if (snapshot.exists()) {
-       const { books:booksArr} = snapshot.val();
+        const { books: booksArr } = snapshot.val();
         localStorage.setItem(LOCAL_KEY, JSON.stringify(booksArr));
       } else {
-        console.log('No data available');
+        console.log('No data available.');
       }
       console.log(JSON.parse(localStorage.getItem(LOCAL_KEY)));
     })
@@ -63,7 +63,7 @@ function signInPageRender(userData) {
   mobMenuUserText.textContent = name;
   //
   // Header:
-  headerHiddenAuthList.classList.remove('visually-hidden');
+  headerHiddenAuthList.classList.remove('is-hidden');
   headerLogoutBlock.classList.add('visually-hidden');
   headerLoginOverlayBlock.classList.remove('visually-hidden');
   headerOverlayUserName.textContent = name;
@@ -84,7 +84,7 @@ function signOutPageRender() {
   mobMenuLogoutContainer.classList.add('visually-hidden');
   //
   // Header:
-  headerHiddenAuthList.classList.add('visually-hidden');
+  headerHiddenAuthList.classList.add('is-hidden');
   headerLogoutBlock.classList.remove('visually-hidden');
   headerLoginOverlayBlock.classList.add('visually-hidden');
   //
@@ -93,4 +93,5 @@ function signOutPageRender() {
 //
 //
 //
+// EXPORT :
 export { signInPageRender, signOutPageRender };
