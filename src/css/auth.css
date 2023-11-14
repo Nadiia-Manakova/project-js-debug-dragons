@@ -186,6 +186,7 @@
   line-height: 18px; /* 112.5% */
   letter-spacing: -0.16px;
   text-transform: uppercase;
+  border-color: var(--black-color);
 }
 
 .dark-theme .auth-modal-submit {
