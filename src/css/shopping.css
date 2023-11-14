@@ -97,7 +97,7 @@ width: 100%;
 }
 
 .empty-cart-text {
-    color: rgba(0, 0, 0, 0.60);
+    color: var(--text-color-grey);
     text-align: center;
     font-size: 14px;
     line-height: 133%;
