@@ -75,21 +75,21 @@ function supportListCreateMarkup(supportFonds) {
 }
 supportListEl.innerHTML = supportListCreateMarkup(supportFonds);
 
-const supportSlideBtnEl = document.querySelector('.support-slide-btn');
+const supportSlideEl = document.querySelector('.support-slide');
 const supportSlideDownBtnEl = document.querySelector('.support-slide-down-btn');
 const supportSlideUpBtnEl = document.querySelector('.support-slide-up-btn');
 
-supportSlideBtnEl.addEventListener('click', slideTo);
+supportSlideEl.addEventListener('click', slideTo);
 
 function slideTo() {
-    if (supportSlideBtnEl.classList.contains('top')) {
-        supportSlideBtnEl.classList.remove('top');
+    if (supportSlideEl.classList.contains('top')) {
+        supportSlideEl.classList.remove('top');
         supportSlideUpBtnEl.style.display = 'none';
         supportSlideDownBtnEl.style.display = 'block';
         slideToTop();
     } else {
         slideToBottom();
-        supportSlideBtnEl.classList.add('top');
+        supportSlideEl.classList.add('top');
         supportSlideDownBtnEl.style.display = 'none';
         supportSlideUpBtnEl.style.display = 'block';
 }
