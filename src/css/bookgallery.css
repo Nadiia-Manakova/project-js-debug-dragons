@@ -41,7 +41,7 @@
 
 
 .list_five_books img {
-    background: url('./error_img.jpg') no-repeat center center;
+    background: url('./img/mocup.jpg') no-repeat center center;
 
     background-size: cover;
     list-style-type: none;
