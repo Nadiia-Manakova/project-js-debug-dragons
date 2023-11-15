@@ -1,0 +1,75 @@
+.scroll-to-top-container {
+  position: fixed;
+  bottom: 140px;
+  right: 50px;
+  z-index: 899;
+}
+
+.scroll-to-top-button {
+  /* position: absolute; */
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  opacity: 0;
+  transition: box-shadow 400ms cubic-bezier(0.2, 0, 0.7, 1),
+    transform 200ms cubic-bezier(0.2, 0, 0.7, 1),
+    opacity 500ms cubic-bezier(0.2, 0, 0.7, 1);
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll-to-top-button.show {
+  opacity: 1;
+}
+
+.scroll-to-top-button:hover {
+  background: transparent;
+  box-shadow: 0 0 1px 20px rgba(138, 59, 88, 0.1),
+    0 0 1px 10px rgba(59, 71, 138, 0.1);
+}
+
+.arrow-up-btn {
+  fill: white;
+  width: 64px;
+  height: 64px;
+}
+
+.mob-menu-logout-icon {
+  stroke: var(--accent-color);
+}
+
+.mob-menu-logout-btn {
+  width: 118px;
+  height: 48px;
+  border-radius: 18px;
+  border: 1.5px solid #111;
+  background: #fff;
+  text-transform: none;
+  position: absolute;
+  left: 20px;
+  bottom: 80px;
+  z-index: 1;
+}
+
+.mob-menu-logout-text {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: -0.56px;
+  color: var(--black-color);
+}
+.mob-menu-logout-btn:hover > .mob-menu-logout-text {
+  color: var(--white-color);
+}
+.mob-menu-logout-btn:hover {
+  border: none;
+}
+.mob-menu-logout-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
