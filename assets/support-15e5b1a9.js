@@ -12,4 +12,4 @@ import{r as v,g as x,c as X,d as H,i as V,e as O,s as d,o as D,f as K,u as G,h a
           />
         </a>
       </li>`).join("")}f.innerHTML=Ne(ze);const h=document.querySelector(".support-slide"),B=document.querySelector(".support-slide-down-btn"),E=document.querySelector(".support-slide-up-btn");h.addEventListener("click",Me);function Me(){h.classList.contains("top")?(h.classList.remove("top"),E.style.display="none",B.style.display="block",Qe()):(Fe(),h.classList.add("top"),B.style.display="none",E.style.display="block")}function Qe(){f.scrollTop=0}function Fe(){f.scrollTop=f.scrollHeight}export{Ke as a,Ge as b,T as c,le as g,Oe as h,Ve as s,De as w};
-//# sourceMappingURL=support-17832f22.js.map
+//# sourceMappingURL=support-15e5b1a9.js.map
