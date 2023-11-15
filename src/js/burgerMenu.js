@@ -1,8 +1,8 @@
 import { getTopBooks } from "./request-base";
 import { headeRrefs } from './header/headerConst';
 
-const burgerMenuBtnEL = document.querySelector('.hamburger');
 const menuContainerEl = document.querySelector('.hamburger-overlay');
+const burgerMenuBtnEL = document.querySelector('.hamburger');
 const bodyEl = document.querySelector('body');
 const mobileMenuGalleryListEl = document.querySelector('.mob-menu-gallery-list');
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
@@ -18,7 +18,11 @@ function hamburgerToggle() {
   
   bodyEl.classList.add('menu-open');  
   document.body.classList.toggle('menu-open', menuContainerEl.classList.contains('active'));
-}
+
+  if (menuContainerEl.classList.contains('active')) {
+    scrollToTopBtn.classList.add('visually-hidden');
+  } else { scrollToTopBtn.classList.remove('visually-hidden') };
+};
 
 getTopBooks()
     .then(allCategories => {
@@ -36,8 +40,8 @@ getTopBooks()
     <img loading="lazy" class="mob-menu-image" src="${book.book_image}" alt="${book.title}" >
 </li>`).join("");
 
-        mobileMenuGalleryListEl.insertAdjacentHTML('afterbegin', mobMenuMarkup);
-        runGallery();
+      mobileMenuGalleryListEl.insertAdjacentHTML('afterbegin', mobMenuMarkup);
+      runGallery();
     })
     .catch(error => {
         console.log(error);
@@ -65,33 +69,6 @@ function animateGallery(currentPosition, direction) {
 
 /**
   |============================
-  | scroll to top btn
-  |============================
-*/
-
-// console.log(window.location)
-
-if (window.location.pathname === "/index.html") {
-  window.addEventListener("scroll", onScrollWindow);
-  
-  function onScrollWindow() {
-  if (document.documentElement.scrollTop > 300) {
-    scrollToTopBtn.classList.add("show");
-  } else {
-    scrollToTopBtn.classList.remove("show");
-  }
-
-  scrollToTopBtn.onclick = (evt) => {
-    evt.preventDefault();
-    document.documentElement.scrollTop = 0;
-  };
-}
-};
-
-
-
-/**
-  |============================
   | burger change color
   |============================
 */
@@ -113,5 +90,31 @@ export function burgerChangeColor() {
 
 
 
+/**
+  |============================
+  | scrollToTop
+  |============================
+*/
 
+
+// console.log(window.location)
+
+
+
+if (window.location.pathname === "/index.html") {
+  window.addEventListener("scroll", onScrollWindow);
+  
+  function onScrollWindow() {
+  if (document.documentElement.scrollTop > 300) {
+    scrollToTopBtn.classList.add("show");
+  } else {
+    scrollToTopBtn.classList.remove("show");
+      };
+
+  scrollToTopBtn.onclick = (evt) => {
+    evt.preventDefault();
+    document.documentElement.scrollTop = 0;
+  };
+    };
+};
 
