@@ -76,7 +76,7 @@ function signUpHandler(event) {
   });
   const checkName = data.username.trim();
   if (!checkName) {
-    console.log('Please enter your name!');
+    // console.log('Please enter your name!');
     swal('Please enter your name!', {
       icon: 'warning',
     });
@@ -105,10 +105,10 @@ onAuthStateChanged(auth, user => {
       photo: user.photoURL,
       uid: user.uid,
     };
-    console.log(`User is signed in!`);
+    // console.log(`User is signed in!`);
     signInPageRender(userData);
   } else {
-    console.log(`User is signed out!`);
+    // console.log(`User is signed out!`);
     signOutPageRender();
   }
 });
@@ -128,18 +128,18 @@ function signUpService(email, password, name) {
       );
       headerOverlayUserName.textContent = name;
       toggleModal();
-      console.log(`Welcome, ${name}!`);
+      // console.log(`Welcome, ${name}!`);
       swal(`Welcome, ${name}!`, {
         icon: 'success',
         buttons: false,
-        timer: 2500,
+        timer: 2000,
       });
     })
     .catch(error => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorCode, errorMessage);
-      swal(`Error! ${errorCode}`, {
+      swal(`${authErrorMapper(errorCode)}`, {
         icon: 'error',
       });
     });
@@ -149,11 +149,11 @@ function signInService(email, password) {
   signInWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
       const user = userCredential.user;
-      console.log(`Welcome, ${user.displayName}!`);
+      // console.log(`Welcome, ${user.displayName}!`);
       swal(`Welcome, ${user.displayName}!`, {
         icon: 'success',
         buttons: false,
-        timer: 2500,
+        timer: 2000,
       });
       toggleModal();
     })
@@ -161,7 +161,7 @@ function signInService(email, password) {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorCode, errorMessage);
-      swal(`Error! ${errorCode}`, {
+      swal(`${authErrorMapper(errorCode)}`, {
         icon: 'error',
       });
     });
@@ -170,7 +170,7 @@ function signInService(email, password) {
 function exitHandler() {
   signOut(auth)
     .then(() => {
-      console.log('Sign-out successful.');
+      // console.log('Sign-out successful.');
     })
     .catch(error => {
       console.log(`An error happened. ${error}`);
@@ -211,12 +211,33 @@ function writeUserShoppingList(booksArr) {
   set(ref(db, 'users/' + userId), {
     books: booksArr,
   });
-  console.log(`Shopping list was written to DB.`);
+  // console.log(`Shopping list was written to DB.`);
+}
+
+// ERROR HANDLE :
+function authErrorMapper(err) {
+  switch (err) {
+    case 'auth/invalid-login-credentials':
+      return 'Invalid login credentials!';
+    case 'auth/email-already-in-use':
+      return 'The entered email is already in use!';
+    case 'auth/invalid-email':
+      return 'Incorrect E-Mail Address!';
+    case 'auth/weak-password':
+      return 'The entered password is weak!';
+    case 'auth/missing-password':
+      return 'Password not entered!';
+    case 'auth/too-many-requests':
+      return 'Too many requests! Try again later.';
+
+    default:
+      return `An error happened. Error code: ${err}`;
+  }
 }
 
 // EXPORT :
 
-export { getUserData, exitHandler, writeUserShoppingList };
+export { getUserData, exitHandler, writeUserShoppingList, authErrorMapper };
 
 //  INSTRUCTIONS :
 //
