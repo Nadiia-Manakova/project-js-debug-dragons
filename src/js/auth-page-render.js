@@ -29,7 +29,7 @@ const LOCAL_KEY = 'booklist';
 function readUserShoppingList() {
   const userData = getUserData();
   if (!userData) {
-    console.log(`User is not authorized!`);
+    // console.log(`User is not authorized!`);
     return;
   }
   const userId = userData.uid;
@@ -40,9 +40,9 @@ function readUserShoppingList() {
         const { books: booksArr } = snapshot.val();
         localStorage.setItem(LOCAL_KEY, JSON.stringify(booksArr));
       } else {
-        console.log('No data available.');
+        // console.log('No data available.');
       }
-      console.log(JSON.parse(localStorage.getItem(LOCAL_KEY)));
+      // console.log(JSON.parse(localStorage.getItem(LOCAL_KEY)));
     })
     .catch(error => {
       console.log(error);
