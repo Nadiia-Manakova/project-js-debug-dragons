@@ -5,7 +5,7 @@ const burgerMenuBtnEL = document.querySelector('.hamburger');
 const menuContainerEl = document.querySelector('.hamburger-overlay');
 const bodyEl = document.querySelector('body');
 const mobileMenuGalleryListEl = document.querySelector('.mob-menu-gallery-list');
-const scrollToTopBtn = document.getElementById("scrollTop");
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 const burgerLineTopEl = document.querySelector('.line-top');
 const burgerLineMiddleEl = document.querySelector('.line-middle');
 const burgerlineBottomEl = document.querySelector('.line-bottom');
@@ -54,14 +54,14 @@ function animateGallery(currentPosition, direction) {
     const maxPosition = -1500;
     const minPosition = 0;
 
-  if (currentPosition <= maxPosition || currentPosition >= minPosition) {
-    direction *= -1;
-    };
+    if (currentPosition <= maxPosition || currentPosition >= minPosition) {
+        direction *= -1;
+    }
 
     mobileMenuGalleryListEl.style.transform = `translateX(${currentPosition}px)`;
 
-    requestAnimationFrame(() => { animateGallery(currentPosition, direction) });
-};
+    requestAnimationFrame(() => animateGallery(currentPosition, direction));
+}
 
 /**
   |============================
@@ -69,18 +69,26 @@ function animateGallery(currentPosition, direction) {
   |============================
 */
 
-window.addEventListener("scroll", onScrollWindow);
+// console.log(window.location)
 
-function onScrollWindow() {
+if (window.location.pathname === "/index.html") {
+  window.addEventListener("scroll", onScrollWindow);
+  
+  function onScrollWindow() {
+  if (document.documentElement.scrollTop > 300) {
+    scrollToTopBtn.classList.add("show");
+  } else {
+    scrollToTopBtn.classList.remove("show");
+  }
 
-  const showBtn = document.documentElement.scrollTop > 300;
-    scrollToTopBtn.classList.toggle("show", showBtn);
-   
   scrollToTopBtn.onclick = (evt) => {
     evt.preventDefault();
-      document.documentElement.scrollTop = 0;
-    };
+    document.documentElement.scrollTop = 0;
+  };
 }
+};
+
+
 
 /**
   |============================
@@ -90,23 +98,15 @@ function onScrollWindow() {
 
 export function burgerChangeColor() {
   if (headeRrefs.body.classList.contains('dark-theme')) {
-    burgerLineTopEl.classList.remove('burger-line-color-dark');
-    burgerLineTopEl.classList.add('burger-line-color-light');
-
-    burgerLineMiddleEl.classList.remove('burger-line-color-dark');
-    burgerLineMiddleEl.classList.add('burger-line-color-light');
-
-    burgerlineBottomEl.classList.remove('burger-line-color-dark');
-    burgerlineBottomEl.classList.add('burger-line-color-light');
+    burgerLineTopEl.classList.replace('burger-line-color-dark','burger-line-color-light')
+    burgerLineMiddleEl.classList.replace('burger-line-color-dark','burger-line-color-light')
+    burgerlineBottomEl.classList.replace('burger-line-color-dark','burger-line-color-light')
+   
   } else {
-    burgerLineTopEl.classList.remove('burger-line-color-light');
-    burgerLineTopEl.classList.add('burger-line-color-dark');
+    burgerLineTopEl.classList.replace('burger-line-color-light', 'burger-line-color-dark');
+    burgerLineMiddleEl.classList.replace('burger-line-color-light', 'burger-line-color-dark');
+    burgerlineBottomEl.classList.replace('burger-line-color-light', 'burger-line-color-dark');
 
-    burgerLineMiddleEl.classList.remove('burger-line-color-light');
-    burgerLineMiddleEl.classList.add('burger-line-color-dark');
-
-    burgerlineBottomEl.classList.remove('burger-line-color-light');
-    burgerlineBottomEl.classList.add('burger-line-color-dark');
   };
 };
 

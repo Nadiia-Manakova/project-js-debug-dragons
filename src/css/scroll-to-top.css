@@ -1,12 +1,8 @@
-.scroll-to-top-container {
+.scroll-to-top-button {
   position: fixed;
   bottom: 140px;
   right: 50px;
   z-index: 899;
-}
-
-.scroll-to-top-button {
-  /* position: absolute; */
   width: 64px;
   height: 64px;
   border-radius: 50%;
@@ -35,41 +31,4 @@
   fill: white;
   width: 64px;
   height: 64px;
-}
-
-.mob-menu-logout-icon {
-  stroke: var(--accent-color);
-}
-
-.mob-menu-logout-btn {
-  width: 118px;
-  height: 48px;
-  border-radius: 18px;
-  border: 1.5px solid #111;
-  background: #fff;
-  text-transform: none;
-  position: absolute;
-  left: 20px;
-  bottom: 80px;
-  z-index: 1;
-}
-
-.mob-menu-logout-text {
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  letter-spacing: -0.56px;
-  color: var(--black-color);
-}
-.mob-menu-logout-btn:hover > .mob-menu-logout-text {
-  color: var(--white-color);
-}
-.mob-menu-logout-btn:hover {
-  border: none;
-}
-.mob-menu-logout-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
 }

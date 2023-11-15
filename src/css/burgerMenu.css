@@ -90,7 +90,8 @@
 
 .hamburger-overlay.active {
   position: fixed;
-  top: 66px;
+  top: 65.5px;
+  border-radius: 10px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -188,6 +189,10 @@
   padding-left: 20px;
   margin-bottom: 120px;
 }
+.mob-menu-user-buttons {
+  display: flex;
+  justify-content: center;
+}
 .mob-menu-user-text {
   color: #fff;
   font-size: 22px;
@@ -197,24 +202,32 @@
 }
 
 .mob-menu-home-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   width: 72px;
   height: 34px;
   padding: 8px 16px;
   border-radius: 36px;
+  border: none;
   background: var(--accent-color);
   margin-bottom: 16px;
+  color: #111;
+
+  font-size: 14px;
+
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -0.56px;
+  text-transform: uppercase;
 }
 .mob-menu-home-btn:hover {
   background: var(--main-brandcolor);
+
   color: var(--white-color);
 }
 
 .mob-menu-shoping {
   display: flex;
-  justify-content: center;
+  align-items: center;
 }
 
 .mob-menu-shoping-ico {
@@ -233,9 +246,39 @@
   letter-spacing: -0.56px;
   text-transform: uppercase;
 }
+.mob-menu-logout-icon {
+  stroke: var(--accent-color);
+}
 
-/**
-  |============================
-  | arrow up button
-  |============================
-*/
+.mob-menu-logout-btn {
+  width: 118px;
+  height: 48px;
+  border-radius: 18px;
+  border: 1.5px solid #111;
+  background: #fff;
+  text-transform: none;
+  position: absolute;
+  left: 20px;
+  bottom: 80px;
+  z-index: 1;
+}
+
+.mob-menu-logout-text {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: -0.56px;
+  color: var(--black-color);
+}
+.mob-menu-logout-btn:hover > .mob-menu-logout-text {
+  color: var(--white-color);
+}
+.mob-menu-logout-btn:hover {
+  border: none;
+}
+.mob-menu-logout-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
