@@ -6,16 +6,9 @@ import amazonimg from '../amazon.png';
 import applebookimg from '../apple-books.png';
 import svg from '../img/icons-sprite.svg';
 import './bookgallery';
+import { getBooksId } from './request-base';
 
 
-
-axios.defaults.baseURL = 'https://books-backend.p.goit.global/books/';
-async function getBooksId(bookId) {
-  const { data } = await axios(bookId);
-  console.log(data);
-  return data;
-}
- 
  
 const bodyEl = document.querySelector('body'); 
 const LOCAL_KEY = 'booklist';

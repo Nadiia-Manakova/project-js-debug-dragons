@@ -25,3 +25,9 @@ export async function getCategoryList() {
 
   return response;
 }
+axios.defaults.baseURL = 'https://books-backend.p.goit.global/books/';
+export async function getBooksId(bookId) {
+  const { data } = await axios(bookId);
+  console.log(data);
+  return data;
+}
