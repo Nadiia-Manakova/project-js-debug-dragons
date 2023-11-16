@@ -1,9 +1,6 @@
-import { getUserData } from './auth';
-import { getDatabase, ref, set, onValue, child, get } from 'firebase/database';
+import { readUserShoppingList } from './auth';
 //
-//
-//
-// ELEMENTS & FUNCTIONS:
+// ELEMENTS:
 //
 // Mobile menu:
 const menuSignUpBtn = document.querySelector('.menu-sign-up-btn');
@@ -23,31 +20,6 @@ const headerLoginOverlayBlock = document.querySelector(
 const headerOverlayUserName = document.querySelector(
   '.header-overlay-user-name'
 );
-//
-// Shopping list
-const LOCAL_KEY = 'booklist';
-function readUserShoppingList() {
-  const userData = getUserData();
-  if (!userData) {
-    // console.log(`User is not authorized!`);
-    return;
-  }
-  const userId = userData.uid;
-  const dbRef = ref(getDatabase());
-  get(child(dbRef, `users/${userId}`))
-    .then(snapshot => {
-      if (snapshot.exists()) {
-        const { books: booksArr } = snapshot.val();
-        localStorage.setItem(LOCAL_KEY, JSON.stringify(booksArr));
-      } else {
-        // console.log('No data available.');
-      }
-      // console.log(JSON.parse(localStorage.getItem(LOCAL_KEY)));
-    })
-    .catch(error => {
-      console.log(error);
-    });
-}
 //
 //
 //

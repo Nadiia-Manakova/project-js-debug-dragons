@@ -214,6 +214,31 @@ function writeUserShoppingList(booksArr) {
   // console.log(`Shopping list was written to DB.`);
 }
 
+function readUserShoppingList() {
+  const LOCAL_KEY = 'booklist';
+  const userData = getUserData();
+  if (!userData) {
+    // console.log(`User is not authorized!`);
+    return;
+  }
+  const userId = userData.uid;
+  const dbRef = ref(getDatabase());
+  get(child(dbRef, `users/${userId}`))
+    .then(snapshot => {
+      if (snapshot.exists()) {
+        const { books: booksArr } = snapshot.val();
+        localStorage.setItem(LOCAL_KEY, JSON.stringify(booksArr));
+      }
+      // else {
+      //   console.log('No data available.');
+      // }
+      // console.log(JSON.parse(localStorage.getItem(LOCAL_KEY)));
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
+
 // ERROR HANDLE :
 function authErrorMapper(err) {
   switch (err) {
@@ -237,7 +262,13 @@ function authErrorMapper(err) {
 
 // EXPORT :
 
-export { getUserData, exitHandler, writeUserShoppingList, authErrorMapper };
+export {
+  getUserData,
+  exitHandler,
+  readUserShoppingList,
+  writeUserShoppingList,
+  authErrorMapper,
+};
 
 //  INSTRUCTIONS :
 //
