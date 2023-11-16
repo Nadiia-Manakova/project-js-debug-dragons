@@ -6,6 +6,8 @@ export const headeRrefs = {
   themeValueLight: 'light-theme',
   themeValueDark: 'dark-theme',
   headerLoginBtn: '.js-header-login',
-  headerPageHome: document.querySelector('.header-hidden-auth-item'),
+  headerPageHome: document.querySelector('.header-hidden-auth-btn'),
   headerPageShopping: document.querySelector('.header-hiddeh-auth-basket'),
+  headerMobilePageHome: document.querySelector('.mob-menu-home-btn'),
+  headerMobilePageShopping: document.querySelector('.mob-menu-shoping'),
 };
