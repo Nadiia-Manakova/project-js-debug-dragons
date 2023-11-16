@@ -21,8 +21,8 @@
     
     <script type="module" crossorigin src="/project-js-debug-dragons/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/project-js-debug-dragons/assets/vendor-23f73890.js">
-    <link rel="modulepreload" crossorigin href="/project-js-debug-dragons/assets/icons-sprite-af3200cf.js">
-    <link rel="stylesheet" href="/project-js-debug-dragons/assets/icons-sprite-723aed89.css">
+    <link rel="modulepreload" crossorigin href="/project-js-debug-dragons/assets/icons-sprite-73ac8445.js">
+    <link rel="stylesheet" href="/project-js-debug-dragons/assets/icons-sprite-c6dd9c6d.css">
     <link rel="stylesheet" href="/project-js-debug-dragons/assets/vendor-3dc8c308.css">
   </head>
   <body>
@@ -87,17 +87,19 @@
           </svg>
         </div>
       </li>
-      <!-- <li class="header-burger-menu"> -->
-      <div id="burger-menu" class="hamburger">
-        <span class="line-top burger-menu-line burger-line-color-dark"></span>
-        <span
-          class="line-middle burger-menu-line burger-line-color-dark"
-        ></span>
-        <span
-          class="line-bottom burger-menu-line burger-line-color-dark"
-        ></span>
-      </div>
-      <!-- </li> -->
+      <li class="header-burger-menu">
+        <div id="burger-menu" class="hamburger">
+          <span
+            class="line-top burger-line-color-light burger-menu-line burger-line-color-dark"
+          ></span>
+          <span
+            class="line-middle burger-line-color-light burger-menu-line burger-line-color-dark"
+          ></span>
+          <span
+            class="line-bottom burger-line-color-light burger-menu-line burger-line-color-dark"
+          ></span>
+        </div>
+      </li>
     </ul>
     <!-- </div> -->
 
@@ -122,17 +124,19 @@
       </div>
       <!-- visually-hidden -->
       <div class="mob-menu-user-buttons visually-hidden">
-        <button type="button" class="button mob-menu-home-btn">
-          <a href="./index.html">HOME</a>
-        </button>
-        <div class="mob-menu-shoping">
-          <a href="./shopping.html" class="mob-menu-shoping-link"
-            >Shopping list</a
-          >
-          <svg class="mob-menu-shoping-ico" width="20" height="20">
-            <use href="/project-js-debug-dragons/assets/icons-sprite-1d11e0ff.svg#cart-icon"></use>
-          </svg>
-        </div>
+        <ul>
+          <li>
+            <a href="./index.html" class="mob-menu-home-btn">HOME</a>
+          </li>
+          <li class="mob-menu-shoping">
+            <a href="./page-2.html" class="mob-menu-shoping-link"
+              >Shopping list</a
+            >
+            <svg class="mob-menu-shoping-ico" width="20" height="20">
+              <use href="/project-js-debug-dragons/assets/icons-sprite-1d11e0ff.svg#cart-icon"></use>
+            </svg>
+          </li>
+        </ul>
       </div>
       <!-- visually-hidden -->
       <div class="mob-menu-logout-container visually-hidden">
@@ -268,12 +272,10 @@
 
 
       
-      <div class="scroll-to-top-container">
-  <div id="scrollTop" class="scroll-to-top-button">
-    <svg class="arrow-up-btn" width="64" height="64">
-      <use href="/project-js-debug-dragons/assets/icons-sprite-1d11e0ff.svg#arrow-up-scroll-up-icon"></use>
-    </svg>
-  </div>
+      <div id="scrollToTopBtn" class="scroll-to-top-button">
+  <svg class="arrow-up-btn" width="64" height="64">
+    <use href="/project-js-debug-dragons/assets/icons-sprite-1d11e0ff.svg#arrow-up-scroll-up-icon"></use>
+  </svg>
 </div>
 
     </main>
