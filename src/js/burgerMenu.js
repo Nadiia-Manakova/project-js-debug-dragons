@@ -1,11 +1,11 @@
 import { getTopBooks } from "./request-base";
 import { headeRrefs } from './header/headerConst';
 
-const burgerMenuBtnEL = document.querySelector('.hamburger');
 const menuContainerEl = document.querySelector('.hamburger-overlay');
+const burgerMenuBtnEL = document.querySelector('.hamburger');
 const bodyEl = document.querySelector('body');
 const mobileMenuGalleryListEl = document.querySelector('.mob-menu-gallery-list');
-const scrollToTopBtn = document.getElementById("scrollTop");
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 const burgerLineTopEl = document.querySelector('.line-top');
 const burgerLineMiddleEl = document.querySelector('.line-middle');
 const burgerlineBottomEl = document.querySelector('.line-bottom');
@@ -18,7 +18,11 @@ function hamburgerToggle() {
   
   bodyEl.classList.add('menu-open');  
   document.body.classList.toggle('menu-open', menuContainerEl.classList.contains('active'));
-}
+
+  if (menuContainerEl.classList.contains('active')) {
+    scrollToTopBtn.classList.add('visually-hidden');
+  } else { scrollToTopBtn.classList.remove('visually-hidden') };
+};
 
 getTopBooks()
     .then(allCategories => {
@@ -36,8 +40,8 @@ getTopBooks()
     <img loading="lazy" class="mob-menu-image" src="${book.book_image}" alt="${book.title}" >
 </li>`).join("");
 
-        mobileMenuGalleryListEl.insertAdjacentHTML('afterbegin', mobMenuMarkup);
-        runGallery();
+      mobileMenuGalleryListEl.insertAdjacentHTML('afterbegin', mobMenuMarkup);
+      runGallery();
     })
     .catch(error => {
         console.log(error);
@@ -54,32 +58,13 @@ function animateGallery(currentPosition, direction) {
     const maxPosition = -1500;
     const minPosition = 0;
 
-  if (currentPosition <= maxPosition || currentPosition >= minPosition) {
-    direction *= -1;
-    };
+    if (currentPosition <= maxPosition || currentPosition >= minPosition) {
+        direction *= -1;
+    }
 
     mobileMenuGalleryListEl.style.transform = `translateX(${currentPosition}px)`;
 
-    requestAnimationFrame(() => { animateGallery(currentPosition, direction) });
-};
-
-/**
-  |============================
-  | scroll to top btn
-  |============================
-*/
-
-window.addEventListener("scroll", onScrollWindow);
-
-function onScrollWindow() {
-
-  const showBtn = document.documentElement.scrollTop > 300;
-    scrollToTopBtn.classList.toggle("show", showBtn);
-   
-  scrollToTopBtn.onclick = (evt) => {
-    evt.preventDefault();
-      document.documentElement.scrollTop = 0;
-    };
+    requestAnimationFrame(() => animateGallery(currentPosition, direction));
 }
 
 /**
@@ -90,28 +75,46 @@ function onScrollWindow() {
 
 export function burgerChangeColor() {
   if (headeRrefs.body.classList.contains('dark-theme')) {
-    burgerLineTopEl.classList.remove('burger-line-color-dark');
-    burgerLineTopEl.classList.add('burger-line-color-light');
-
-    burgerLineMiddleEl.classList.remove('burger-line-color-dark');
-    burgerLineMiddleEl.classList.add('burger-line-color-light');
-
-    burgerlineBottomEl.classList.remove('burger-line-color-dark');
-    burgerlineBottomEl.classList.add('burger-line-color-light');
+    burgerLineTopEl.classList.replace('burger-line-color-dark','burger-line-color-light')
+    burgerLineMiddleEl.classList.replace('burger-line-color-dark','burger-line-color-light')
+    burgerlineBottomEl.classList.replace('burger-line-color-dark','burger-line-color-light')
+   
   } else {
-    burgerLineTopEl.classList.remove('burger-line-color-light');
-    burgerLineTopEl.classList.add('burger-line-color-dark');
+    burgerLineTopEl.classList.replace('burger-line-color-light', 'burger-line-color-dark');
+    burgerLineMiddleEl.classList.replace('burger-line-color-light', 'burger-line-color-dark');
+    burgerlineBottomEl.classList.replace('burger-line-color-light', 'burger-line-color-dark');
 
-    burgerLineMiddleEl.classList.remove('burger-line-color-light');
-    burgerLineMiddleEl.classList.add('burger-line-color-dark');
-
-    burgerlineBottomEl.classList.remove('burger-line-color-light');
-    burgerlineBottomEl.classList.add('burger-line-color-dark');
   };
 };
 
 
 
 
+/**
+  |============================
+  | scrollToTop
+  |============================
+*/
 
+
+// console.log(window.location)
+
+
+
+if (window.location.pathname === "/index.html") {
+  window.addEventListener("scroll", onScrollWindow);
+  
+  function onScrollWindow() {
+  if (document.documentElement.scrollTop > 300) {
+    scrollToTopBtn.classList.add("show");
+  } else {
+    scrollToTopBtn.classList.remove("show");
+      };
+
+  scrollToTopBtn.onclick = (evt) => {
+    evt.preventDefault();
+    document.documentElement.scrollTop = 0;
+  };
+    };
+};
 
