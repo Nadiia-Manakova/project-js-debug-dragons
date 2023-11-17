@@ -107,9 +107,31 @@ header {
   font-size: 14px;
   line-height: 18px;
   font-weight: 500;
+  color: #000;
+}
+
+body.dark-theme .header-hidden-auth-btn,
+body.dark-theme .header-hidden-auth-text {
+  color: #fff;
+}
+
+body.dark-theme .header-yellow .header-hidden-auth-btn,
+body.dark-theme .header-yellow .header-hidden-auth-text {
+
+  color: #000;
+  font-weight: 700;
+}
+
+body.dark-theme .header-yellow .header-hidden-auth-icon {
+  fill: #000;
 }
 
 .header-yellow > .header-hidden-auth-text {
+  font-weight: 700;
+}
+
+.header-yellow .mob-menu-home-btn {
+  color: #000;
   font-weight: 700;
 }
 
@@ -329,19 +351,7 @@ header {
 /* .header-logout-auth-arrow {
 } */
 
-/* Yellow button */
 
-.header-yellow {
-  border-radius: 36px;
-  background: var(--accent-color);
-  color: #000;
-  padding: 8px 16px;
-  letter-spacing: -0.56px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-/* End Yellow button */
 
 /* Dark theme style */
 body.dark-theme > header {
@@ -358,15 +368,6 @@ body.dark-theme .header-login-checkbox {
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.1) inset;
 }
 
-body.dark-theme .header-hidden-auth-text,
-body.dark-theme .header-hidden-auth-item{
-  color: var(--white-color);
-}
-
-body.dark-theme .header-yellow > .header-hidden-auth-text {
-  color: #000;
-}
-
 body.dark-theme .header-yellow > .header-hidden-auth-icon {
   fill: #000;
 }
@@ -376,8 +377,18 @@ body.dark-theme .header-hidden-auth-icon {
 }
 
 
-body.dark-theme .header-logout-link {
+/* End Dark theme style */
+
+/* Yellow button */
+
+.header-yellow {
+  border-radius: 36px;
+  background: var(--accent-color);
   color: #000;
+  padding: 8px 16px;
+  letter-spacing: -0.56px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-/* End Dark theme style */
+/* End Yellow button */
