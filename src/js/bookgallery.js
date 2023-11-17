@@ -6,8 +6,6 @@ import { showLoader, hideLoader } from './loader.js';
 export const listGeneral = document.querySelector('.list_general');
 const titleBestSellers = document.querySelector('.title_best_sellers');
 
-
-
 let n = 0;
 
 let currentWidth = window.innerWidth;
@@ -16,7 +14,7 @@ window.addEventListener('resize', handleWindowResize);
 
 function handleWindowResize(event) {
   const width = event.target.outerWidth;
-//console.log(width)
+  //console.log(width)
   if (
     (width > 767 && currentWidth < 768) ||
     (width > 1439 && currentWidth < 1440) ||
@@ -37,32 +35,30 @@ const currentWindowWidth = () => {
   }
 };
 
-
 getTopBooks()
   .then(allCategory => {
     console.log(allCategory);
     bestSellers(allCategory);
-    
+    hideLoader();
   })
   .catch(error => {
     Notiflix.Notify.failure(
       'An error occurred while fetching images. Please try again.'
     );
   });
-  
 
-function isClick() {showLoader();
+function isClick() {
+  showLoader();
   let attributeValue = this.getAttribute('data-my-attribute');
   console.log(attributeValue);
 
-  setActiveListItem(attributeValue)
+  setActiveListItem(attributeValue);
 
   getTopCategory(attributeValue)
     .then(catalogs => {
       titleBestSellers.style.display = 'none';
       listGeneral.innerHTML = '';
       markupCategory(catalogs);
-      
     })
     .catch(error => {
       Notiflix.Notify.failure(
@@ -82,7 +78,6 @@ function setActiveListItem(str) {
     title.style.color = 'var(--text-color)';
   }
 }
-
 
 function getBooksMarkup(category) {
   return category.books
@@ -120,7 +115,6 @@ function getMarkupAll(allCategory) {
     `;
     })
     .join('');
-  
 }
 
 function bestSellers(allCategory) {
@@ -162,7 +156,6 @@ function getmarkupLi(catalogs) {
       let shortTitle = shortTitleBooks(book);
       let shortAutor = shortAutorBooks(book);
 
-
       return `<li class="list_five_books modal-list" data-id="${book._id}">
   <a href="#" class='category-books__link'>
         <img class='category-books__img' src="${book.book_image}" alt="book" />
@@ -193,7 +186,7 @@ export function markupCategory(catalogs) {
   const markup = getMarkup(listNames, markupLi);
 
   listGeneral.insertAdjacentHTML('beforeend', markup);
-hideLoader();
+  hideLoader();
   let btnBack = document.querySelector('.btn_back');
   btnBack.addEventListener('click', isClose);
 }
