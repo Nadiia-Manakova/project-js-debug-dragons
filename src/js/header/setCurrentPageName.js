@@ -1,5 +1,6 @@
 import { headeRrefs } from './headerConst';
 
+
 // export const setCurrentPageName = () => {
 //   const currentPageName = window.location.pathname;
 //   if (currentPageName === '/index.html') {
@@ -11,6 +12,7 @@ import { headeRrefs } from './headerConst';
 //     headeRrefs.headerPageShopping.classList.add('header-yellow');
 //   }
 // };
+
 
 // export const setCurrentPageNameModal = () => {
 //   const currentPageName = window.location.pathname;
@@ -30,6 +32,7 @@ export function setCurrentPageNameModal() {
   const currentPage = window.location.pathname.replace(basePath, '');
 
   const navButtons = document.querySelectorAll('.mobile__nav-btn');
+
 
   navButtons.forEach(button => {
     const buttonPage = new URL(button.dataset.page, window.location.origin)
