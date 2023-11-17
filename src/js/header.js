@@ -9,6 +9,8 @@ import {
 // setCurrentPageNameModal();
 document.addEventListener('DOMContentLoaded', setCurrentPageName);
 window.addEventListener('popstate', setCurrentPageName);
+document.addEventListener('DOMContentLoaded', setCurrentPageNameModal);
+window.addEventListener('popstate', setCurrentPageNameModal);
 
 checkLocalTheme();
 

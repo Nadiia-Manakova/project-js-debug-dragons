@@ -1,7 +1,7 @@
 .scroll-to-top-button {
   position: fixed;
-  bottom: 90px;
-  right: 50px;
+  bottom: 40px;
+  right: 40px;
   z-index: 800;
   width: 64px;
   height: 64px;
