@@ -37,7 +37,7 @@ const currentWindowWidth = () => {
 
 getTopBooks()
   .then(allCategory => {
-    console.log(allCategory);
+    //console.log(allCategory);
     bestSellers(allCategory);
     hideLoader();
   })
@@ -50,7 +50,7 @@ getTopBooks()
 function isClick() {
   showLoader();
   let attributeValue = this.getAttribute('data-my-attribute');
-  console.log(attributeValue);
+  //console.log(attributeValue);
 
   setActiveListItem(attributeValue);
 
