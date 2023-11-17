@@ -1,5 +1,6 @@
 import { headeRrefs } from './headerConst';
 
+
 // export const setCurrentPageName = () => {
 //   const currentPageName = window.location.pathname;
 //   if (currentPageName === '/index.html') {
@@ -12,15 +13,18 @@ import { headeRrefs } from './headerConst';
 //   }
 // };
 
+
 export const setCurrentPageNameModal = () => {
   const currentPageName = window.location.pathname;
   if (currentPageName === '/index.html') {
     headeRrefs.headerMobilePageHome.classList.add('header-yellow');
     headeRrefs.headerMobilePageShopping.classList.remove('header-yellow');
+    return
   }
   if (currentPageName === '/page-2.html') {
     headeRrefs.headerMobilePageHome.classList.remove('header-yellow');
     headeRrefs.headerMobilePageShopping.classList.add('header-yellow');
+    return
   }
 };
 
