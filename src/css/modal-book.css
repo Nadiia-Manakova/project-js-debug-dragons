@@ -1,17 +1,19 @@
 
 .modal-book-js {
     width: 335px;
-    height: 100%;
+    height: 98vh;
     border-radius: 18px;
     border: 2px solid var(--text-color);
     background: var(--background-color);
     display: flex;
     flex-wrap: wrap;
+    overflow-y: auto;
+    scrollbar-width: thin;
 }
 
 .modal-img-book {
     width: 287px;
-    height: 408px;
+    height: auto;
     margin-top: 40px;
     margin-left: 24px;
     margin-bottom: 14px;
@@ -137,6 +139,7 @@
 
     .modal-book-js {
         width: 579px;
+        height: auto;
         border-radius: 18px;
         border: 2px solid var(--text-color);
         background-color: var(--background-color);
