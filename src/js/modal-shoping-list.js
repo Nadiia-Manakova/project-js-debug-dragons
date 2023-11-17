@@ -189,3 +189,4 @@ function checkBookInLocalStorage(id) {
   const curentList = getFromLocalStorage();
   return !curentList.every(obj => obj._id !== id);
 }
+

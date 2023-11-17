@@ -210,17 +210,22 @@
   padding: 8px 16px;
   border-radius: 36px;
   border: none;
-  background: var(--accent-color);
   margin-bottom: 16px;
-  color: #111;
+  color: #fff;
 
   font-size: 14px;
 
-  font-weight: 700;
+  font-weight: 500;
   line-height: 18px;
   letter-spacing: -0.56px;
   text-transform: uppercase;
 }
+
+.mob-menu-home-btn.header-yellow {
+  color: #000;
+  font-weight: 700;
+}
+
 .mob-menu-home-btn:hover {
   background: var(--main-brandcolor);
 
@@ -248,6 +253,21 @@
   letter-spacing: -0.56px;
   text-transform: uppercase;
 }
+
+.mob-menu-shoping-link.header-yellow {
+  color: #000;
+  font-weight: 700;
+}
+
+.header-yellow > .mob-menu-shoping-link {
+  font-weight: 700;
+  color: #000;
+}
+
+.header-yellow >.mob-menu-shoping-ico {
+  fill: #000;
+}
+
 .mob-menu-logout-icon {
   stroke: var(--accent-color);
 }

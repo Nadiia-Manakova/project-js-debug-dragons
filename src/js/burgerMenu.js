@@ -101,11 +101,11 @@ export function burgerChangeColor() {
 
 
 
-if (window.location.pathname === "/index.html") {
+
   window.addEventListener("scroll", onScrollWindow);
   
   function onScrollWindow() {
-  if (document.documentElement.scrollTop > 300) {
+  if (document.documentElement.scrollTop > 400) {
     scrollToTopBtn.classList.add("show");
   } else {
     scrollToTopBtn.classList.remove("show");
@@ -116,5 +116,5 @@ if (window.location.pathname === "/index.html") {
     document.documentElement.scrollTop = 0;
   };
     };
-};
+
 

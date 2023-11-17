@@ -109,6 +109,10 @@ header {
   font-weight: 500;
 }
 
+.header-yellow > .header-hidden-auth-text {
+  font-weight: 700;
+}
+
 .header-hidden-auth-item {
   color: #000;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -118,6 +122,7 @@ header {
   display: flex;
   align-items: center;
 }
+
 .header-hidden-auth-text {
   font-size: 14px;
   font-weight: 500;
@@ -128,6 +133,12 @@ header {
   color: #111;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.header-hidden-auth-text.header-yellow {
+  font-weight: 700;
+}
+
+
+
 .header-hidden-auth-icon {
   fill: #000;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -325,15 +336,10 @@ header {
   background: var(--accent-color);
   color: #000;
   padding: 8px 16px;
-  font-weight: 700;
   letter-spacing: -0.56px;
+  font-weight: 700;
   text-transform: uppercase;
 }
-/* transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1); */
-/* transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); */
-/* transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1); */
-/* transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1); */
-/* transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1); */
 
 /* End Yellow button */
 
@@ -355,6 +361,14 @@ body.dark-theme .header-login-checkbox {
 body.dark-theme .header-hidden-auth-text,
 body.dark-theme .header-hidden-auth-item{
   color: var(--white-color);
+}
+
+body.dark-theme .header-yellow > .header-hidden-auth-text {
+  color: #000;
+}
+
+body.dark-theme .header-yellow > .header-hidden-auth-icon {
+  fill: #000;
 }
 
 body.dark-theme .header-hidden-auth-icon {

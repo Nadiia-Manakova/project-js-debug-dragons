@@ -228,10 +228,11 @@ function readUserShoppingList() {
       if (snapshot.exists()) {
         const { books: booksArr } = snapshot.val();
         localStorage.setItem(LOCAL_KEY, JSON.stringify(booksArr));
+      } else {
+        const booksArr = [];
+        localStorage.setItem(LOCAL_KEY, JSON.stringify(booksArr));
+        // console.log('No data available.');
       }
-      // else {
-      //   console.log('No data available.');
-      // }
       // console.log(JSON.parse(localStorage.getItem(LOCAL_KEY)));
     })
     .catch(error => {
