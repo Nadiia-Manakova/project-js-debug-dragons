@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 import * as basicLightbox from 'basiclightbox';
 import "basiclightbox/dist/basicLightbox.min.css";
 import { getUserData, writeUserShoppingList } from './auth';
