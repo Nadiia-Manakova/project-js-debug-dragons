@@ -25,17 +25,15 @@ export const setCurrentPageNameModal = () => {
 };
 
 export function setCurrentPageName() {
-  const currentPage = window.location.pathname;
-  console.log(currentPage);
+  const basePath = '/project-js-debug-dragons';
+
+  const currentPage = window.location.pathname.replace(basePath, '');
 
   const navButtons = document.querySelectorAll('.nav-btn');
-  console.log(navButtons);
 
   navButtons.forEach(button => {
-    console.log(button);
     const buttonPage = new URL(button.dataset.page, window.location.origin)
       .pathname;
-    console.log(buttonPage);
 
     if (currentPage === buttonPage) {
       button.classList.add('header-yellow');
