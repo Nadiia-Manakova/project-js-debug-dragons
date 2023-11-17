@@ -1,7 +1,7 @@
 
 .modal-book-js {
     width: 335px;
-    height: 98vh;
+    height: 90vh;
     border-radius: 18px;
     border: 2px solid var(--text-color);
     background: var(--background-color);
