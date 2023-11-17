@@ -10,7 +10,7 @@ export const refs = {
   categoriesTitle: document.querySelector('.categories__title'),
   title: document.querySelector('.title_best_sellers'),
 };
-showLoader();
+
 //! Render Category filter on load Home page
 function createCategoriesList(q) {
   getCategoryList(q).then(response => {
@@ -28,7 +28,6 @@ function createFilterCategoriesMarkup(arr) {
     return `<li class="categories__list-item">${item.list_name}</li>`;
   });
   refs.filterListEl.insertAdjacentHTML('beforeend', markup.join(''));
-  hideLoader();
 }
 createCategoriesList('category-list');
 

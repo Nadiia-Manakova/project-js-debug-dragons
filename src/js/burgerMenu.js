@@ -15,6 +15,11 @@ const burgerlineBottomEl = document.querySelector('.line-bottom');
 burgerMenuBtnEL.addEventListener('click', hamburgerToggle);
 
 function hamburgerToggle() {
+  if (!burgerMenuBtnEL || !menuContainerEl || !bodyEl) {
+    console.error('One or more elements are null or undefined');
+    return;
+  }
+
   burgerMenuBtnEL.classList.toggle('close');
   menuContainerEl.classList.toggle('active');
 
@@ -25,12 +30,15 @@ function hamburgerToggle() {
   );
 
   if (menuContainerEl.classList.contains('active')) {
-    scrollToTopBtn.classList.add('visually-hidden');
+    if (scrollToTopBtn) {
+      scrollToTopBtn.classList.add('visually-hidden');
+    }
   } else {
-    scrollToTopBtn.classList.remove('visually-hidden');
+    if (scrollToTopBtn) {
+      scrollToTopBtn.classList.remove('visually-hidden');
+    }
   }
 }
-
 getTopBooks()
   .then(allCategories => {
     const allBooks = allCategories.reduce((acc, category) => {
