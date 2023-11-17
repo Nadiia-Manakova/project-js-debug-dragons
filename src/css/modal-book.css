@@ -12,7 +12,7 @@
 }
 
 .modal-img-book {
-    width: 287px;
+    width: 280px;
     height: auto;
     margin-top: 40px;
     margin-left: 24px;
@@ -22,12 +22,11 @@
 }
 
 .modal-book-btn-close {
-
     display: flex;
     padding: 0;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position:absolute;
     right: 12px;
     top: 12px;
     background-color: transparent;
@@ -36,12 +35,12 @@
 .modal-book-btn-close .icons-modal:hover,
 .modal-book-btn-close .icons-modal:focus,
 .modal-book-btn-close .icons-modal:active {
-    background-color: var(--background-color);
+   
     stroke: var(--main-brandcolor);
 }
 
 .icons-modal {
-    background-color: transparent;
+    background-color: var(--background-color);
     stroke:var(--text-color);
     width: 24px;
     height: 24px;
@@ -156,6 +155,19 @@
         margin-left: 40px;
         margin-bottom: 40px;
     }
+
+    .modal-book-btn-close .icons-modal:hover,
+    .modal-book-btn-close .icons-modal:focus,
+    .modal-book-btn-close .icons-modal:active {
+        
+        stroke: var(--main-brandcolor);
+     }
+    
+    .icons-modal {
+        stroke: var(--text-color);
+        width: 24px;
+        height: 24px;
+        }
 
     .modal-book-title {
         max-width: 270px;
